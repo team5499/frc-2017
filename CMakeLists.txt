@@ -20,9 +20,9 @@ add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Example: adding CTRE library
 # Make sure this goes before WPILib
-#find_package(CTRE)
-#include_directories(${CTRE_INCLUDE_DIR})
-#target_link_libraries(${PROJECT_NAME} ${CTRE_LIBRARIES})
+find_package(CTRE)
+include_directories(${CTRE_INCLUDE_DIR})
+target_link_libraries(${PROJECT_NAME} ${CTRE_LIBRARIES})
 
 find_package(WPILib)
 include_directories(${WPILIB_INCLUDE_DIR})
