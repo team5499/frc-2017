@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+import sys, subprocess, os
+
+def subproc_catch_stderr(args):
+    subproc = subprocess.Popen(args,
+                               stderr=subprocess.PIPE,
+                               encoding='utf-8',
+                               universal_newlines=True)
+    subproc.wait()
+
+    if subproc.returncode > 0:
+        print('Command failed ({0})'.format(os.strerror(subproc.returncode)))
+        data = subproc.stderr.read(76).replace('\n', '')
+        while data != '':
+            print('*** {0}'.format(data))
+            data = subproc.stderr.read(76).replace('\n', '')
+
+    return subproc
+
+def probe(target):
+    print('Probing {0}...'.format(target))
+    subproc = subproc_catch_stderr(['ssh',
+                                    'lvuser@{0}'.format(target),
+                                    'true'])
+    if subproc.returncode > 0:
+        return False
+    else:
+        return True
+
+def deploy(target, program, robotCommand):
+    def panic():
+        print('Deploy failed! Exiting!')
+        sys.exit(-1)
+
+    print('Removing old program...')
+    subproc = subproc_catch_stderr(['ssh',
+                                    'lvuser@{0}'.format(target),
+                                    'rm -f ~/FRCUserProgram'])
+    print('Copying over new program...')
+    if subproc_catch_stderr(['scp',
+                             program,
+                             'lvuser@{0}:~/FRCUserProgram'.format(target)]).returncode > 0:
+        panic()
+    print('Stopping netconsole-host...')
+    if subproc_catch_stderr(['ssh',
+                             'lvuser@{0}'.format(target),
+                             'killall -q netconsole-host || :']).returncode > 0:
+        panic()
+    print('Copying over robotCommand...')
+    if subproc_catch_stderr(['scp',
+                             robotCommand,
+                             'lvuser@{0}:~/robotCommand'.format(target)]).returncode > 0:
+        panic()
+    print('Cleaning up...')
+    if subproc_catch_stderr(['ssh',
+                             'lvuser@{0}'.format(target),
+                             '. /etc/profile.d/natinst-path.sh; \
+                              chmod a+x ~/FRCUserProgram; \
+                              /usr/local/frc/bin/frcKillRobot.sh -t -r; \
+                              sync']).returncode > 0:
+        panic()
+
+team_number = int(sys.argv[1])
+program = sys.argv[2]
+robotCommand = sys.argv[3]
+
+if probe('roborio-{0}-frc.local'.format(team_number)):
+    deploy('roborio-{0}-frc.local'.format(team_number),
+           program,
+           robotCommand)
+    sys.exit(0)
+
+team_number_upper = int(team_number / 100)
+team_number_lower = team_number % 100
+if probe('10.{0}.{1}.2'.format(team_number_upper, team_number_lower)):
+    deploy('10.{0}.{1}.2'.format(team_number_upper, team_number_lower),
+           program,
+           robotCommand)
+    sys.exit(0)
+
+print('Couldn\'t find a target to deploy to!')
+sys.exit(-1)
