@@ -22,10 +22,10 @@ void Robot::AutonomousPeriodic() {
 }
 
 void Robot::TeleopInit() {
-
+    operatorController.start();
 }
 void Robot::TeleopPeriodic() {
-
+    operatorController.handle();
 }
 
 START_ROBOT_CLASS(Robot)

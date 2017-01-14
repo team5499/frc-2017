@@ -1,13 +1,13 @@
 #include "OperatorController.h"
 
 //! Initialize joysticks on driver station.
-OperatorController::OperatorController(Reference* r, Hardware* h)
+OperatorController::OperatorController(Reference* ref, Hardware* hardware)
     :
     throttle(ref->throttle),
-    wheel(r->wheel)
+    wheel(ref->wheel)
 {
-    ref = r;
-    hardware = h;
+    r = ref;
+    h = hardware;
     std::cout << "Initialized Operator Controller." << std::endl;
     
 }

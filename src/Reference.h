@@ -11,4 +11,10 @@ class Reference {
         // Joysticks
         const int wheel = 1;
         const int throttle = 0;
+
+        // Talon Ports
+        const int left1id = 0;
+        const int left2id = 1;
+        const int right1id = 2;
+        const int right2id = 3;
 };
