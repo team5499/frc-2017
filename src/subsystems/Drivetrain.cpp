@@ -1,13 +1,13 @@
 #include "Drivetrain.h"
 
-Drivetrain::Drivetrain(Reference* ref, Hardware* hardware)
+Drivetrain::Drivetrain(Reference* ref)
+    :
+    left1(ref->left1id),
+    left2(ref->left2id),
+    right1(ref->right1id),
+    right2(ref->right2id)
 {
     r = ref;
-    h = hardware;
-    left1 = &(h->left1);
-    left2 = &(h->left2);
-    right1 = &(h->right1);
-    right2 = &(h->right2);
 }
 
 void Drivetrain::driveLR(double left, double right) {

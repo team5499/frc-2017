@@ -2,23 +2,41 @@
 #include <WPILib.h>
 #include <CANTalon.h>
 #include "Reference.h"
+#include "ManualPID.h"
+#include "subsystems/Drivetrain.h"
+
 
 class Hardware
 {
     private:
         Reference ref;
     public:
-        CANTalon left1;
-        CANTalon left2;
-        CANTalon right1;
-        CANTalon right2;
+        Drivetrain drivetrain;
+
+        // Sensors
+        frc::ADXRS450_Gyro gyroscope;
+        frc::Encoder lEncoder;
+        frc::Encoder rEncoder;
+        TwoEncoders dist;
+
+        // PIDControllers
+        frc::PIDController distanceController;
+        frc::PIDController angleController;
+        ManualPIDOut angleOut;
+        ManualPIDOut distOut;
 
         inline Hardware()
             :
             ref(),
-            left1(ref.left1id),
-            left2(ref.left2id),
-            right1(ref.right1id),
-            right2(ref.right2id) {};
+            drivetrain(&ref),
+            gyroscope(ref.gyroport),
+            lEncoder(ref.lEncoderPortA, ref.lEncoderPortB),
+            rEncoder(ref.rEncoderPortA, ref.rEncoderPortB),
+            dist(&lEncoder, &rEncoder),
+            angleOut(),
+            distOut(),
+            distanceController(ref.kP, ref.kI, ref.kD, &dist, &distOut),
+            angleController(ref.kP, ref.kI, ref.kD, &gyroscope, &angleOut)
+        {};
 
 };
