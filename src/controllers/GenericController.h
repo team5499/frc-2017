@@ -1,5 +1,7 @@
 #pragma once
 #include <WPILib.h>
+#include "../Hardware.h"
+#include "../Reference.h"
 
 class GenericController
 {

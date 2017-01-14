@@ -1,7 +1,5 @@
 #pragma once
 #include <WPILib.h>
-#include "../Hardware.h"
-#include "../Reference.h"
 #include "GenericController.h"
 #include <iostream>
 

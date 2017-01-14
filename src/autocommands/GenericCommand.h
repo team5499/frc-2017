@@ -1,11 +1,13 @@
 #pragma once
 #include <WPILib.h>
-#include "../Robot.h"
+#include "../Reference.h"
+#include "../Hardware.h"
 
 class GenericCommand
 {
-private:
-    Robot* bot;
+protected:
+    Reference* r;
+    Hardware* h;
 public:
     virtual ~GenericCommand() {};
     virtual void init() = 0;
