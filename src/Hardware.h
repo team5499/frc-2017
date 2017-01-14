@@ -1,6 +1,5 @@
 #pragma once
 #include <WPILib.h>
-#include <CANTalon.h>
 #include "Reference.h"
 #include "ManualPID.h"
 #include "subsystems/Drivetrain.h"

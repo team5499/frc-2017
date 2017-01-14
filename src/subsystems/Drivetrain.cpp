@@ -5,7 +5,9 @@ Drivetrain::Drivetrain(Reference* ref)
     left1(ref->left1id),
     left2(ref->left2id),
     right1(ref->right1id),
-    right2(ref->right2id)
+    right2(ref->right2id),
+    lshift(ref->solenoidleftid),
+    rshift(ref->solenoidrightid)
 {
     r = ref;
 }
@@ -16,5 +18,12 @@ void Drivetrain::driveLR(double left, double right) {
 }
 
 void Drivetrain::shift(ShiftState state) {
-    // I forget how solenoids work
+    if (state==ShiftState::LOW) {
+        lshift.Set(false);
+        rshift.Set(false);
+    } else {
+        lshift.Set(true);
+        rshift.Set(true);
+    }
+    currentShift = state;
 }

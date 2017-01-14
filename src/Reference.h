@@ -22,6 +22,8 @@ class Reference {
         const int left2id = 1;
         const int right1id = 2;
         const int right2id = 3;
+        const int solenoidleftid = 0;
+        const int solenoidrightid = 1;
 
         // Sensors
         const frc::SPI::Port gyroport = frc::SPI::Port::kOnboardCS0;
