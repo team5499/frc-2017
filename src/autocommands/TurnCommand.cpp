@@ -1,8 +1,8 @@
-#include "DriveStraightCommand.h"
+#include "TurnCommand.h"
 
-DriveStraightCommand::DriveStraightCommand(Reference* ref, Hardware* hardware, int dist)
+TurnCommand::TurnCommand(Reference* ref, Hardware* hardware, int degrees)
     :
-    distance(dist)
+    angle(degrees)
 {
     r = ref;
     h = hardware;
@@ -10,23 +10,23 @@ DriveStraightCommand::DriveStraightCommand(Reference* ref, Hardware* hardware, i
     distOut = &(h->distOut);
     distanceController = &(h->distanceController);
     angleController = &(h->angleController);
-    h->changeDistance(distance);
+    h->changeAngle(angle);
     h->updateControllerPoints();
 }
 
-void DriveStraightCommand::init()
+void TurnCommand::init()
 {
 
 }
 
-void DriveStraightCommand::step()
+void TurnCommand::step()
 {
     double cvelocity = distOut->getOut();
     double cangle = angleOut->getOut();
     h->drivetrain.driveLR(cvelocity+cangle, cvelocity-cangle);
 }
 
-bool DriveStraightCommand::finished()
+bool TurnCommand::finished()
 {
     // Check if controllers are on target and robot is sufficiently stationary
     if (std::fabs(h->dist.GetRate()) < r->kVd && std::fabs(distanceController->GetError()) < r->kEd

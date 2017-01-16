@@ -4,11 +4,12 @@
 #include "ManualPID.h"
 #include "subsystems/Drivetrain.h"
 
-
 class Hardware
 {
     private:
         Reference ref;
+        double perfectAngle = 0;
+        int perfectDistance = 0;
     public:
         Drivetrain drivetrain;
 
@@ -24,7 +25,7 @@ class Hardware
         ManualPIDOut angleOut;
         ManualPIDOut distOut;
 
-        inline Hardware()
+        Hardware()
             :
             ref(),
             drivetrain(&ref),
@@ -37,5 +38,12 @@ class Hardware
             distanceController(ref.kP, ref.kI, ref.kD, &dist, &distOut),
             angleController(ref.kP, ref.kI, ref.kD, &gyroscope, &angleOut)
         {};
+
+        inline void changeAngle(double dAngle) { perfectAngle+=dAngle; }
+        inline void changeDistance(double dDist) { perfectDistance+=dDist; }
+        inline void updateControllerPoints() {
+            distanceController.SetSetpoint(perfectDistance);
+            angleController.SetSetpoint(perfectAngle);
+        };
 
 };
