@@ -6,6 +6,8 @@ class TurnCommand : public GenericCommand
 {
     private:
         int angle;
+        double lastangle;
+        double va;
         frc::PIDController* distanceController;
         frc::PIDController* angleController;
         ManualPIDOut* distOut;

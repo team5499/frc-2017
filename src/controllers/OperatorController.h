@@ -10,6 +10,9 @@ class OperatorController : public GenericController
         frc::Joystick throttle; //!< Reference to throttle for controlling speed.
         Reference* r;
         Hardware* h;
+
+        double wheeldead;
+        double throttledead;
     public:
         OperatorController(Reference* ref, Hardware* hardware);
         void handle();

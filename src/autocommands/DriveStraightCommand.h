@@ -6,6 +6,8 @@ class DriveStraightCommand : public GenericCommand
 {
     private:
         int distance;
+        double lastangle;
+        double va;
         frc::PIDController* distanceController;
         frc::PIDController* angleController;
         ManualPIDOut* distOut;

@@ -16,11 +16,15 @@ TurnCommand::TurnCommand(Reference* ref, Hardware* hardware, int degrees)
 
 void TurnCommand::init()
 {
-
+    distanceController->Enable();
+    angleController->Enable();
 }
 
 void TurnCommand::step()
 {
+    double a = h->gyroscope.GetAngle();
+    va = a-lastangle;
+    lastangle = a;
     double cvelocity = distOut->getOut();
     double cangle = angleOut->getOut();
     h->drivetrain.driveLR(cvelocity+cangle, cvelocity-cangle);
@@ -30,7 +34,9 @@ bool TurnCommand::finished()
 {
     // Check if controllers are on target and robot is sufficiently stationary
     if (std::fabs(h->dist.GetRate()) < r->kVd && std::fabs(distanceController->GetError()) < r->kEd
-    && std::fabs(h->gyroscope.GetRate()) < r->kVa && std::fabs(angleController->GetError()) < r->kEa) {
+    && std::fabs(va) < r->kVa && std::fabs(angleController->GetError()) < r->kEa) {
+        distanceController->Disable();
+        angleController->Disable();
         return true;
     }
     else {

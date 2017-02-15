@@ -15,12 +15,14 @@ set(SOURCE_FILES src/controllers/AutoController.cpp
               src/subsystems/Climber.cpp
               src/subsystems/Drivetrain.cpp
               src/subsystems/Gearpusher.cpp
-              src/subsystems/Shooter.cpp
               src/autocommands/Routine.cpp
               src/autocommands/NullCommand.cpp
               src/autocommands/DriveStraightCommand.cpp
               src/autocommands/TurnCommand.cpp
-              src/autocommands/WaitTimeCommand.cpp)
+              src/autocommands/WaitTimeCommand.cpp
+              
+              src/CowLib/CowGyro.cpp
+              src/CowLib/CowCircularBuffer.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Example: adding CTRE library

@@ -1,7 +1,9 @@
 #pragma once
 #include <WPILib.h>
 #include "Reference.h"
+#include "Hardware.h"
 #include "controllers/OperatorController.h"
+#include "controllers/AutoController.h"
 #include <iostream>
 
 class Robot : public frc::IterativeRobot
@@ -10,6 +12,7 @@ class Robot : public frc::IterativeRobot
         Reference ref;
         Hardware hardware;
         OperatorController operatorController;
+        AutoController autoController;
     public:
         Robot();
 

@@ -13,20 +13,26 @@ class Reference {
         const double kEd = 20;
         const double kEa = 1;
 
+        const int toleranceBuffer = 4;
+
         // Joysticks
         const int wheel = 1;
         const int throttle = 0;
+        const double wheeldeadzone = 0.05;
+        const double throttledeadzone = 0.05;
+        const int climbbutton = 4;
 
         // Drivetrain Talon Ports
         const int left1id = 0;
         const int left2id = 1;
         const int right1id = 2;
         const int right2id = 3;
-        const int solenoidleftid = 0;
-        const int solenoidrightid = 1;
+
+        // Climber
+        const int motorid = 4;
 
         // Sensors
-        const frc::SPI::Port gyroport = frc::SPI::Port::kOnboardCS0;
+        const uint32_t gyroport = 0;
         const int lEncoderPortA = 0;
         const int lEncoderPortB = 1;
         const int rEncoderPortA = 2;
