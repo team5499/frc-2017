@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys, subprocess, os
 
+
 def subproc_catch_stderr(args):
     subproc = subprocess.Popen(args,
                                stderr=subprocess.PIPE,
@@ -16,6 +17,7 @@ def subproc_catch_stderr(args):
 
     return subproc
 
+
 def probe(target):
     print('Probing {0}...'.format(target))
     subproc = subproc_catch_stderr(['ssh',
@@ -25,6 +27,7 @@ def probe(target):
         return False
     else:
         return True
+
 
 def deploy(target, program, robotCommand):
     def panic():
@@ -38,7 +41,8 @@ def deploy(target, program, robotCommand):
     print('Copying over new program...')
     if subproc_catch_stderr(['scp',
                              program,
-                             'lvuser@{0}:~/FRCUserProgram'.format(target)]).returncode > 0:
+                             'lvuser@{0}:~/FRCUserProgram'.format(
+                                 target)]).returncode > 0:
         panic()
     print('Stopping netconsole-host...')
     if subproc_catch_stderr(['ssh',
@@ -48,7 +52,8 @@ def deploy(target, program, robotCommand):
     print('Copying over robotCommand...')
     if subproc_catch_stderr(['scp',
                              robotCommand,
-                             'lvuser@{0}:~/robotCommand'.format(target)]).returncode > 0:
+                             'lvuser@{0}:~/robotCommand'.format(
+                                 target)]).returncode > 0:
         panic()
     print('Cleaning up...')
     if subproc_catch_stderr(['ssh',
@@ -58,6 +63,7 @@ def deploy(target, program, robotCommand):
                               /usr/local/frc/bin/frcKillRobot.sh -t -r; \
                               sync']).returncode > 0:
         panic()
+
 
 team_number = int(sys.argv[1])
 program = sys.argv[2]

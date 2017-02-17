@@ -1,4 +1,5 @@
 #pragma once
+
 #include <WPILib.h>
 #include "Reference.h"
 #include "controllers/OperatorController.h"
@@ -6,24 +7,22 @@
 
 class Robot : public frc::IterativeRobot
 {
-    private:
-        Reference ref;
-        Hardware hardware;
-        OperatorController operatorController;
-    public:
-        Robot();
+private:
+  // Disable copy constructors
+  Robot(const Robot&) = delete;
+  Robot& operator=(const Robot&) = delete;
 
-        void DisabledInit() override;
-        void DisabledPeriodic() override;
-        
-        void TeleopInit() override;
-        void TeleopPeriodic() override;
-        
-        void AutonomousInit() override;
-        void AutonomousPeriodic() override;
-
-        //void TestInit() override;
-        //void TestPeriodic() override;
-
-    
+  Reference reference;
+  Hardware hardware;
+  OperatorController operatorController;
+public:
+  Robot();
+  void DisabledInit() override;
+  void DisabledPeriodic() override;
+  void TeleopInit() override;
+  void TeleopPeriodic() override;
+  void AutonomousInit() override;
+  void AutonomousPeriodic() override;
+  //void TestInit() override;
+  //void TestPeriodic() override;
 };

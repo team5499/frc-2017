@@ -1,17 +1,23 @@
 #pragma once
+
 #include <WPILib.h>
+
+#include <utility>
+
 #include "GenericController.h"
-#include <iostream>
+#include "../Hardware.h"
+#include "../Reference.h"
 
 class OperatorController : public GenericController
 {
-    private:
-        frc::Joystick wheel; //!< Reference to wheel for getting steering input.
-        frc::Joystick throttle; //!< Reference to throttle for controlling speed.
-        Reference* r;
-        Hardware* h;
-    public:
-        OperatorController(Reference* ref, Hardware* hardware);
-        void handle();
-        void start();
+private:
+  // Disable copy constructors
+  OperatorController(const OperatorController&) = delete;
+  OperatorController& operator=(const OperatorController&) = delete;
+
+  Reference& reference;
+  Hardware& hardware;
+public:
+  OperatorController(Reference& r, Hardware& h);
+  void handle() override;
 };

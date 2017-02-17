@@ -1,22 +1,23 @@
 #pragma once
+
 #include <WPILib.h>
+
+#include <utility>
+
 #include "GenericController.h"
-#include "../autocommands/GenericCommand.h"
-#include "../autocommands/Routine.h"
-#include <iostream>
+#include "../Hardware.h"
+#include "../Reference.h"
 
 class AutoController : public GenericController
 {
-    private:
-        Reference* r;
-        Hardware* h;
+private:
+  // Disable copy constructors
+  AutoController(const AutoController&) = delete;
+  AutoController& operator=(const AutoController&) = delete;
 
-        Routine autoRoutine;
-        GenericCommand* currCommand;
-
-        bool finished = false;
-    public:
-        AutoController(Reference* ref, Hardware* hardware);
-        void handle();
-        void start();
+  Reference& reference;
+  Hardware& hardware;
+public:
+  AutoController(Reference& r, Hardware& h);
+  void handle() override;
 };

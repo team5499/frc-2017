@@ -1,11 +1,11 @@
 set(ARM_PREFIX arm-frc-linux-gnueabi)
 
 set(CMAKE_SYSTEM_NAME Linux)
-if(APPLE)
-  set(CMAKE_SYSROOT /usr/local/${ARM_PREFIX})
-elseif(UNIX)
-  set(CMAKE_SYSROOT /usr/${ARM_PREFIX})
-endif()
+if (APPLE)
+    set(CMAKE_SYSROOT /usr/local/${ARM_PREFIX})
+elseif (UNIX)
+    set(CMAKE_SYSROOT /usr/${ARM_PREFIX})
+endif ()
 
 set(CMAKE_C_COMPILER ${ARM_PREFIX}-gcc)
 set(CMAKE_CXX_COMPILER ${ARM_PREFIX}-g++)
