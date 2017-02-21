@@ -2,8 +2,8 @@
 
 Robot::Robot()
         :
-        reference(), hardware(),
-        operatorController(reference, hardware)
+        hardware(),
+        operatorController(hardware)
 {
   std::cout << "Iterative Robot Framework initialized." << std::endl;
 }

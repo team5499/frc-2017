@@ -1,7 +1,6 @@
 #pragma once
 
 #include <WPILib.h>
-#include "Reference.h"
 #include "controllers/OperatorController.h"
 #include <iostream>
 
@@ -12,7 +11,6 @@ private:
   Robot(const Robot&) = delete;
   Robot& operator=(const Robot&) = delete;
 
-  Reference reference;
   Hardware hardware;
   OperatorController operatorController;
 public:
