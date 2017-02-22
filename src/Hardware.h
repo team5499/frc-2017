@@ -1,60 +1,34 @@
 #pragma once
 
+#include <iostream>
 #include <WPILib.h>
 #include <CANTalon.h>
 
-class Hardware
+namespace team5499
 {
-private:
-  class Drivetrain {
-  public:
-    CANTalon left1;
-    CANTalon left2;
-    CANTalon right1;
-    CANTalon right2;
-
-    Drivetrain()
-    :
-            left1(1),
-            left2(2),
-            right1(3),
-            right2(4)
-    {
-    }
-  };
-
-  class Climber {
-  public:
-    CANTalon climber;
-
-    Climber()
-            :
-            climber(5)
-    {
-    }
-  };
-
-  class ControlBoard {
-  public:
-    frc::Joystick xboxController;
-
-    ControlBoard()
-            :
-            xboxController(0)
-    {
-    }
-  };
-
-public:
-  Drivetrain drivetrain;
-  Climber climber;
-  ControlBoard controlBoard;
-
-  Hardware()
-  :
-          drivetrain(),
-          climber(),
-          controlBoard()
+  class Hardware
   {
-  }
-};
+  private:
+    static bool HAL_initialized;
+  public:
+    Hardware()
+    {
+      if(!HAL_initialized)
+      {
+        std::cout << "Initializing HAL" << std::endl;
+        if(!HAL_Initialize(0))
+        {
+          std::cerr << "FATAL ERROR: HAL could not be initialized" << std::endl;
+          exit(-1);
+        }
+        HAL_Report(HALUsageReporting::kResourceType_Language,
+                   HALUsageReporting::kLanguage_CPlusPlus);
+        HAL_initialized = true;
+      }
+    }
+
+    static CANTalon LeftDrive1, LeftDrive2, RightDrive1, RightDrive2;
+  };
+
+  static Hardware _init_hardware;
+}

@@ -9,9 +9,8 @@ set(TEAM_NUMBER 5499)
 # find src -iname "*.cpp"
 # in project root
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(SOURCE_FILES src/controllers/AutoController.cpp
-        src/controllers/OperatorController.cpp
-        src/Robot.cpp)
+set(SOURCE_FILES src/main.cpp
+        src/Hardware.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Example: adding CTRE library
