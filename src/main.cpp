@@ -2,9 +2,37 @@
 #include <WPILib.h>
 #include <Internal/HardwareHLReporting.h>
 #include <WPILibVersion.h>
-#include "Hardware.h"
+#include "hardware.h"
+#include "view.h"
+#include "robot_state.h"
+#include "make_robot_loop.h"
+
+using namespace team5499;
+
+void setup();
 
 int main()
+{
+  setup();
+  auto handler = [](robot_state&& state)
+  {
+    if(frc::RobotState::IsOperatorControl())
+    {
+      auto xbox_axis_view = view::axis_view(0);
+      state.drive_speed_left = xbox_axis_view[1];
+      state.drive_speed_right = xbox_axis_view[5];
+    }
+    return std::move(state);
+  };
+  auto robot_loop = make_robot_loop(handler);
+  return robot_loop();
+}
+
+/**
+ * Do a bunch of WPILib setup
+ * This function is ripped from frc::RobotBase
+ */
+void setup()
 {
   frc::RobotState::SetImplementation(frc::DriverStation::GetInstance());
   frc::HLUsageReporting::SetImplementation(new frc::HardwareHLReporting());
@@ -22,23 +50,5 @@ int main()
     std::fputs("C++", file);
     std::fputs(WPILibVersion, file);
     std::fclose(file);
-  }
-
-  auto lw = frc::LiveWindow::GetInstance();
-  HAL_Report(HALUsageReporting::kResourceType_Framework,
-             HALUsageReporting::kFramework_Simple);
-
-  NetworkTable::GetTable("LiveWindow")->GetSubTable("~STATUS~")->PutBoolean(
-          "LW Enabled", false);
-  lw->SetEnabled(false);
-
-  HAL_ObserveUserProgramStarting();
-
-  std::cout << "Left motor value: " << team5499::Hardware::LeftDrive1.Get()
-            << std::endl;
-
-  while(true)
-  {
-    std::cout << "Running!" << std::endl;
   }
 }

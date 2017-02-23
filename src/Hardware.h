@@ -6,14 +6,20 @@
 
 namespace team5499
 {
-  class Hardware
+  /**
+   * Contains static objects for all robot hardware
+   */
+  class hardware
   {
   private:
-    static bool HAL_initialized;
+    static bool _HAL_initialized;
   public:
-    Hardware()
+    /**
+     * Initializes the HAL on first construction
+     */
+    hardware()
     {
-      if(!HAL_initialized)
+      if(!_HAL_initialized)
       {
         std::cout << "Initializing HAL" << std::endl;
         if(!HAL_Initialize(0))
@@ -23,12 +29,15 @@ namespace team5499
         }
         HAL_Report(HALUsageReporting::kResourceType_Language,
                    HALUsageReporting::kLanguage_CPlusPlus);
-        HAL_initialized = true;
+        _HAL_initialized = true;
       }
     }
 
-    static CANTalon LeftDrive1, LeftDrive2, RightDrive1, RightDrive2;
+    static CANTalon drive_left1, drive_left2, drive_right1, drive_right2;
   };
 
-  static Hardware _init_hardware;
+  /**
+   * Forces a construction of hardware (and initialization of the HAL)
+   */
+  static hardware _init_hardware;
 }

@@ -8,10 +8,13 @@ set(TEAM_NUMBER 5499)
 # For quick list of files run
 # find src -iname "*.cpp"
 # in project root
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 set(SOURCE_FILES src/main.cpp
         src/Hardware.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+
+# range-v3
+include_directories(lib/range-v3/include)
 
 # Example: adding CTRE library
 # Make sure this goes before WPILib
