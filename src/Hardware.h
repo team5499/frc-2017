@@ -30,6 +30,8 @@ namespace team5499
         HAL_Report(HALUsageReporting::kResourceType_Language,
                    HALUsageReporting::kLanguage_CPlusPlus);
         _HAL_initialized = true;
+
+        std::cout << "HAL initialized" << std::endl;
       }
     }
 

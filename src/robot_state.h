@@ -1,4 +1,6 @@
-#pragma
+#pragma once
+
+#include "hardware.h"
 
 namespace team5499
 {
@@ -16,6 +18,9 @@ namespace team5499
     robot_state(robot_state&&) = default;
     robot_state& operator=(robot_state&&) = default;
 
+    double drive_speed_left;
+    double drive_speed_right;
+
     /**
      * Applies the state to real hardware.
      */
@@ -26,8 +31,5 @@ namespace team5499
       hardware::drive_right1.Set(drive_speed_right);
       hardware::drive_right2.Set(drive_speed_right);
     }
-
-    double drive_speed_left;
-    double drive_speed_right;
   };
 }

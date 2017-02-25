@@ -94,6 +94,7 @@ def tx_thread():
     broadcast_addrs = get_broadcast_addrs()
     while True:
         for addr in broadcast_addrs:
+            print("Listening on " + addr + ":6667")
             tx.sendto(sys.stdin.readline().encode('ascii'),
                       (addr, 6667))
 

@@ -7,7 +7,7 @@ namespace team5499
 {
   namespace view
   {
-    auto button_view(int stick)
+    auto button(int stick)
     {
       return ranges::view::ints | ranges::view::transform([stick](int button)
                                                           {
@@ -17,7 +17,7 @@ namespace team5499
                                                           });
     }
 
-    auto axis_view(int stick)
+    auto axis(int stick)
     {
       return ranges::view::ints | ranges::view::transform([stick](int axis)
                                                           {
@@ -25,6 +25,22 @@ namespace team5499
                                                                     stick,
                                                                     axis);
                                                           });
+    }
+
+    auto falling_edge(auto left_range, auto right_range)
+    {
+      return ranges::view::zip_with(left_range, right_range, [](int left, int right)
+      {
+        return right < left;
+      });
+    }
+
+    auto rising_edge(auto left_range, auto right_range)
+    {
+      return ranges::view::zip_with(left_range, right_range, [](int left, int right)
+      {
+        return right > left;
+      });
     }
   }
 }

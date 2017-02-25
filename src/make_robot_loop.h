@@ -1,4 +1,5 @@
 #pragma once
+#include "robot_state.h"
 
 namespace team5499
 {

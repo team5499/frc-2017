@@ -1,8 +1,10 @@
+#include <signal.h>
+#include <ucontext.h>
 #include <iostream>
 #include <WPILib.h>
 #include <Internal/HardwareHLReporting.h>
 #include <WPILibVersion.h>
-#include "hardware.h"
+#include <unistd.h>
 #include "view.h"
 #include "robot_state.h"
 #include "make_robot_loop.h"
@@ -14,13 +16,22 @@ void setup();
 int main()
 {
   setup();
+
+  team5499::hardware::drive_left1.SetInverted(true);
+  team5499::hardware::drive_left2.SetInverted(true);
+
+  team5499::hardware::drive_left1.SetVoltageRampRate(10);
+  team5499::hardware::drive_left2.SetVoltageRampRate(10);
+  team5499::hardware::drive_right1.SetVoltageRampRate(10);
+  team5499::hardware::drive_right2.SetVoltageRampRate(10);
+
   auto handler = [](robot_state&& state)
   {
     if(frc::RobotState::IsOperatorControl())
     {
-      auto xbox_axis_view = view::axis_view(0);
-      state.drive_speed_left = xbox_axis_view[1];
-      state.drive_speed_right = xbox_axis_view[5];
+      auto xbox_axis_view = view::axis(0);
+      state.drive_speed_left = xbox_axis_view[5];
+      state.drive_speed_right = xbox_axis_view[1];
     }
     return std::move(state);
   };
