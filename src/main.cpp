@@ -25,17 +25,18 @@ int main()
   team5499::hardware::drive_right1.SetVoltageRampRate(10);
   team5499::hardware::drive_right2.SetVoltageRampRate(10);
 
-  auto handler = [](robot_state&& state)
-  {
-    if(frc::RobotState::IsOperatorControl())
+  auto robot_loop = make_robot_loop(
+    nullptr, // Disabled
+    nullptr, // Auto
+    [](robot_state&& state) // Teleop
     {
       auto xbox_axis_view = view::axis(0);
       state.drive_speed_left = xbox_axis_view[5];
       state.drive_speed_right = xbox_axis_view[1];
-    }
-    return std::move(state);
-  };
-  auto robot_loop = make_robot_loop(handler);
+      return std::move(state);
+    },
+    nullptr // Test
+  );
   return robot_loop();
 }
 
