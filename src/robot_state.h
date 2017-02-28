@@ -20,6 +20,8 @@ namespace team5499
 
     double drive_speed_left;
     double drive_speed_right;
+    double intake_arm_speed;
+    double intake_roller_speed;
 
     /**
      * Applies the state to real hardware.
@@ -30,6 +32,9 @@ namespace team5499
       hardware::drive_left2.Set(drive_speed_left);
       hardware::drive_right1.Set(drive_speed_right);
       hardware::drive_right2.Set(drive_speed_right);
+
+      hardware::intake_arm.Set(intake_arm_speed);
+      hardware::intake_roller.Set(intake_roller_speed);
     }
   };
 }

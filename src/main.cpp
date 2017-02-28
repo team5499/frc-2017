@@ -25,14 +25,28 @@ int main()
   team5499::hardware::drive_right1.SetVoltageRampRate(10);
   team5499::hardware::drive_right2.SetVoltageRampRate(10);
 
+  team5499::hardware::intake_arm.SetInverted(true);
+
   auto robot_loop = make_robot_loop(
     nullptr, // Disabled
     nullptr, // Auto
     [](robot_state&& state) // Teleop
     {
-      auto xbox_axis_view = view::axis(0);
-      state.drive_speed_left = xbox_axis_view[5];
-      state.drive_speed_right = xbox_axis_view[1];
+      auto driverAxisView = view::axis(0) | view::deadband(0.1);
+      state.drive_speed_left = driverAxisView[5];
+      state.drive_speed_right = driverAxisView[1];
+
+      auto operatorAxisView = view::axis(1) | view::deadband(0.1);
+      state.intake_arm_speed = operatorAxisView[5] * 0.2;
+
+      auto operatorButtonView = view::button(1);
+      if(operatorButtonView[1])
+        state.intake_roller_speed = -1;
+      else if(operatorButtonView[2])
+        state.intake_roller_speed = 1;
+      else
+        state.intake_roller_speed = 0;
+
       return std::move(state);
     },
     nullptr // Test

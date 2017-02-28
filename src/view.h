@@ -9,38 +9,51 @@ namespace team5499
   {
     auto button(int stick)
     {
-      return ranges::view::ints | ranges::view::transform([stick](int button)
-                                                          {
-                                                            return frc::DriverStation::GetInstance().GetStickButton(
-                                                                    stick,
-                                                                    button);
-                                                          });
+      return ranges::view::ints |
+             ranges::view::transform(
+               [stick](int button)
+               {
+                 return frc::DriverStation::GetInstance().GetStickButton(
+                         stick,
+                         button);
+               }
+             );
     }
 
     auto axis(int stick)
     {
-      return ranges::view::ints | ranges::view::transform([stick](int axis)
-                                                          {
-                                                            return frc::DriverStation::GetInstance().GetStickAxis(
-                                                                    stick,
-                                                                    axis);
-                                                          });
+      return ranges::view::ints |
+             ranges::view::transform(
+               [stick](int axis)
+               {
+                 return frc::DriverStation::GetInstance().GetStickAxis(
+                         stick,
+                         axis);
+               }
+             );
     }
 
-    auto falling_edge(auto left_range, auto right_range)
+    auto pov(int stick)
     {
-      return ranges::view::zip_with(left_range, right_range, [](int left, int right)
-      {
-        return right < left;
-      });
+      return ranges::view::ints |
+             ranges::view::transform(
+               [stick](int pov)
+               {
+                 return frc::DriverStation::GetInstance().GetStickPOV(
+                         stick,
+                         pov);
+               }
+             );
     }
 
-    auto rising_edge(auto left_range, auto right_range)
+    auto deadband(double band)
     {
-      return ranges::view::zip_with(left_range, right_range, [](int left, int right)
-      {
-        return right > left;
-      });
+      return ranges::view::transform(
+        [band](double signal)
+        {
+          return (fabs(signal) < band) ? 0 : signal;
+        }
+      );
     }
   }
 }

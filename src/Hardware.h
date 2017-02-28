@@ -36,6 +36,9 @@ namespace team5499
     }
 
     static CANTalon drive_left1, drive_left2, drive_right1, drive_right2;
+    static CANTalon intake_arm;
+    static CANTalon intake_roller;
+    static CANTalon climber;
   };
 
   /**
