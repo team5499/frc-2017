@@ -32,20 +32,26 @@ int main()
     nullptr, // Auto
     [](robot_state&& state) // Teleop
     {
-      auto driverAxisView = view::axis(0) | view::deadband(0.1);
-      state.drive_speed_left = driverAxisView[5];
-      state.drive_speed_right = driverAxisView[1];
+      auto wheelAxisView = view::axis(0) | view::deadband(0.1);
+      auto stickAxisView = view::axis(1) | view::deadband(0.1);
+      state.drive_speed_left = stickAxisView[1] + wheelAxisView[1];
+      state.drive_speed_right = stickAxisView[1] - wheelAxisView[1];
 
-      auto operatorAxisView = view::axis(1) | view::deadband(0.1);
+      auto operatorAxisView = view::axis(2) | view::deadband(0.1);
       state.intake_arm_speed = operatorAxisView[5] * 0.2;
 
       auto operatorButtonView = view::button(1);
-      if(operatorButtonView[1])
+      if(operatorButtonView[2])
         state.intake_roller_speed = -1;
-      else if(operatorButtonView[2])
+      else if(operatorButtonView[1])
         state.intake_roller_speed = 1;
       else
         state.intake_roller_speed = 0;
+
+      if(operatorButtonView[3])
+        state.climber_speed = 1;
+      else
+        state.climber_speed = 0;
 
       return std::move(state);
     },

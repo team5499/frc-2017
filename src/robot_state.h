@@ -22,6 +22,7 @@ namespace team5499
     double drive_speed_right;
     double intake_arm_speed;
     double intake_roller_speed;
+    double climber_speed;
 
     /**
      * Applies the state to real hardware.
@@ -35,6 +36,8 @@ namespace team5499
 
       hardware::intake_arm.Set(intake_arm_speed);
       hardware::intake_roller.Set(intake_roller_speed);
+
+      hardware::climber.Set(climber_speed);
     }
   };
 }
