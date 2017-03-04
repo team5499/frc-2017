@@ -33,14 +33,39 @@ int main()
     [](robot_state&& state) // Teleop
     {
       auto wheelAxisView = view::axis(0) | view::deadband(0.1);
+      auto wheelButtonView = view::button(0);
       auto stickAxisView = view::axis(1) | view::deadband(0.1);
-      state.drive_speed_left = stickAxisView[1] + wheelAxisView[1];
-      state.drive_speed_right = stickAxisView[1] - wheelAxisView[1];
+      if(wheelButtonView[8])
+      {
+        if(stickAxisView[1] < -0.1)
+        {
+          state.drive_speed_left = stickAxisView[1] + (wheelAxisView[0]*.8);
+          state.drive_speed_right = stickAxisView[1] - (wheelAxisView[0]*.8);
+        } 
+        else 
+        {
+          state.drive_speed_left = stickAxisView[1] + (wheelAxisView[0]);
+          state.drive_speed_right = stickAxisView[1] - (wheelAxisView[0]);
+        }
+      } 
+      else
+      {
+        if(stickAxisView[1] < -0.1)
+        {
+          state.drive_speed_left = stickAxisView[1] + (wheelAxisView[0]*.25);
+          state.drive_speed_right = stickAxisView[1] - (wheelAxisView[0]*.25);
+        } 
+        else 
+        {
+          state.drive_speed_left = stickAxisView[1] + (wheelAxisView[0]*.4);
+          state.drive_speed_right = stickAxisView[1] - (wheelAxisView[0]*.4);
+        }
+      }
 
       auto operatorAxisView = view::axis(2) | view::deadband(0.1);
       state.intake_arm_speed = operatorAxisView[5] * 0.2;
 
-      auto operatorButtonView = view::button(1);
+      auto operatorButtonView = view::button(2);
       if(operatorButtonView[2])
         state.intake_roller_speed = -1;
       else if(operatorButtonView[1])
