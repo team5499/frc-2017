@@ -4,7 +4,6 @@ import sys, subprocess, os
 def subproc_catch_stderr(args):
     subproc = subprocess.Popen(args,
                                stderr=subprocess.PIPE,
-                               encoding='utf-8',
                                universal_newlines=True)
     subproc.wait()
 
