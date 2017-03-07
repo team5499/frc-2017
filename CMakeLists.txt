@@ -14,9 +14,6 @@ set(SOURCE_FILES src/Robot.cpp
         src/controllers/OperatorController.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
-# range-v3
-include_directories(lib/range-v3/include)
-
 # Example: adding CTRE library
 # Make sure this goes before WPILib
 find_package(CTRE)

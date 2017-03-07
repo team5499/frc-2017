@@ -1,19 +1,15 @@
 #pragma once
 
 #include "GenericController.h"
-#include <iostream>
+#include "../subsystems/Gearmech.h"
+#include "../subsystems/Climber.h"
 
-using namespace team5499;
-
-class OperatorController : public GenericController
+namespace team5499
 {
-private:
-
-public:
-  OperatorController();
-
-  void handle();
-  void start();
-
-};
-
+  class OperatorController : public GenericController
+  {
+  public:
+    void handle();
+    void start();
+  };
+}

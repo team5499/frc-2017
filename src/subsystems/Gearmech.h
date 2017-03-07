@@ -1,6 +1,5 @@
 #pragma once
 
-#include <WPILib.h>
 #include "../Hardware.h"
 
 using namespace team5499;

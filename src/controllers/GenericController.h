@@ -1,16 +1,14 @@
 #pragma once
 
-#include <WPILib.h>
-#include "../Hardware.h"
-#include "../subsystems/Climber.h"
-#include "../subsystems/Gearmech.h"
-
-class GenericController
+namespace team5499
 {
-private:
+  class GenericController
+  {
+  private:
 
-public:
-  virtual ~GenericController() {};
-  virtual void handle() = 0;
-  virtual void start() = 0;
-};
+  public:
+    virtual ~GenericController() {};
+    virtual void handle() = 0;
+    virtual void start() = 0;
+  };
+}
