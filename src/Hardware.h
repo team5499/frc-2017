@@ -3,6 +3,7 @@
 #include <iostream>
 #include <WPILib.h>
 #include <CANTalon.h>
+#include "Reference.h"
 
 namespace team5499
 {
@@ -42,7 +43,9 @@ namespace team5499
     //Sticks
     static Joystick wheel;
     static Joystick throttle;
-    static XboxController deel;
+    static XboxController xbox;
+    //Sensors
+    //static CowLib::CowGyro gyro;
   };
 
   /**

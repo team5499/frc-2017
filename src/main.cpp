@@ -8,6 +8,7 @@
 #include "view.h"
 #include "robot_state.h"
 #include "make_robot_loop.h"
+#include "Reference.h"
 
 using namespace team5499;
 
@@ -47,7 +48,7 @@ int main()
           state.drive_speed_left = stickAxisView[1] + (wheelAxisView[0]);
           state.drive_speed_right = stickAxisView[1] - (wheelAxisView[0]);
         }
-      } 
+      }
       else
       {
         if(stickAxisView[1] < -0.1)

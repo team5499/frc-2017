@@ -1,6 +1,8 @@
 #pragma once
 #include <WPILib.h>
 #include "../Hardware.h"
+#include "../subsystems/Climber.h"
+#include "../subsystems/Gearmech.h"
 
 class GenericController
 {
