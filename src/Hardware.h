@@ -35,6 +35,7 @@ namespace team5499
         std::cout << "HAL initialized" << std::endl;
       }
     }
+
     //Talons
     static CANTalon drive_left1, drive_left2, drive_right1, drive_right2;
     static CANTalon intake_arm;

@@ -11,12 +11,12 @@ namespace team5499
     {
       return ranges::view::ints |
              ranges::view::transform(
-               [stick](int button)
-               {
-                 return frc::DriverStation::GetInstance().GetStickButton(
-                         stick,
-                         button);
-               }
+                     [stick](int button)
+                     {
+                       return frc::DriverStation::GetInstance().GetStickButton(
+                               stick,
+                               button);
+                     }
              );
     }
 
@@ -24,12 +24,12 @@ namespace team5499
     {
       return ranges::view::ints |
              ranges::view::transform(
-               [stick](int axis)
-               {
-                 return frc::DriverStation::GetInstance().GetStickAxis(
-                         stick,
-                         axis);
-               }
+                     [stick](int axis)
+                     {
+                       return frc::DriverStation::GetInstance().GetStickAxis(
+                               stick,
+                               axis);
+                     }
              );
     }
 
@@ -37,22 +37,22 @@ namespace team5499
     {
       return ranges::view::ints |
              ranges::view::transform(
-               [stick](int pov)
-               {
-                 return frc::DriverStation::GetInstance().GetStickPOV(
-                         stick,
-                         pov);
-               }
+                     [stick](int pov)
+                     {
+                       return frc::DriverStation::GetInstance().GetStickPOV(
+                               stick,
+                               pov);
+                     }
              );
     }
 
     auto deadband(double band)
     {
       return ranges::view::transform(
-        [band](double signal)
-        {
-          return (fabs(signal) < band) ? 0 : signal;
-        }
+              [band](double signal)
+              {
+                return (fabs(signal) < band) ? 0 : signal;
+              }
       );
     }
   }

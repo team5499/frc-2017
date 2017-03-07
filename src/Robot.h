@@ -1,4 +1,5 @@
 #pragma once
+
 #include <WPILib.h>
 #include "Reference.h"
 #include "Hardware.h"
@@ -6,22 +7,22 @@
 
 class Robot : public IterativeRobot
 {
-    private:
+private:
 
-    OperatorController operatorController;
-    
+  OperatorController operatorController;
 
-    public:
-    Robot();
 
-    void DisabledInit() override;
-    void DisabledPeriodic() override;
+public:
+  Robot();
 
-    void TeleopInit() override;
-    void TeleopPeriodic() override;
+  void DisabledInit() override;
+  void DisabledPeriodic() override;
 
-    void AutonomousInit() override;
-    void AutonomousPeriodic() override;
+  void TeleopInit() override;
+  void TeleopPeriodic() override;
+
+  void AutonomousInit() override;
+  void AutonomousPeriodic() override;
 
 };
 
