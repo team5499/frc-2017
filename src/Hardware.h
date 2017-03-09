@@ -4,6 +4,9 @@
 #include <WPILib.h>
 #include <CANTalon.h>
 #include "Reference.h"
+#include "subsystems/Drivetrain.h"
+#include "subsystems/Climber.h"
+#include "subsystems/Gearmech.h"
 
 namespace team5499
 {

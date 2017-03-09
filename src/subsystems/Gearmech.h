@@ -1,23 +1,23 @@
 #pragma once
-
 #include "../Hardware.h"
 
-using namespace team5499;
-
-class Gearmech
+namespace team5499
 {
-private:
-
-public:
-  Gearmech();
-
-  static void setRoller(double value)
+  class Gearmech
   {
-    hardware::intake_roller.Set(value);
-  }
+  private:
 
-  static void setArm(double value)
-  {
-    hardware::intake_arm.Set(value);
-  }
-};
+  public:
+    Gearmech();
+
+    static void setRoller(double value)
+    {
+      hardware::intake_roller.Set(value);
+    }
+
+    static void setArm(double value)
+    {
+      hardware::intake_arm.Set(value);
+    }
+  };
+}

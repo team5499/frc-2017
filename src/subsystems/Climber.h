@@ -1,19 +1,16 @@
 #pragma once
-
 #include "../Hardware.h"
 
-class Climber
+namespace team5499
 {
-public:
-  Climber();
-
-  static void climb()
+  class Climber
   {
-    hardware::climber.Set(1);
-  }
+  public:
+    Climber();
 
-  static void stop()
-  {
-    hardware::climber.Set(0);
-  }
-};
+    static void climb(double speed)
+    {
+      hardware::climber.Set(speed);
+    }
+  };
+}

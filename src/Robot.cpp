@@ -54,7 +54,6 @@ void Robot::TeleopInit()
 
 void Robot::TeleopPeriodic()
 {
-  hardware::intake_roller.Set(0.1);
   operatorController.handle();
 }
 

@@ -3,6 +3,7 @@
 #include "GenericController.h"
 #include "../subsystems/Gearmech.h"
 #include "../subsystems/Climber.h"
+#include "../subsystems/Drivetrain.h"
 
 namespace team5499
 {
