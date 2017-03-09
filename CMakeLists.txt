@@ -9,20 +9,21 @@ set(TEAM_NUMBER 5499)
 # find src -iname "*.cpp"
 # in project root
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-set(SOURCE_FILES src/controllers/AutoController.cpp
-              src/controllers/OperatorController.cpp
+set(SOURCE_FILES 
+              #src/controllers/AutoController.cpp
+              #src/controllers/OperatorController.cpp
               src/Robot.cpp
-              src/subsystems/Climber.cpp
-              src/subsystems/Drivetrain.cpp
-              src/subsystems/Gearpusher.cpp
-              src/autocommands/Routine.cpp
-              src/autocommands/NullCommand.cpp
-              src/autocommands/DriveStraightCommand.cpp
-              src/autocommands/TurnCommand.cpp
-              src/autocommands/WaitTimeCommand.cpp
+              #src/subsystems/Climber.cpp
+              #src/subsystems/Drivetrain.cpp
+              #src/subsystems/Gearpusher.cpp
+              #src/autocommands/Routine.cpp
+              #src/autocommands/NullCommand.cpp
+              #src/autocommands/DriveStraightCommand.cpp
+              #src/autocommands/TurnCommand.cpp
+              #src/autocommands/WaitTimeCommand.cpp
               
-              src/CowLib/CowGyro.cpp
-              src/CowLib/CowCircularBuffer.cpp)
+              src/CowLib/c/CowGyro.cpp
+              src/CowLib/c/CowAlphaNum.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Example: adding CTRE library

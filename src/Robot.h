@@ -1,18 +1,12 @@
 #pragma once
 #include <WPILib.h>
-#include "Reference.h"
-#include "Hardware.h"
-#include "controllers/OperatorController.h"
-#include "controllers/AutoController.h"
 #include <iostream>
+#include "CowLib/c/CowGyro.h"
 
 class Robot : public frc::IterativeRobot
 {
     private:
-        Reference ref;
-        Hardware hardware;
-        OperatorController operatorController;
-        AutoController autoController;
+        CowLib::CowGyro gyroscope;
     public:
         Robot();
 

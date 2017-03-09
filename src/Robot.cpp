@@ -2,34 +2,35 @@
 
 Robot::Robot()
     :
-    ref(),
-    hardware(),
-    operatorController(&ref, &hardware),
-    autoController(&ref, &hardware)
+    gyroscope()
+    //ref(),
+    //hardware(),
+    //operatorController(&ref, &hardware),
+    //autoController(&ref, &hardware)
 {
     std::cout << "Iterative Robot Framework initialized." << std::endl;
+    gyroscope.BeginCalibration();
 }
 void Robot::DisabledInit() {
 
 }
 void Robot::DisabledPeriodic() {
-    hardware.gyroscope.HandleCalibration();
 }
 
 void Robot::AutonomousInit() {
-    hardware.gyroscope.FinalizeCalibration();
-    autoController.start();
+    gyroscope.FinalizeCalibration();
+    
 
 }
 void Robot::AutonomousPeriodic() {
-    autoController.handle();
+   frc::SmartDashboard::PutNumber("gyro angle", gyroscope.GetAngle());
 }
 
 void Robot::TeleopInit() {
-    operatorController.start();
+    
 }
 void Robot::TeleopPeriodic() {
-    operatorController.handle();
+    
 }
 
 START_ROBOT_CLASS(Robot)
