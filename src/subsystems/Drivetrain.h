@@ -10,10 +10,10 @@ namespace team5499
 
             static void driveLR(double left, double right)
             {
-                team5499::hardware::drive_left1.Set(left);
-                team5499::hardware::drive_left2.Set(left);
-                team5499::hardware::drive_right1.Set(right);
-                team5499::hardware::drive_right2.Set(right);
+                hardware::drive_left1.Set(left);
+                hardware::drive_left2.Set(left);
+                hardware::drive_right1.Set(right);
+                hardware::drive_right2.Set(right);
             }
     };
 }

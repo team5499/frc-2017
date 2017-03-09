@@ -9,10 +9,14 @@ set(TEAM_NUMBER 5499)
 # find src -iname "*.cpp"
 # in project root
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-set(SOURCE_FILES src/Robot.cpp
+set(SOURCE_FILES src/main.cpp
+        src/Robot.cpp
         src/Hardware.cpp 
         src/controllers/OperatorController.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+
+include_directories(thirdparty/team1538/include)
+target_link_libraries(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/team1538/lib/libteam1538.a)
 
 # Example: adding CTRE library
 # Make sure this goes before WPILib

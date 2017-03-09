@@ -19,4 +19,5 @@ namespace team5499
   XboxController hardware::xbox(Reference::xbox_port);
 
 //CowLib::CowGyro hardware::gyro(Reference::gyro_port);
+  CowLib::CowAlphaNum hardware::mxp_display(0x70);
 }

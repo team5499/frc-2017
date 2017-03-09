@@ -3,10 +3,8 @@
 #include <iostream>
 #include <WPILib.h>
 #include <CANTalon.h>
+#include <team1538/CowAlphaNum.h>
 #include "Reference.h"
-#include "subsystems/Drivetrain.h"
-#include "subsystems/Climber.h"
-#include "subsystems/Gearmech.h"
 
 namespace team5499
 {
@@ -50,6 +48,7 @@ namespace team5499
     static XboxController xbox;
     //Sensors
     //static CowLib::CowGyro gyro;
+    static CowLib::CowAlphaNum mxp_display;
   };
 
   /**

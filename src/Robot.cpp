@@ -16,6 +16,9 @@ void Robot::RobotInit()
   team5499::hardware::drive_right2.SetVoltageRampRate(10);
 
   team5499::hardware::intake_arm.SetInverted(true);
+
+  team5499::hardware::mxp_display.SetBanner("5499");
+  team5499::hardware::mxp_display.DisplayBanner();
   std::cout << "RobotInit complete" << std::endl;
 }
 
@@ -56,5 +59,3 @@ void Robot::TeleopPeriodic()
 {
   operatorController.handle();
 }
-
-START_ROBOT_CLASS(Robot)
