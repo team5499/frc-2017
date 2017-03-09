@@ -42,11 +42,11 @@ namespace team5499
     bool roller_intake_slow = hardware::xbox.GetTriggerAxis(Joystick::JoystickHand::kRightHand);
     bool roller_outtake = hardware::xbox.GetBumper(Joystick::JoystickHand::kLeftHand);
     if(roller_intake)
-      hardware::intake_roller.Set(1);
+      hardware::intake_roller.Set(0.6);
     else if(roller_intake_slow > 0.5)
       hardware::intake_roller.Set(0.1);
     else if(roller_outtake)
-      hardware::intake_roller.Set(-1);
+      hardware::intake_roller.Set(-0.6);
     else
       hardware::intake_roller.Set(0);
 
