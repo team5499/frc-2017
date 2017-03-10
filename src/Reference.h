@@ -18,6 +18,7 @@ class Reference {
         // Joysticks
         static const int wheel;
         static const int throttle;
+        static const int xbox;
         static const double wheeldeadzone;
         static const double throttledeadzone;
         static const int climbbutton;
@@ -30,6 +31,10 @@ class Reference {
 
         // Climber
         static const int motorid;
+
+        //Gearmech
+        static const int rollerid;
+        static const int armid;
 
         // Sensors
         static const uint32_t gyroport;

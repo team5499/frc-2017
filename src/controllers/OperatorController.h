@@ -8,6 +8,7 @@ class OperatorController : public GenericController
     private:
         frc::Joystick wheel; //!< Reference to wheel for getting steering input.
         frc::Joystick throttle; //!< Reference to throttle for controlling speed.
+        frc::XboxController xbox; //!< Reference to xbox controller for controlling climb/gearmech.
 
         double wheeldead;
         double throttledead;

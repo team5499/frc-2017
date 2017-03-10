@@ -5,6 +5,7 @@ int Hardware::perfectDistance = 0;
 
 Drivetrain Hardware::drivetrain;
 Climber Hardware::climber;
+Gearmech Hardware::gearmech;
 
 // Sensors
 CowLib::CowGyro Hardware::gyroscope(Reference::gyroport);

@@ -5,6 +5,7 @@ OperatorController::OperatorController()
     :
     throttle(Reference::throttle),
     wheel(Reference::wheel),
+    xbox(Reference::xbox),
     wheeldead(Reference::wheeldeadzone),
     throttledead(Reference::throttledeadzone)
 {
@@ -16,25 +17,20 @@ void OperatorController::handle()
 {
     double throttle_value = throttle.GetRawAxis(1);
     double wheel_value = wheel.GetRawAxis(0);
-    if(std::fabs(throttle_value)<throttledead)
-    {
-        throttle_value = 0;
-    }
-    if(std::fabs(wheel_value)<wheeldead)
-    {
-        wheel_value = 0;
-    }
+    double arm_value = xbox.GetRawAxis(1) * 0.25;
+    double roller_value = (xbox.GetRawButton(3) * 0.25) + (xbox.GetRawAxis(2) * 0.1);
+    int climb = xbox.GetRawButton(2);
+
+    throttle_value = (std::fabs(throttle_value)<throttledead) ? 0 : throttle_value;
+    wheel_value = (std::fabs(wheel_value)<wheeldead) ? 0 : wheel_value;
+
     Hardware::drivetrain.driveLR(throttle_value + wheel_value,
                           throttle_value - wheel_value);
 
-    if (throttle.GetRawButton(Reference::climbbutton))
-    {
-        Hardware::climber.setSpeed(1);
-    }
-    else
-    {
-        Hardware::climber.setSpeed(0);
-    }
+    Hardware::climber.setSpeed(climb);
+
+    Hardware::gearmech.setArm(arm_value);
+    Hardware::gearmech.setRoller(roller_value);
 }
 
 void OperatorController::start()

@@ -4,6 +4,7 @@
 #include "ManualPID.h"
 #include "subsystems/Drivetrain.h"
 #include "subsystems/Climber.h"
+#include "subsystems/Gearmech.h"
 #include "CowLib/CowGyro.h"
 class Hardware
 {
@@ -13,6 +14,7 @@ class Hardware
     public:
         static Drivetrain drivetrain;
         static Climber climber;
+        static Gearmech gearmech;
 
         // Sensors
         static CowLib::CowGyro gyroscope;

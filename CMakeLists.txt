@@ -16,7 +16,7 @@ set(SOURCE_FILES src/controllers/AutoController.cpp
               src/Reference.cpp 
               src/subsystems/Climber.cpp
               src/subsystems/Drivetrain.cpp
-              src/subsystems/Gearpusher.cpp
+              src/subsystems/Gearmech.cpp
               src/autocommands/Routine.cpp
               src/autocommands/NullCommand.cpp
               src/autocommands/DriveStraightCommand.cpp
