@@ -1,13 +1,11 @@
 #include "Routine.h"
 
-Routine::Routine(Reference* ref, Hardware* hardware)
+Routine::Routine()
     :
-    dnull(ref, hardware)
+    dnull()
 {
-    r = ref;
-    h = hardware;
     // Initialization of routine
-    commands.push_back(new NullCommand(r, h));
+    commands.push_back(new NullCommand());
 
     nsteps = commands.size();
 }

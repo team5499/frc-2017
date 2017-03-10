@@ -6,7 +6,6 @@
 class Drivetrain
 {
     private:
-        Reference* r;
 
         CANTalon left1;
         CANTalon left2;
@@ -15,6 +14,6 @@ class Drivetrain
 
     public:
 
-        Drivetrain(Reference* ref);
+        Drivetrain();
         void driveLR(double left, double right);
 };

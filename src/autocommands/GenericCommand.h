@@ -6,8 +6,6 @@
 class GenericCommand
 {
 protected:
-    Reference* r;
-    Hardware* h;
 public:
     virtual ~GenericCommand() {};
     virtual void init() = 0;

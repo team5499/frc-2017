@@ -4,37 +4,37 @@
 class Reference {
     public:
         // PID
-        const double kP = 0.01;
-        const double kI = 0.0;
-        const double kD = 0.0;
+        static const double kP;
+        static const double kI;
+        static const double kD;
 
-        const double kVd = 10;
-        const double kVa = 3;
-        const double kEd = 20;
-        const double kEa = 1;
+        static const double kVd;
+        static const double kVa;
+        static const double kEd;
+        static const double kEa;
 
-        const int toleranceBuffer = 4;
+        static const int toleranceBuffer;
 
         // Joysticks
-        const int wheel = 1;
-        const int throttle = 0;
-        const double wheeldeadzone = 0.05;
-        const double throttledeadzone = 0.05;
-        const int climbbutton = 4;
+        static const int wheel;
+        static const int throttle;
+        static const double wheeldeadzone;
+        static const double throttledeadzone;
+        static const int climbbutton;
 
         // Drivetrain Talon Ports
-        const int left1id = 0;
-        const int left2id = 1;
-        const int right1id = 2;
-        const int right2id = 3;
+        static const int left1id;
+        static const int left2id;
+        static const int right1id;
+        static const int right2id;
 
         // Climber
-        const int motorid = 4;
+        static const int motorid;
 
         // Sensors
-        const uint32_t gyroport = 0;
-        const int lEncoderPortA = 0;
-        const int lEncoderPortB = 1;
-        const int rEncoderPortA = 2;
-        const int rEncoderPortB = 3;
+        static const uint32_t gyroport;
+        static const int lEncoderPortA;
+        static const int lEncoderPortB;
+        static const int rEncoderPortA;
+        static const int rEncoderPortB;
 };

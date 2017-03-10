@@ -9,8 +9,6 @@
 class Robot : public frc::IterativeRobot
 {
     private:
-        Reference ref;
-        Hardware hardware;
         OperatorController operatorController;
         AutoController autoController;
     public:

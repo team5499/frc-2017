@@ -1,12 +1,10 @@
 #include "WaitTimeCommand.h"
 
-WaitTimeCommand::WaitTimeCommand(Reference* ref, Hardware* hardware, int t)
+WaitTimeCommand::WaitTimeCommand(int t)
     :
     start(std::chrono::system_clock::now()),
     wait_time(t)
 {
-    r=ref;
-    h=hardware;
 }
 
 void WaitTimeCommand::init()

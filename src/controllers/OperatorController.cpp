@@ -1,15 +1,13 @@
 #include "OperatorController.h"
 
 //! Initialize joysticks on driver station.
-OperatorController::OperatorController(Reference* ref, Hardware* hardware)
+OperatorController::OperatorController()
     :
-    throttle(ref->throttle),
-    wheel(ref->wheel),
-    wheeldead(ref->wheeldeadzone),
-    throttledead(ref->throttledeadzone)
+    throttle(Reference::throttle),
+    wheel(Reference::wheel),
+    wheeldead(Reference::wheeldeadzone),
+    throttledead(Reference::throttledeadzone)
 {
-    r = ref;
-    h = hardware;
     std::cout << "Initialized Operator Controller." << std::endl;
     
 }
@@ -26,16 +24,16 @@ void OperatorController::handle()
     {
         wheel_value = 0;
     }
-    h->drivetrain.driveLR(throttle_value + wheel_value,
+    Hardware::drivetrain.driveLR(throttle_value + wheel_value,
                           throttle_value - wheel_value);
 
-    if (throttle.GetRawButton(r->climbbutton))
+    if (throttle.GetRawButton(Reference::climbbutton))
     {
-        h->climber.setSpeed(1);
+        Hardware::climber.setSpeed(1);
     }
     else
     {
-        h->climber.setSpeed(0);
+        Hardware::climber.setSpeed(0);
     }
 }
 

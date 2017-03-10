@@ -8,52 +8,33 @@
 class Hardware
 {
     private:
-        Reference ref;
-        double perfectAngle = 0;
-        int perfectDistance = 0;
+        static double perfectAngle;
+        static int perfectDistance;
     public:
-        Drivetrain drivetrain;
-        Climber climber;
+        static Drivetrain drivetrain;
+        static Climber climber;
 
         // Sensors
-        CowLib::CowGyro gyroscope;
-        frc::Encoder lEncoder;
-        frc::Encoder rEncoder;
-        TwoEncoders dist;
+        static CowLib::CowGyro gyroscope;
+        static frc::Encoder lEncoder;
+        static frc::Encoder rEncoder;
+        static TwoEncoders dist;
 
         // PIDControllers
-        frc::PIDController distanceController;
-        frc::PIDController angleController;
-        ManualPIDOut angleOut;
-        ManualPIDOut distOut;
-        CowGyroPID pidgyro;
+        static frc::PIDController distanceController;
+        static frc::PIDController angleController;
+        static ManualPIDOut angleOut;
+        static ManualPIDOut distOut;
+        static CowGyroPID pidgyro;
 
-        Hardware()
-            :
-            ref(),
-            drivetrain(&ref),
-            climber(&ref),
-            gyroscope(ref.gyroport),
-            lEncoder(ref.lEncoderPortA, ref.lEncoderPortB),
-            rEncoder(ref.rEncoderPortA, ref.rEncoderPortB),
-            dist(&lEncoder, &rEncoder),
-            angleOut(),
-            distOut(),
-            pidgyro(&gyroscope),
-            distanceController(ref.kP, ref.kI, ref.kD, &dist, &distOut),
-            angleController(ref.kP, ref.kI, ref.kD, &pidgyro, &angleOut)
-        {
-            angleController.SetAbsoluteTolerance(ref.kEa);
-            angleController.SetToleranceBuffer(ref.toleranceBuffer);
-            distanceController.SetAbsoluteTolerance(ref.kEd);
-            distanceController.SetToleranceBuffer(ref.toleranceBuffer);
-        };
-
-        inline void changeAngle(double dAngle) { perfectAngle+=dAngle; }
-        inline void changeDistance(double dDist) { perfectDistance+=dDist; }
-        inline void updateControllerPoints() {
+        static inline void changeAngle(double dAngle) { perfectAngle+=dAngle; }
+        static inline void changeDistance(double dDist) { perfectDistance+=dDist; }
+        static inline void updateControllerPoints() {
             distanceController.SetSetpoint(perfectDistance);
             angleController.SetSetpoint(perfectAngle);
-        };
+        }
 
 };
+
+//Force the hardware to be initialized
+static Hardware _init_hardware;

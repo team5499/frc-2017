@@ -6,10 +6,9 @@
 class Climber
 {
     private:
-        Reference* r;
         CANTalon motor;
 
     public:
-        Climber(Reference* ref);
+        Climber();
         void setSpeed(double power);
 };

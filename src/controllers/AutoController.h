@@ -8,15 +8,12 @@
 class AutoController : public GenericController
 {
     private:
-        Reference* r;
-        Hardware* h;
-
         Routine autoRoutine;
         GenericCommand* currCommand;
 
         bool finished = false;
     public:
-        AutoController(Reference* ref, Hardware* hardware);
+        AutoController();
         void handle();
         void start();
 };

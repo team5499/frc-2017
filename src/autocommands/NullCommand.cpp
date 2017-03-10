@@ -1,9 +1,7 @@
 #include "NullCommand.h"
 
-NullCommand::NullCommand(Reference* ref, Hardware* hardware)
+NullCommand::NullCommand()
 {
-    r=ref;
-    h=hardware;
 }
 
 void NullCommand::init()

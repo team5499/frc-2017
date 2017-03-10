@@ -8,13 +8,11 @@ class OperatorController : public GenericController
     private:
         frc::Joystick wheel; //!< Reference to wheel for getting steering input.
         frc::Joystick throttle; //!< Reference to throttle for controlling speed.
-        Reference* r;
-        Hardware* h;
 
         double wheeldead;
         double throttledead;
     public:
-        OperatorController(Reference* ref, Hardware* hardware);
+        OperatorController();
         void handle();
         void start();
 };

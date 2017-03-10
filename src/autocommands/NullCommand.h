@@ -5,7 +5,7 @@
 class NullCommand : public GenericCommand
 {
     public:
-        NullCommand(Reference* r, Hardware* h);
+        NullCommand();
         void init();
         void step();
         bool finished();

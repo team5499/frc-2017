@@ -1,11 +1,9 @@
 #include "AutoController.h"
 
-AutoController::AutoController(Reference* ref, Hardware* hardware)
+AutoController::AutoController()
     :
-    autoRoutine(ref, hardware)
+    autoRoutine()
 {
-    r = ref;
-    h = hardware;
     currCommand = autoRoutine.currentCommand();
     std::cout << "Initialized Auto Controller." << std::endl;
     

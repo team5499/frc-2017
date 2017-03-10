@@ -13,7 +13,7 @@ class TurnCommand : public GenericCommand
         ManualPIDOut* distOut;
         ManualPIDOut* angleOut;
     public:
-        TurnCommand(Reference* r, Hardware* h, int degrees);
+        TurnCommand(int degrees);
         void init();
         void step();
         bool finished();

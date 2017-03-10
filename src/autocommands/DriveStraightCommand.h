@@ -13,7 +13,7 @@ class DriveStraightCommand : public GenericCommand
         ManualPIDOut* distOut;
         ManualPIDOut* angleOut;
     public:
-        DriveStraightCommand(Reference* r, Hardware* h, int distance);
+        DriveStraightCommand(int distance);
         void init();
         void step();
         bool finished();

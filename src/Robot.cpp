@@ -2,22 +2,24 @@
 
 Robot::Robot()
     :
-    ref(),
-    hardware(),
-    operatorController(&ref, &hardware),
-    autoController(&ref, &hardware)
+    operatorController(),
+    autoController()
 {
+    Hardware::angleController.SetAbsoluteTolerance(Reference::kEa);
+    Hardware::angleController.SetToleranceBuffer(Reference::toleranceBuffer);
+    Hardware::distanceController.SetAbsoluteTolerance(Reference::kEd);
+    Hardware::distanceController.SetToleranceBuffer(Reference::toleranceBuffer);
     std::cout << "Iterative Robot Framework initialized." << std::endl;
 }
 void Robot::DisabledInit() {
 
 }
 void Robot::DisabledPeriodic() {
-    hardware.gyroscope.HandleCalibration();
+    Hardware::gyroscope.HandleCalibration();
 }
 
 void Robot::AutonomousInit() {
-    hardware.gyroscope.FinalizeCalibration();
+    Hardware::gyroscope.FinalizeCalibration();
     autoController.start();
 
 }

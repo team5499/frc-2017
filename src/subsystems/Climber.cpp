@@ -1,10 +1,9 @@
 #include "Climber.h"
 
-Climber::Climber(Reference* ref)
+Climber::Climber()
     :
-    motor(ref->motorid)
+    motor(Reference::motorid)
 {
-    r = ref;
 }
 
 void Climber::setSpeed(double power)

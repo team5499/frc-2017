@@ -9,7 +9,7 @@ class WaitTimeCommand : public GenericCommand
         int wait_time;
         std::chrono::time_point<std::chrono::system_clock> start;
     public:
-        WaitTimeCommand(Reference* r, Hardware* h, int t);
+        WaitTimeCommand(int t);
         void init();
         void step();
         bool finished();

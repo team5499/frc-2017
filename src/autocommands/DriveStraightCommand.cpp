@@ -1,17 +1,15 @@
 #include "DriveStraightCommand.h"
 
-DriveStraightCommand::DriveStraightCommand(Reference* ref, Hardware* hardware, int dist)
+DriveStraightCommand::DriveStraightCommand(int dist)
     :
     distance(dist)
 {
-    r = ref;
-    h = hardware;
-    angleOut = &(h->angleOut);
-    distOut = &(h->distOut);
-    distanceController = &(h->distanceController);
-    angleController = &(h->angleController);
-    h->changeDistance(distance);
-    h->updateControllerPoints();
+    angleOut = &(Hardware::angleOut);
+    distOut = &(Hardware::distOut);
+    distanceController = &(Hardware::distanceController);
+    angleController = &(Hardware::angleController);
+    Hardware::changeDistance(distance);
+    Hardware::updateControllerPoints();
 }
 
 void DriveStraightCommand::init()
@@ -22,19 +20,19 @@ void DriveStraightCommand::init()
 
 void DriveStraightCommand::step()
 {
-    double a = h->gyroscope.GetAngle();
+    double a = Hardware::gyroscope.GetAngle();
     va = a-lastangle;
     lastangle = a;
     double cvelocity = distOut->getOut();
     double cangle = angleOut->getOut();
-    h->drivetrain.driveLR(cvelocity+cangle, cvelocity-cangle);
+    Hardware::drivetrain.driveLR(cvelocity+cangle, cvelocity-cangle);
 }
 
 bool DriveStraightCommand::finished()
 {
     // Check if controllers are on target and robot is sufficiently stationary
-    if (std::fabs(h->dist.GetRate()) < r->kVd && std::fabs(distanceController->GetError()) < r->kEd
-    && std::fabs(va) < r->kVa && std::fabs(angleController->GetError()) < r->kEa) {
+    if (std::fabs(Hardware::dist.GetRate()) < Reference::kVd && std::fabs(distanceController->GetError()) < Reference::kEd
+    && std::fabs(va) < Reference::kVa && std::fabs(angleController->GetError()) < Reference::kEa) {
         distanceController->Disable();
         angleController->Disable();
         return true;
