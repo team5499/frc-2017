@@ -50,6 +50,11 @@ namespace team5499
     else
       hardware::intake_roller.Set(0);
 
+    //LEDS
+    hardware::leds.setRed(255);
+    hardware::leds.setGreen(255);
+    hardware::leds.setBlue(255);
+
 //    bool climb = hardware::xbox.GetRawButton(3);
 //    if(climb)
 //      hardware::climber.Set(1);

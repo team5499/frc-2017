@@ -21,5 +21,9 @@ namespace team5499
     const static int wheel_port = 0;
     const static int throttle_port = 1;
     const static int xbox_port = 2;
+    //LEDs
+    const static int red_port = 0;
+    const static int green_port = 1;
+    const static int blue_port = 2;
   };
 }
