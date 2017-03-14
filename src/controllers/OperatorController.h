@@ -1,9 +1,7 @@
 #pragma once
 
 #include "GenericController.h"
-#include "../subsystems/Gearmech.h"
-#include "../subsystems/Climber.h"
-#include "../subsystems/Drivetrain.h"
+#include "../subsystems/Subsystems.h"
 
 namespace team5499
 {

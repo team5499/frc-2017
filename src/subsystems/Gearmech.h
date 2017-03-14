@@ -1,23 +1,17 @@
 #pragma once
+
 #include "../Hardware.h"
+#include "../util/PID.h"
 
 namespace team5499
 {
-  class Gearmech
+  class GearMech
   {
   private:
+    double setpoint = 0.91;
 
   public:
-    Gearmech();
-
-    static void setRoller(double value)
-    {
-      hardware::intake_roller.Set(value);
-    }
-
-    static void setArm(double value)
-    {
-      hardware::intake_arm.Set(value);
-    }
+    void SetSetpoint(double sp);
+    void handle();
   };
 }

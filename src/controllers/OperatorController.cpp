@@ -1,21 +1,23 @@
 #include "OperatorController.h"
 
+#include "../subsystems/Drivetrain.h"
+
 namespace team5499
 {
   void OperatorController::handle()
   {
-//  Gearmech::setArm(hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand));
+//  GearMech::setArm(hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand));
 //  if(hardware::xbox.GetAButton())
 //  {
-//    Gearmech::setRoller(1);
+//    GearMech::setRoller(1);
 //  }
 //  else if(hardware::xbox.GetBButton())
 //  {
-//    Gearmech::setRoller(-1);
+//    GearMech::setRoller(-1);
 //  }
 //  else
 //  {
-//    Gearmech::setRoller(0);
+//    GearMech::setRoller(0);
 //  }
 //
 //  if(hardware::xbox.GetXButton())
@@ -50,14 +52,24 @@ namespace team5499
     else
       hardware::intake_roller.Set(0);
 
-//    bool climb = hardware::xbox.GetRawButton(3);
-//    if(climb)
-//      hardware::climber.Set(1);
-//    else
-//      hardware::climber.Set(0);
+    bool climb = hardware::xbox.GetRawButton(3);
+    if(climb)
+      hardware::climber.Set(1);
+    else
+      hardware::climber.Set(0);
 
-    double intake = hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand);
-    hardware::intake_arm.Set(-intake*.25);
+    if(hardware::xbox.GetRawButton(1))
+    {
+      subsystems::gearmech.SetSetpoint(0.91);
+    }
+    else if(hardware::xbox.GetRawButton(2))
+    {
+      subsystems::gearmech.SetSetpoint(2.53);
+    }
+    subsystems::gearmech.handle();
+
+//    double intake = hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand);
+//    hardware::intake_arm.Set(-intake*.25);
   }
 
   void OperatorController::start()

@@ -8,6 +8,8 @@
 
 namespace team5499
 {
+  class GearMech;
+
   /**
    * Contains static objects for all robot hardware
    */
@@ -23,7 +25,7 @@ namespace team5499
     {
       if(!_HAL_initialized)
       {
-        std::cout << "Initializing HAL" << std::endl;
+        std::cout << "Initializing HAL... ";
         if(!HAL_Initialize(0))
         {
           std::cerr << "FATAL ERROR: HAL could not be initialized" << std::endl;
@@ -47,6 +49,7 @@ namespace team5499
     static Joystick throttle;
     static XboxController xbox;
     //Sensors
+    static AnalogInput intake_pot;
     //static CowLib::CowGyro gyro;
     static CowLib::CowAlphaNum mxp_display;
   };

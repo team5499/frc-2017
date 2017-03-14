@@ -17,6 +17,8 @@ void Robot::RobotInit()
 
   team5499::hardware::intake_arm.SetInverted(true);
 
+  team5499::hardware::climber.SetInverted(true);
+
   team5499::hardware::mxp_display.SetBanner("5499");
   team5499::hardware::mxp_display.DisplayBanner();
   std::cout << "RobotInit complete" << std::endl;
@@ -24,7 +26,6 @@ void Robot::RobotInit()
 
 void Robot::RobotPeriodic()
 {
-
 }
 
 void Robot::DisabledInit()
