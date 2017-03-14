@@ -19,8 +19,8 @@ namespace team5499
   XboxController hardware::xbox(Reference::xbox_port);
 
   AnalogInput hardware::intake_pot(0);
-//CowLib::CowGyro hardware::gyro(Reference::gyro_port);
-  CowLib::CowAlphaNum hardware::mxp_display(0x70);
+  team1538::CowGyro hardware::mxp_gyro;
+  team1538::CowAlphaNum hardware::mxp_display(0x70);
 
   LED hardware::leds;
 }

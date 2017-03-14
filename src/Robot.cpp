@@ -26,10 +26,12 @@ void Robot::RobotInit()
 
 void Robot::RobotPeriodic()
 {
+  std::cout << "Gyro: " << team5499::hardware::mxp_gyro.GetAngle() << std::endl;
 }
 
 void Robot::DisabledInit()
 {
+  team5499::hardware::mxp_gyro.BeginCalibration();
   std::cout << "DisabledInit" << std::endl;
 }
 
@@ -40,7 +42,7 @@ void Robot::DisabledPeriodic()
 
 void Robot::AutonomousInit()
 {
-  //hardware::gyro.FinalizeCalibration();
+  team5499::hardware::mxp_gyro.FinalizeCalibration();
   //autoController.start();
   std::cout << "AutonomousInit" << std::endl;
 }
@@ -52,6 +54,7 @@ void Robot::AutonomousPeriodic()
 
 void Robot::TeleopInit()
 {
+  team5499::hardware::mxp_gyro.FinalizeCalibration();
   std::cout << "TeleopInit" << std::endl;
   operatorController.start();
 }

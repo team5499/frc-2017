@@ -4,6 +4,7 @@
 #include <WPILib.h>
 #include <CANTalon.h>
 #include <team1538/CowAlphaNum.h>
+#include <team1538/CowGyro.h>
 #include "subsystems/LED.h"
 #include "Reference.h"
 
@@ -51,8 +52,8 @@ namespace team5499
     static XboxController xbox;
     //Sensors
     static AnalogInput intake_pot;
-    //static CowLib::CowGyro gyro;
-    static CowLib::CowAlphaNum mxp_display;
+    static team1538::CowGyro mxp_gyro;
+    static team1538::CowAlphaNum mxp_display;
     //LEDs
     static LED leds;
   };

@@ -18,32 +18,32 @@
 #define HT16K33_CMD_BRIGHTNESS 0xE0
 #define HT16K33_CMD_BUFFER_SIZE 17
 
-namespace CowLib
+namespace team1538
 {
-	class CowAlphaNum
-	{
-	public:
-		CowAlphaNum(uint8_t address);
-		virtual ~CowAlphaNum();
-		void BlinkRate(uint8_t b);
-		void SetBrightness(uint8_t b);
-		void WriteAscii(uint32_t n, uint8_t c, bool d);
-		void WriteRaw(uint32_t n, uint16_t d);
-		void Clear();
-		void Display();
-		void SetBanner(std::string);
-		void SetBannerPosition(uint32_t);
-		void DisplayBanner();
-		void OscillatorOn();
+  class CowAlphaNum
+  {
+  public:
+    CowAlphaNum(uint8_t address);
+    virtual ~CowAlphaNum();
+    void BlinkRate(uint8_t b);
+    void SetBrightness(uint8_t b);
+    void WriteAscii(uint32_t n, uint8_t c, bool d);
+    void WriteRaw(uint32_t n, uint16_t d);
+    void Clear();
+    void Display();
+    void SetBanner(std::string);
+    void SetBannerPosition(uint32_t);
+    void DisplayBanner();
+    void OscillatorOn();
 
-	private:
-		uint8_t m_Address;
-		I2C *m_I2C;
-		uint16_t *m_Banner;
-		uint32_t m_BannerLength;
-		uint32_t m_BannerPosition;
-		uint8_t m_DisplayBuffer[HT16K33_CMD_BUFFER_SIZE];
-	};
+  private:
+    uint8_t m_Address;
+    I2C* m_I2C;
+    uint16_t* m_Banner;
+    uint32_t m_BannerLength;
+    uint32_t m_BannerPosition;
+    uint8_t m_DisplayBuffer[HT16K33_CMD_BUFFER_SIZE];
+  };
 }
 
 #endif /* __COW_ALPHA_NUM_H__ */
