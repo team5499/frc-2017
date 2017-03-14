@@ -21,4 +21,6 @@ namespace team5499
   AnalogInput hardware::intake_pot(0);
 //CowLib::CowGyro hardware::gyro(Reference::gyro_port);
   CowLib::CowAlphaNum hardware::mxp_display(0x70);
+
+  LED hardware::leds;
 }

@@ -52,6 +52,7 @@ namespace team5499
     else
       hardware::intake_roller.Set(0);
 
+<<<<<<< HEAD
     bool climb = hardware::xbox.GetRawButton(3);
     if(climb)
       hardware::climber.Set(1);
@@ -67,6 +68,18 @@ namespace team5499
       subsystems::gearmech.SetSetpoint(2.53);
     }
     subsystems::gearmech.handle();
+=======
+    //LEDS
+    hardware::leds.setRed(255);
+    hardware::leds.setGreen(255);
+    hardware::leds.setBlue(255);
+
+//    bool climb = hardware::xbox.GetRawButton(3);
+//    if(climb)
+//      hardware::climber.Set(1);
+//    else
+//      hardware::climber.Set(0);
+>>>>>>> cb3ae357397eaef343e9c4a2603d88770f570485
 
 //    double intake = hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand);
 //    hardware::intake_arm.Set(-intake*.25);
