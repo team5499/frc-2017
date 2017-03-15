@@ -33,8 +33,5 @@ const int Reference::rollerid = 7;
 const int Reference::armid = 6;
 
 // Sensors
-const uint32_t Reference::gyroport = 0;
-const int Reference::lEncoderPortA = 0;
-const int Reference::lEncoderPortB = 1;
-const int Reference::rEncoderPortA = 2;
-const int Reference::rEncoderPortB = 3;
+const int Reference::encoderPortA = 2;
+const int Reference::encoderPortB = 3;

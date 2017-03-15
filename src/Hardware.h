@@ -5,7 +5,7 @@
 #include "subsystems/Drivetrain.h"
 #include "subsystems/Climber.h"
 #include "subsystems/Gearmech.h"
-#include "CowLib/CowGyro.h"
+#include "team1538/include/team1538/CowGyro.h"
 class Hardware
 {
     private:
@@ -17,10 +17,8 @@ class Hardware
         static Gearmech gearmech;
 
         // Sensors
-        static CowLib::CowGyro gyroscope;
-        static frc::Encoder lEncoder;
-        static frc::Encoder rEncoder;
-        static TwoEncoders dist;
+        static team1538::CowGyro gyroscope;
+        static frc::Encoder encoder;
 
         // PIDControllers
         static frc::PIDController distanceController;

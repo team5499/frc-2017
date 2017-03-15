@@ -37,9 +37,6 @@ class Reference {
         static const int armid;
 
         // Sensors
-        static const uint32_t gyroport;
-        static const int lEncoderPortA;
-        static const int lEncoderPortB;
-        static const int rEncoderPortA;
-        static const int rEncoderPortB;
+        static const int encoderPortA;
+        static const int encoderPortB;
 };

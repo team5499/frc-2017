@@ -31,7 +31,7 @@ void DriveStraightCommand::step()
 bool DriveStraightCommand::finished()
 {
     // Check if controllers are on target and robot is sufficiently stationary
-    if (std::fabs(Hardware::dist.GetRate()) < Reference::kVd && std::fabs(distanceController->GetError()) < Reference::kEd
+    if (std::fabs(Hardware::encoder.GetRate()) < Reference::kVd && std::fabs(distanceController->GetError()) < Reference::kEd
     && std::fabs(va) < Reference::kVa && std::fabs(angleController->GetError()) < Reference::kEa) {
         distanceController->Disable();
         angleController->Disable();

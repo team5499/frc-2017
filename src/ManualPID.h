@@ -1,5 +1,5 @@
 #pragma once
-#include "CowLib/CowGyro.h"
+#include "team1538/include/team1538/CowGyro.h"
 #include <WPILib.h>
 
 //! Class to manage the PIDOutput interface with an IterativeRobot.
@@ -19,39 +19,10 @@ class ManualPIDOut : public frc::PIDOutput
 
 };
 
-/*
-* This class implements PID.
-*/
-class TwoEncoders : public frc::PIDSource
-{
-    private:
-        // Pointers to encoders owned by other classes
-        frc::Encoder *l;
-        frc::Encoder *r;
-    protected:
-        frc::PIDSourceType m_pidSource = frc::PIDSourceType::kDisplacement;
-    public:
-        //! Get our source.
-        PIDSourceType GetPIDSourceType() const {return m_pidSource;}
-        //! Set the specified sourcetype for both of our encoders.
-        void SetPIDSourceType(frc::PIDSourceType pidSource) {l->SetPIDSourceType(pidSource);
-                                                             r->SetPIDSourceType(pidSource);
-                                                             m_pidSource = pidSource;}
-        //! Reset the values for both encoders.
-        void Reset() {l->Reset(); r->Reset();}
-        //! Return the average of both encoder values.
-        double PIDGet() {return (l->PIDGet()+r->PIDGet())/2.0;}
-        //! Return velocity
-        double GetRate() {return (l->GetRate()+r->GetRate())/2.0;}
-        //! Initialize both of our pointers to actual Encoder classes.
-        TwoEncoders(frc::Encoder* left, frc::Encoder* right) {l = left; r = right;}
-
-};
-
 class CowGyroPID : public frc::PIDSource
 {
     private:
-        CowLib::CowGyro *gyro;
+        team1538::CowGyro *gyro;
      protected:
         frc::PIDSourceType m_pidSource = frc::PIDSourceType::kDisplacement;
     public:
@@ -67,7 +38,7 @@ class CowGyroPID : public frc::PIDSource
                 return 0;
             }
         }
-        CowGyroPID(CowLib::CowGyro* g)
+        CowGyroPID(team1538::CowGyro* g)
         {
             gyro=g;
         }

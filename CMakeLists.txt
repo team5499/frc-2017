@@ -22,9 +22,9 @@ set(SOURCE_FILES src/controllers/AutoController.cpp
               src/autocommands/DriveStraightCommand.cpp
               src/autocommands/TurnCommand.cpp
               src/autocommands/WaitTimeCommand.cpp
-              
-              src/CowLib/CowGyro.cpp
-              src/CowLib/CowCircularBuffer.cpp)
+
+              src/team1538/src/CowGyro.cpp
+              src/team1538/src/CowAlphaNum.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Example: adding CTRE library

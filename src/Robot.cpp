@@ -12,10 +12,9 @@ Robot::Robot()
     std::cout << "Iterative Robot Framework initialized." << std::endl;
 }
 void Robot::DisabledInit() {
-
+    Hardware::gyroscope.BeginCalibration();
 }
 void Robot::DisabledPeriodic() {
-    Hardware::gyroscope.HandleCalibration();
 }
 
 void Robot::AutonomousInit() {
