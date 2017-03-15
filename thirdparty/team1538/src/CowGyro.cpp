@@ -126,12 +126,13 @@ namespace team1538
   bool CowGyro::InitializeGyro()
   {
     // Start a self-check
-    DoTransaction(SENSOR_DATA_CMD | CHK_GENERATE_FAULTS_BIT);
-//	if(result != 1)
-//	{
-//		std::cerr << "Unexpected self check response " << std::hex << result << std::endl;
-//		return false;
-//	}
+    int32_t result = DoTransaction(SENSOR_DATA_CMD | CHK_GENERATE_FAULTS_BIT);
+    if(result != 1)
+    {
+      std::cerr << "Unexpected self check response " << std::hex << result
+                << std::endl;
+      return false;
+    }
 
     // Wait for the fault conditions to occur
     std::this_thread::sleep_for(std::chrono::milliseconds(50));
@@ -223,7 +224,7 @@ namespace team1538
     uint8_t resultBuffer[4];
 
     int transactionSize = m_SPI.Transaction(commandArray,
-                                                      resultBuffer, 4);
+                                            resultBuffer, 4);
 
     if(transactionSize != 4)
     {
