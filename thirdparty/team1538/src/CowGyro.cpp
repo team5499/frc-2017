@@ -22,6 +22,8 @@ namespace team1538
     m_SPI.SetClockActiveHigh();
     m_SPI.SetMSBFirst();
 
+    m_Thread.detach();
+
     Wait(2);
   }
 
@@ -30,7 +32,6 @@ namespace team1538
     bool initialized = false;
     while(!initialized)
     {
-
       initialized = InitializeGyro();
 
       if(!initialized)
