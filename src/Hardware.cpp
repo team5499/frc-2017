@@ -20,7 +20,7 @@ namespace team5499
 
   AnalogInput hardware::intake_pot(0);
   team1538::CowGyro hardware::mxp_gyro;
-  team1538::CowAlphaNum hardware::mxp_display(0x70);
+  team1538::CowAlphaNum hardware::mxp_display;
 
   LED hardware::leds;
 }

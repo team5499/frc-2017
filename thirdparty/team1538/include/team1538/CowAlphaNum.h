@@ -22,9 +22,16 @@ namespace team1538
 {
   class CowAlphaNum
   {
+  private:
+    static uint16_t m_Table[];
+    I2C m_I2C;
+    uint16_t* m_Banner;
+    uint32_t m_BannerLength = 0;
+    uint32_t m_BannerPosition = 0;
+    uint8_t m_DisplayBuffer[HT16K33_CMD_BUFFER_SIZE] = {0};
+
   public:
-    CowAlphaNum(uint8_t address);
-    virtual ~CowAlphaNum();
+    CowAlphaNum();
     void BlinkRate(uint8_t b);
     void SetBrightness(uint8_t b);
     void WriteAscii(uint32_t n, uint8_t c, bool d);
@@ -35,14 +42,6 @@ namespace team1538
     void SetBannerPosition(uint32_t);
     void DisplayBanner();
     void OscillatorOn();
-
-  private:
-    uint8_t m_Address;
-    I2C* m_I2C;
-    uint16_t* m_Banner;
-    uint32_t m_BannerLength;
-    uint32_t m_BannerPosition;
-    uint8_t m_DisplayBuffer[HT16K33_CMD_BUFFER_SIZE];
   };
 }
 

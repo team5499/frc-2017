@@ -11,23 +11,18 @@
 namespace team1538
 {
   CowGyro::CowGyro()
+          :
+          m_SPI(SPI::Port::kMXP),
+          m_Thread([this]() { this->Handle(); })
   {
     Wait(0.25);
 
-    m_Spi = new SPI(SPI::kMXP);
-    m_Spi->SetClockRate(4000000);
-    m_Spi->SetChipSelectActiveLow();
-    m_Spi->SetClockActiveHigh();
-    m_Spi->SetMSBFirst();
+    m_SPI.SetClockRate(4000000);
+    m_SPI.SetChipSelectActiveLow();
+    m_SPI.SetClockActiveHigh();
+    m_SPI.SetMSBFirst();
+
     Wait(2);
-
-    m_Thread = new std::thread([gyro = this](){gyro->Handle();});
-  }
-
-  CowGyro::~CowGyro()
-  {
-    m_Thread->detach();
-    delete m_Thread;
   }
 
   void CowGyro::Handle()
@@ -58,7 +53,7 @@ namespace team1538
 
       e_StatusFlag status = CowGyro::ExtractStatus(reading);
 
-      std::vector <e_ErrorFlag> errors = CowGyro::ExtractErrors(reading);
+      std::vector<e_ErrorFlag> errors = CowGyro::ExtractErrors(reading);
 
       if((e_StatusFlag::VALID_DATA != status) || !errors.empty())
       {
@@ -154,7 +149,7 @@ namespace team1538
       return false;
     }
 
-    std::vector <e_ErrorFlag> errors = ExtractErrors(selfCheckResult);
+    std::vector<e_ErrorFlag> errors = ExtractErrors(selfCheckResult);
     bool containsAllErrors = std::includes(m_ALL_ERRORS.begin(),
                                            m_ALL_ERRORS.end(), errors.begin(),
                                            errors.end());
@@ -226,7 +221,7 @@ namespace team1538
 
     uint8_t resultBuffer[4];
 
-    int transactionSize = CowGyro::m_Spi->Transaction(commandArray,
+    int transactionSize = m_SPI.Transaction(commandArray,
                                                       resultBuffer, 4);
 
     if(transactionSize != 4)
@@ -289,9 +284,9 @@ namespace team1538
 
   }
 
-  std::vector <e_ErrorFlag> CowGyro::ExtractErrors(int result)
+  std::vector<e_ErrorFlag> CowGyro::ExtractErrors(int result)
   {
-    std::vector <e_ErrorFlag> errors;
+    std::vector<e_ErrorFlag> errors;
     std::vector<e_ErrorFlag>::iterator it;
 
     for(int i = PLL_FAILURE; i <= GENERATED_FAULTS; ++i)

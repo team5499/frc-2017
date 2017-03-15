@@ -21,12 +21,10 @@ void Robot::RobotInit()
 
   team5499::hardware::mxp_display.SetBanner("5499");
   team5499::hardware::mxp_display.DisplayBanner();
-  std::cout << "RobotInit complete" << std::endl;
 }
 
 void Robot::RobotPeriodic()
 {
-  std::cout << "Gyro: " << team5499::hardware::mxp_gyro.GetAngle() << std::endl;
 }
 
 void Robot::DisabledInit()
@@ -61,5 +59,6 @@ void Robot::TeleopInit()
 
 void Robot::TeleopPeriodic()
 {
+  std::cout << "Gyro: " << team5499::hardware::mxp_gyro.GetAngle() << std::endl;
   operatorController.handle();
 }

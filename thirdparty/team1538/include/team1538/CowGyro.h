@@ -37,8 +37,8 @@ namespace team1538
   class CowGyro
   {
   private:
-    std::thread* m_Thread;
-    SPI* m_Spi;
+    std::thread m_Thread;
+    SPI m_SPI;
 
     std::vector <e_ErrorFlag> m_ALL_ERRORS = {
             PLL_FAILURE,
@@ -73,7 +73,6 @@ namespace team1538
 
   public:
     CowGyro();
-    virtual ~CowGyro();
     float GetAngle();
     double GetRate();
     void ResetAngle();
