@@ -25,7 +25,7 @@ namespace team1538
   private:
     static uint16_t m_Table[];
     I2C m_I2C;
-    uint16_t* m_Banner;
+    uint16_t* m_Banner = nullptr;
     uint32_t m_BannerLength = 0;
     uint32_t m_BannerPosition = 0;
     uint8_t m_DisplayBuffer[HT16K33_CMD_BUFFER_SIZE] = {0};
