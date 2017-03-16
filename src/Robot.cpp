@@ -36,6 +36,9 @@ void Robot::DisabledInit()
 void Robot::DisabledPeriodic()
 {
   //hardware::gyro.HandleCalibration();
+    team5499::hardware::leds.setRed(255);
+    team5499::hardware::leds.setGreen(255);
+    team5499::hardware::leds.setBlue(255);
 }
 
 void Robot::AutonomousInit()

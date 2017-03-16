@@ -68,6 +68,8 @@ namespace team5499
     }
     subsystems::gearmech.handle();
 
+    subsystems::gearmech.
+
 //    double intake = hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand);
 //    hardware::intake_arm.Set(-intake*.25);
   }

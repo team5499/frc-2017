@@ -13,5 +13,6 @@ namespace team5499
   public:
     void SetSetpoint(double sp);
     void handle();
+    bool seeGear();
   };
 }

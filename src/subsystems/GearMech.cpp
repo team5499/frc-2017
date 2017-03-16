@@ -17,4 +17,8 @@ namespace team5499
     std::cout << "PV: " << pv << std::endl;
     std::cout << "Output: " << output << std::endl;
   }
+  bool GearMech::seeGear()
+  {
+    return true;
+  }
 }
