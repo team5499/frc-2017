@@ -19,6 +19,7 @@ namespace team5499
   XboxController hardware::xbox(Reference::xbox_port);
 
   AnalogInput hardware::intake_pot(0);
+  Encoder hardware::drive_encoder(10, 11);
   team1538::CowGyro hardware::mxp_gyro;
   team1538::CowAlphaNum hardware::mxp_display;
 

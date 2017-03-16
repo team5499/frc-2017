@@ -126,13 +126,13 @@ namespace team1538
   bool CowGyro::InitializeGyro()
   {
     // Start a self-check
-    int32_t result = DoTransaction(SENSOR_DATA_CMD | CHK_GENERATE_FAULTS_BIT);
-    if(result != 1)
-    {
-      std::cerr << "Unexpected self check response " << std::hex << result
-                << std::endl;
-      return false;
-    }
+    DoTransaction(SENSOR_DATA_CMD | CHK_GENERATE_FAULTS_BIT);
+//    if(result != 1)
+//    {
+//      std::cerr << "Unexpected self check response " << std::hex << result
+//                << std::endl;
+//      return false;
+//    }
 
     // Wait for the fault conditions to occur
     std::this_thread::sleep_for(std::chrono::milliseconds(50));

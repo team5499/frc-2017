@@ -1,64 +1,73 @@
 #include "Robot.h"
 
-Robot::Robot()
+namespace team5499
 {
-  std::cout << "Iterative Robot Framework initialized." << std::endl;
-}
+  auto autoController = make_auto_controller(
+    make_auto_routine(
+      IntakeSetpointCommand(0.1, 0.75),
+      DriveDistanceCommand(5, 6 * 12),
+      IntakeSetpointCommand(1, 2),
+      DriveDistanceCommand(3, -4 * 12)
+    )
+  );
 
-void Robot::RobotInit()
-{
-  team5499::hardware::drive_left1.SetInverted(true);
-  team5499::hardware::drive_left2.SetInverted(true);
+  Robot::Robot()
+  {
+  }
 
-  team5499::hardware::drive_left1.SetVoltageRampRate(10);
-  team5499::hardware::drive_left2.SetVoltageRampRate(10);
-  team5499::hardware::drive_right1.SetVoltageRampRate(10);
-  team5499::hardware::drive_right2.SetVoltageRampRate(10);
+  void Robot::RobotInit()
+  {
+    hardware::drive_right1.SetInverted(true);
+    hardware::drive_right2.SetInverted(true);
 
-  team5499::hardware::intake_arm.SetInverted(true);
+    hardware::drive_left1.SetVoltageRampRate(10);
+    hardware::drive_left2.SetVoltageRampRate(10);
+    hardware::drive_right1.SetVoltageRampRate(10);
+    hardware::drive_right2.SetVoltageRampRate(10);
 
-  team5499::hardware::climber.SetInverted(true);
+    hardware::intake_arm.SetInverted(true);
 
-  team5499::hardware::mxp_display.SetBanner("5499");
-  team5499::hardware::mxp_display.DisplayBanner();
-}
+    hardware::climber.SetInverted(true);
 
-void Robot::RobotPeriodic()
-{
-}
+    hardware::mxp_display.SetBanner("5499");
+    hardware::mxp_display.DisplayBanner();
 
-void Robot::DisabledInit()
-{
-  team5499::hardware::mxp_gyro.BeginCalibration();
-  std::cout << "DisabledInit" << std::endl;
-}
+    hardware::drive_encoder.SetDistancePerPulse(0.0490625); // 4 * pi / 256
+  }
 
-void Robot::DisabledPeriodic()
-{
-  //hardware::gyro.HandleCalibration();
-}
+  void Robot::RobotPeriodic()
+  {
+  }
 
-void Robot::AutonomousInit()
-{
-  team5499::hardware::mxp_gyro.FinalizeCalibration();
-  //autoController.start();
-  std::cout << "AutonomousInit" << std::endl;
-}
+  void Robot::DisabledInit()
+  {
+//    std::cout << "Mode: " << autoController.GetCurrentRoutineName() << std::endl;
+    hardware::mxp_gyro.BeginCalibration();
+  }
 
-void Robot::AutonomousPeriodic()
-{
-  //autoController.handle();
-}
+  void Robot::DisabledPeriodic()
+  {
+  }
 
-void Robot::TeleopInit()
-{
-  team5499::hardware::mxp_gyro.FinalizeCalibration();
-  std::cout << "TeleopInit" << std::endl;
-  operatorController.start();
-}
+  void Robot::AutonomousInit()
+  {
+    autoController.Reset();
+    hardware::mxp_gyro.FinalizeCalibration();
+  }
 
-void Robot::TeleopPeriodic()
-{
-  std::cout << "Gyro: " << team5499::hardware::mxp_gyro.GetAngle() << std::endl;
-  operatorController.handle();
+  void Robot::AutonomousPeriodic()
+  {
+    autoController.Step();
+    subsystems::gearmech.handle();
+  }
+
+  void Robot::TeleopInit()
+  {
+    hardware::mxp_gyro.FinalizeCalibration();
+  }
+
+  void Robot::TeleopPeriodic()
+  {
+    operatorController.Step();
+  }
 }

@@ -4,7 +4,7 @@
 
 namespace team5499
 {
-  void OperatorController::handle()
+  void OperatorController::Step()
   {
 //  GearMech::setArm(hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand));
 //  if(hardware::xbox.GetAButton())
@@ -38,11 +38,14 @@ namespace team5499
       else
         wheel *= 0.25;
     }
-    Drivetrain::driveLR(throttle + wheel, throttle - wheel);
+    subsystems::drivetrain.Drive(throttle + wheel, throttle - wheel);
 
-    bool roller_intake = hardware::xbox.GetBumper(Joystick::JoystickHand::kRightHand);
-    bool roller_intake_slow = hardware::xbox.GetTriggerAxis(Joystick::JoystickHand::kRightHand);
-    bool roller_outtake = hardware::xbox.GetBumper(Joystick::JoystickHand::kLeftHand);
+    bool roller_intake = hardware::xbox.GetBumper(
+      Joystick::JoystickHand::kRightHand);
+    bool roller_intake_slow = hardware::xbox.GetTriggerAxis(
+      Joystick::JoystickHand::kRightHand);
+    bool roller_outtake = hardware::xbox.GetBumper(
+      Joystick::JoystickHand::kLeftHand);
     if(roller_intake)
       hardware::intake_roller.Set(0.6);
     else if(roller_intake_slow > 0.5)
@@ -70,10 +73,5 @@ namespace team5499
 
 //    double intake = hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand);
 //    hardware::intake_arm.Set(-intake*.25);
-  }
-
-  void OperatorController::start()
-  {
-
   }
 }

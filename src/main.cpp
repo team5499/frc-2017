@@ -2,7 +2,7 @@
 
 int main()
 {
-  static Robot robot;
+  static team5499::Robot robot;
   robot.StartCompetition();
   return 0;
 }
