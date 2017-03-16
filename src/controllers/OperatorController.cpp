@@ -6,30 +6,7 @@ namespace team5499
 {
   void OperatorController::Step()
   {
-//  GearMech::setArm(hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand));
-//  if(hardware::xbox.GetAButton())
-//  {
-//    GearMech::setRoller(1);
-//  }
-//  else if(hardware::xbox.GetBButton())
-//  {
-//    GearMech::setRoller(-1);
-//  }
-//  else
-//  {
-//    GearMech::setRoller(0);
-//  }
-//
-//  if(hardware::xbox.GetXButton())
-//  {
-//    Climber::climb();
-//  }
-//  else
-//  {
-//    Climber::stop();
-//  }
-
-    double throttle = hardware::throttle.GetRawAxis(1);
+    double throttle = -hardware::throttle.GetRawAxis(1);
     double wheel = hardware::wheel.GetRawAxis(0);
     if(!hardware::wheel.GetRawButton(8))
     {
@@ -38,7 +15,7 @@ namespace team5499
       else
         wheel *= 0.25;
     }
-    subsystems::drivetrain.Drive(throttle + wheel, throttle - wheel);
+    subsystems::drivetrain.Drive(throttle - wheel, throttle + wheel);
 
     bool roller_intake = hardware::xbox.GetBumper(
       Joystick::JoystickHand::kRightHand);
@@ -61,17 +38,7 @@ namespace team5499
     else
       hardware::climber.Set(0);
 
-    if(hardware::xbox.GetRawButton(1))
-    {
-      subsystems::gearmech.SetSetpoint(0.91);
-    }
-    else if(hardware::xbox.GetRawButton(2))
-    {
-      subsystems::gearmech.SetSetpoint(2.53);
-    }
-    subsystems::gearmech.handle();
-
-//    double intake = hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand);
-//    hardware::intake_arm.Set(-intake*.25);
+    double intake = hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand);
+    hardware::intake_arm.Set(-intake * .25);
   }
 }

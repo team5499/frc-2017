@@ -27,8 +27,6 @@ namespace team5499
 
     hardware::intake_arm.SetInverted(true);
 
-    hardware::climber.SetInverted(true);
-
     hardware::mxp_display.SetBanner("5499");
     hardware::mxp_display.DisplayBanner();
 
@@ -41,7 +39,6 @@ namespace team5499
 
   void Robot::DisabledInit()
   {
-//    std::cout << "Mode: " << autoController.GetCurrentRoutineName() << std::endl;
     hardware::mxp_gyro.BeginCalibration();
   }
 
