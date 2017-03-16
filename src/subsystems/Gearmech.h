@@ -6,13 +6,17 @@
 class Gearmech
 {
     private:
-
         CANTalon arm;
         CANTalon roller;
+        double point = 0.91;
+        frc::AnalogInput intake_pot;
+        frc::PIDController armController;
 
     public:
 
         Gearmech();
-        void setArm(double speed);
+        void setArm(double setpoint);
         void setRoller(double speed);
+        void enable();
+        void disable();
 };

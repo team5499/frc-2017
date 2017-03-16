@@ -35,3 +35,4 @@ const int Reference::armid = 6;
 // Sensors
 const int Reference::encoderPortA = 2;
 const int Reference::encoderPortB = 3;
+const int Reference::potport = 0;

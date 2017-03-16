@@ -35,8 +35,10 @@ class Reference {
         //Gearmech
         static const int rollerid;
         static const int armid;
+        
 
         // Sensors
         static const int encoderPortA;
         static const int encoderPortB;
+        static const int potport;
 };
