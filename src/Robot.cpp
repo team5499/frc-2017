@@ -4,10 +4,11 @@ namespace team5499
 {
   auto autoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, 0.75),
-      DriveDistanceCommand(5, 6 * 12),
-      IntakeSetpointCommand(1, 2),
-      DriveDistanceCommand(3, -4 * 12)
+    TurnCommand(5, 90)
+//      IntakeSetpointCommand(0.1, 0.75),
+//      DriveDistanceCommand(5, 6 * 12),
+//      IntakeSetpointCommand(1, 2),
+//      DriveDistanceCommand(3, -4 * 12)
     )
   );
 
@@ -27,8 +28,6 @@ namespace team5499
 
     hardware::intake_arm.SetInverted(true);
 
-    hardware::climber.SetInverted(true);
-
     hardware::mxp_display.SetBanner("5499");
     hardware::mxp_display.DisplayBanner();
 
@@ -44,6 +43,7 @@ namespace team5499
   {
 //    std::cout << "Mode: " << autoController.GetCurrentRoutineName() << std::endl;
     hardware::leds.disable();
+    hardware::mxp_gyro.BeginCalibration();
   }
 
   void Robot::DisabledPeriodic()

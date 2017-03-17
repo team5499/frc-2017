@@ -3,6 +3,14 @@
 
 namespace team5499
 {
+  void GearMech::SetIntake(double speed)
+  {
+    hardware::intake_roller.Set(speed);
+  }
+  void GearMech::SetArm(double speed)
+  {
+    hardware::intake_arm.Set(speed);
+  }
   void GearMech::SetSetpoint(double sp)
   {
     setpoint = sp;

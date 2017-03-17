@@ -6,6 +6,7 @@
 #include "controllers/OperatorController.h"
 #include "autocommands/DriveDistanceCommand.h"
 #include "autocommands/IntakeSetpointCommand.h"
+#include "autocommands/TurnCommand.h"
 #include "autocommands/AutoRoutine.h"
 
 namespace team5499
