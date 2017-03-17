@@ -10,15 +10,23 @@ namespace team5499
 
   void GearMech::handle()
   {
-    static auto arm_pid = team5499::util::PID(0.25, 0, 0, 0);
+    double sp = setpoint;
     double pv = hardware::intake_pot.GetVoltage();
-    double output = arm_pid(setpoint, pv);
+
+    double error = (sp - pv);
+    static double previous_error = error;
+    static double previous_time = Timer::GetFPGATimestamp();
+    double d_error = (error - previous_error) / (Timer::GetFPGATimestamp() - previous_time);
+
+    double output = error * 0.25;
+
+    previous_error = error;
+    previous_time = Timer::GetFPGATimestamp();
+
     hardware::intake_arm.Set(output);
-    std::cout << "PV: " << pv << std::endl;
-    std::cout << "Output: " << output << std::endl;
   }
   bool GearMech::seeGear()
   {
-    return true;
+    return (hardware::intake_sensor.GetValue() < 240);
   }
 }

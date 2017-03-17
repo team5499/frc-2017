@@ -2,26 +2,31 @@
 
 #include <WPILib.h>
 #include "Hardware.h"
+#include "controllers/AutoController.h"
 #include "controllers/OperatorController.h"
+#include "autocommands/DriveDistanceCommand.h"
+#include "autocommands/IntakeSetpointCommand.h"
+#include "autocommands/AutoRoutine.h"
 
-class Robot : public IterativeRobot
+namespace team5499
 {
-private:
-  team5499::OperatorController operatorController;
+  class Robot : public IterativeRobot
+  {
+  public:
+    team5499::OperatorController operatorController;
 
-public:
-  Robot();
+    Robot();
 
-  void RobotInit() override;
-  void RobotPeriodic() override;
+    void RobotInit() override;
+    void RobotPeriodic() override;
 
-  void DisabledInit() override;
-  void DisabledPeriodic() override;
+    void DisabledInit() override;
+    void DisabledPeriodic() override;
 
-  void TeleopInit() override;
-  void TeleopPeriodic() override;
+    void TeleopInit() override;
+    void TeleopPeriodic() override;
 
-  void AutonomousInit() override;
-  void AutonomousPeriodic() override;
-};
-
+    void AutonomousInit() override;
+    void AutonomousPeriodic() override;
+  };
+}

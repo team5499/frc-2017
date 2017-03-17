@@ -8,7 +8,6 @@ namespace team5499
   class OperatorController : public GenericController
   {
   public:
-    void handle();
-    void start();
+    void Step() override;
   };
 }
