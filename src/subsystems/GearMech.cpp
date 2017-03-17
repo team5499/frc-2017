@@ -3,6 +3,14 @@
 
 namespace team5499
 {
+  void GearMech::SetRoller(double speed)
+  {
+    hardware::intake_roller.Set(speed);
+  }
+  void GearMech::SetArm(double speed)
+  {
+    hardware::intake_arm.Set(speed);
+  }
   void GearMech::SetSetpoint(double sp)
   {
     setpoint = sp;
@@ -24,5 +32,9 @@ namespace team5499
     previous_time = Timer::GetFPGATimestamp();
 
     hardware::intake_arm.Set(output);
+  }
+  bool GearMech::seeGear()
+  {
+    return (hardware::intake_sensor.GetValue() < 240);
   }
 }

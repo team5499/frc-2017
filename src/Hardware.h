@@ -53,6 +53,7 @@ namespace team5499
     //Sensors
     static AnalogInput intake_pot;
     static Encoder drive_encoder;
+    static AnalogInput intake_sensor;
     static team1538::CowGyro mxp_gyro;
     static team1538::CowAlphaNum mxp_display;
     //LEDs

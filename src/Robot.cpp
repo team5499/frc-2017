@@ -53,6 +53,7 @@ namespace team5499
     hardware::mxp_display.DisplayBanner();
 
     hardware::drive_encoder.SetDistancePerPulse(0.0490625); // 4 * pi / 256
+    hardware::mxp_gyro.BeginCalibration();
   }
 
   void Robot::RobotPeriodic()
@@ -61,6 +62,8 @@ namespace team5499
 
   void Robot::DisabledInit()
   {
+//    std::cout << "Mode: " << autoController.GetCurrentRoutineName() << std::endl;
+    hardware::leds.disable();
     hardware::mxp_gyro.BeginCalibration();
   }
 

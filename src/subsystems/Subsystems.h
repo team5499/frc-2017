@@ -2,6 +2,8 @@
 
 #include "GearMech.h"
 #include "Drivetrain.h"
+#include "Climber.h"
+#include "LED.h"
 
 namespace team5499
 {
@@ -10,5 +12,7 @@ namespace team5499
   public:
     static GearMech gearmech;
     static Drivetrain drivetrain;
+    static Climber climber;
+    static LED leds;
   };
 }

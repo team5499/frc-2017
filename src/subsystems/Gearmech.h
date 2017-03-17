@@ -12,5 +12,8 @@ namespace team5499
   public:
     void SetSetpoint(double sp);
     void handle();
+    void SetArm(double speed);
+    void SetRoller(double speed);
+    bool seeGear();
   };
 }

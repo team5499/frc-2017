@@ -18,6 +18,7 @@ namespace team5499
   Joystick hardware::throttle(Reference::throttle_port);
   XboxController hardware::xbox(Reference::xbox_port);
 
+  AnalogInput hardware::intake_sensor(1);
   AnalogInput hardware::intake_pot(0);
   Encoder hardware::drive_encoder(10, 11);
   team1538::CowGyro hardware::mxp_gyro;
