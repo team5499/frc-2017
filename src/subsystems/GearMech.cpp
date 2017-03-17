@@ -3,7 +3,7 @@
 
 namespace team5499
 {
-  void GearMech::SetIntake(double speed)
+  void GearMech::SetRoller(double speed)
   {
     hardware::intake_roller.Set(speed);
   }

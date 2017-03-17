@@ -21,9 +21,9 @@ namespace team5499
     //Climber
     bool climb = hardware::xbox.GetRawButton(3);
     if(climb)
-      subsystems::climber.Set(1);
+      subsystems::climber.climb(1);
     else
-      subsystems::climber.Set(0);
+      subsystems::climber.climb(0);
 
 
     //LEDS

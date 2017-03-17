@@ -2,6 +2,8 @@
 
 #include "GearMech.h"
 #include "Drivetrain.h"
+#include "Climber.h"
+#include "LED.h"
 
 namespace team5499
 {
