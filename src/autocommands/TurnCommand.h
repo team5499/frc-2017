@@ -21,7 +21,11 @@ namespace team5499
       static double previous_time = Timer::GetFPGATimestamp();
       double d_error = (error - previous_error) / (Timer::GetFPGATimestamp() - previous_time);
 
-      double output = error * 0.3;
+      double output = error * 0.0065 + d_error * 0.0001;
+
+
+      std::cout << "Gyro: "  << sp << std::endl;
+      std::cout << "Output: "  << output << std::endl;
 
       previous_error = error;
       previous_time = Timer::GetFPGATimestamp();
@@ -60,9 +64,8 @@ namespace team5499
       previous = hardware::mxp_gyro.GetAngle();
       previous_time = Timer::GetFPGATimestamp();
 
-      double output = CalculateDriveOutput();
       double offset = CalculateTurnOutput();
-      subsystems::drivetrain.Drive-offset, offset);
+      subsystems::drivetrain.Drive(-offset, offset);
     }
   };
 }
