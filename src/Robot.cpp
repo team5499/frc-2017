@@ -69,7 +69,7 @@ namespace team5499
     static bool previousAutoButton = false;
     if(!previousAutoButton && hardware::throttle.GetRawButton(1))
     {
-      if(autoIndex++ == 3)
+      if(++autoIndex == 3)
         autoIndex = 0;
 
       switch(autoIndex)
@@ -85,7 +85,7 @@ namespace team5499
           break;
       }
     }
-    previousAutoButton = hardware::throttle.GetRawButton(0);
+    previousAutoButton = hardware::throttle.GetRawButton(1);
   }
 
   void Robot::AutonomousInit()
