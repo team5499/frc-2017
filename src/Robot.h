@@ -13,6 +13,8 @@ namespace team5499
 {
   class Robot : public IterativeRobot
   {
+  private:
+    int autoIndex = 0;
   public:
     team5499::OperatorController operatorController;
 
