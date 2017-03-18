@@ -35,6 +35,7 @@ namespace team5499
   }
   bool GearMech::seeGear()
   {
-    return (hardware::intake_sensor.GetValue() < 240);
+    frc::SmartDashboard::PutNumber("Talon Amperage: ", hardware::intake_roller.GetOutputCurrent());
+    return (hardware::intake_roller.GetOutputCurrent() > 3.0);
   }
 }
