@@ -56,8 +56,6 @@ namespace team5499
     static AnalogInput intake_sensor;
     static team1538::CowGyro mxp_gyro;
     static team1538::CowAlphaNum mxp_display;
-    //LEDs
-    static LED leds;
   };
 
   /**

@@ -4,7 +4,7 @@ namespace team5499
 {
   auto centerAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, 0.75),
+      IntakeSetpointCommand(0.1, 0.65),
       DriveDistanceCommand(4, 6 * 12),
       IntakeSetpointCommand(1, 2),
       DriveDistanceCommand(3, -4 * 12)
@@ -13,7 +13,7 @@ namespace team5499
 
   auto leftAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, 0.75),
+      IntakeSetpointCommand(0.1, 0.65),
       DriveDistanceCommand(4, 92),
       TurnCommand(2, 60),
       DriveDistanceCommand(4, 87),
@@ -24,9 +24,9 @@ namespace team5499
 
   auto rightAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, 0.75),
+      IntakeSetpointCommand(0.1, 0.65),
       DriveDistanceCommand(4, 92),
-      TurnCommand(2, 60),
+      TurnCommand(2, -60),
       DriveDistanceCommand(4, 87),
       IntakeSetpointCommand(1, 2),
       DriveDistanceCommand(3, -4 * 12)
@@ -63,7 +63,7 @@ namespace team5499
   void Robot::DisabledInit()
   {
 //    std::cout << "Mode: " << autoController.GetCurrentRoutineName() << std::endl;
-    hardware::leds.disable();
+//    hardware::leds.disable();
     hardware::mxp_gyro.BeginCalibration();
   }
 
@@ -93,6 +93,7 @@ namespace team5499
 
   void Robot::AutonomousInit()
   {
+    hardware::mxp_gyro.FinalizeCalibration();
     switch(autoIndex)
     {
       case 0:
@@ -105,7 +106,6 @@ namespace team5499
         rightAutoController.Reset();
         break;
     }
-    hardware::mxp_gyro.FinalizeCalibration();
   }
 
   void Robot::AutonomousPeriodic()

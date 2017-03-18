@@ -23,6 +23,4 @@ namespace team5499
   Encoder hardware::drive_encoder(10, 11);
   team1538::CowGyro hardware::mxp_gyro;
   team1538::CowAlphaNum hardware::mxp_display;
-
-  LED hardware::leds;
 }

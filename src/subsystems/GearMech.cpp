@@ -35,6 +35,6 @@ namespace team5499
   }
   bool GearMech::seeGear()
   {
-    return (hardware::intake_sensor.GetValue() < 240);
+    return hardware::intake_roller.GetOutputCurrent() > 30.0;
   }
 }

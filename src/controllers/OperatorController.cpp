@@ -8,6 +8,10 @@ namespace team5499
   {
     //Drivetrain
     double throttle = -hardware::throttle.GetRawAxis(1);
+    if(hardware::throttle.GetRawButton(1))
+    {
+      throttle *= 0.2;
+    }
     double wheel = hardware::wheel.GetRawAxis(0);
     if(!hardware::wheel.GetRawButton(8))
     {
@@ -20,14 +24,16 @@ namespace team5499
 
     //Climber
     bool climb = hardware::xbox.GetRawButton(3);
+    bool climb_slow = hardware::xbox.GetRawButton(4);
     if(climb)
       subsystems::climber.climb(1);
+    else if(climb_slow)
+      subsystems::climber.climb(0.2);
     else
       subsystems::climber.climb(0);
 
 
     //LEDS
-    frc::SmartDashboard::PutNumber("Distance", hardware::intake_sensor.GetValue());
     if(subsystems::gearmech.seeGear())
     {
       subsystems::leds.setRed(true);
@@ -41,7 +47,6 @@ namespace team5499
 
     //Gearmech
     double intake = hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand);
-    //hardware::intake_arm.Set(-intake * .25);
     subsystems::gearmech.SetArm(-intake * .25);
 
     bool roller_intake = hardware::xbox.GetBumper(
@@ -52,16 +57,12 @@ namespace team5499
       Joystick::JoystickHand::kLeftHand);
 
     if(roller_intake)
-      //hardware::intake_roller.Set(0.6);
       subsystems::gearmech.SetRoller(0.6);
     else if(roller_intake_slow > 0.5)
-      //hardware::intake_roller.Set(0.1);
       subsystems::gearmech.SetRoller(.1);
     else if(roller_outtake)
-      //hardware::intake_roller.Set(-0.6);
       subsystems::gearmech.SetRoller(-0.6);
     else
-      //hardware::intake_roller.Set(0);
       subsystems::gearmech.SetRoller(0);
   }
 }
