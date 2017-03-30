@@ -4,8 +4,8 @@ namespace team5499
 {
   auto centerAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, 0.65),
-      DriveDistanceCommand(4, 6 * 12),
+      IntakeSetpointCommand(0.5, 0.63),
+      DriveDistanceCommand(4, 6.5 * 12),
       IntakeSetpointCommand(1, 2),
       DriveDistanceCommand(3, -4 * 12)
     )
@@ -48,6 +48,7 @@ namespace team5499
     hardware::drive_right2.SetVoltageRampRate(10);
 
     hardware::intake_arm.SetInverted(true);
+    hardware::climber.SetInverted(true);
 
     hardware::mxp_display.SetBanner("5499");
     hardware::mxp_display.DisplayBanner();
