@@ -7,7 +7,9 @@
 #include "autocommands/DriveDistanceCommand.h"
 #include "autocommands/IntakeSetpointCommand.h"
 #include "autocommands/TurnCommand.h"
+#include "autocommands/DeliverGearCommand.h"
 #include "autocommands/AutoRoutine.h"
+#include "autocommands/DeliverGearCenterCommand.h"
 
 namespace team5499
 {

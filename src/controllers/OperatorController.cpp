@@ -25,10 +25,17 @@ namespace team5499
     //Climber
     bool climb = hardware::xbox.GetRawButton(3);
     bool climb_slow = hardware::xbox.GetRawButton(4);
+    //NEEDS TO BE TUNED
+    bool climb_reverse = hardware::xbox.GetRawButton(5);
+    bool climb_reverse_slow = hardware::xbox.GetRawButton(6);
     if(climb)
       subsystems::climber.climb(1);
     else if(climb_slow)
       subsystems::climber.climb(0.2);
+    else if(climb_reverse)
+      subsystems::climber.climb(-1);
+    else if(climb_reverse_slow)
+      subsystems::climber.climb(-0.2);
     else
       subsystems::climber.climb(0);
 

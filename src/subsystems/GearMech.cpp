@@ -26,7 +26,7 @@ namespace team5499
     static double previous_time = Timer::GetFPGATimestamp();
     double d_error = (error - previous_error) / (Timer::GetFPGATimestamp() - previous_time);
 
-    double output = error * 0.25;
+    double output = error * 0.325;
 
     previous_error = error;
     previous_time = Timer::GetFPGATimestamp();
@@ -35,6 +35,9 @@ namespace team5499
   }
   bool GearMech::seeGear()
   {
-    return hardware::intake_roller.GetOutputCurrent() > 30.0;
+    //This accounts for the voltage ramping that the TALON does
+    //NOTE:Needs to be tuned!
+    //NOTE:Because the motors are inductors, the current may lag the voltage by a bit?
+    return hardware::intake_roller.GetOutputCurrent() / hardware::intake_roller.GetOutputVoltage() > 2.5;
   }
 }

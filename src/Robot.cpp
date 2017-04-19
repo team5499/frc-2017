@@ -4,19 +4,19 @@ namespace team5499
 {
   auto centerAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.5, 0.63),
+      IntakeSetpointCommand(1.5, 0.9),
       DriveDistanceCommand(4, 6.5 * 12),
-      IntakeSetpointCommand(1, 2),
+      IntakeSetpointCommand(1, 2.15),
       DriveDistanceCommand(3, -4 * 12)
     )
   );
 
   auto leftAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, 0.65),
-      DriveDistanceCommand(4, 92),
-      TurnCommand(2, 60),
-      DriveDistanceCommand(4, 87),
+      IntakeSetpointCommand(0.1, 0.68),
+      DriveDistanceCommand(4, 80),
+      TurnCommand(2, 65),
+      DriveDistanceCommand(4, 71),
       IntakeSetpointCommand(1, 2),
       DriveDistanceCommand(3, -4 * 12)
     )
@@ -24,12 +24,27 @@ namespace team5499
 
   auto rightAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, 0.65),
-      DriveDistanceCommand(4, 92),
-      TurnCommand(2, -60),
-      DriveDistanceCommand(4, 87),
+      IntakeSetpointCommand(0.1, 0.68),
+      DriveDistanceCommand(4, 80),
+      TurnCommand(2, -65),
+      DriveDistanceCommand(4, 71),
       IntakeSetpointCommand(1, 2),
       DriveDistanceCommand(3, -4 * 12)
+    )
+  );
+  auto leftTestAuto = make_auto_controller(
+    make_auto_routine(
+      IntakeSetpointCommand(0.1, 0.75),
+      DriveDistanceCommand(4, 80),
+      TurnCommand(2, -65),
+      DriveDistanceCommand(4, 71),
+      DeliverGearCommand(8)
+    )
+  );
+  auto centerTestAuto = make_auto_controller(
+    make_auto_routine(
+      IntakeSetpointCommand(1.5, .9),
+      DeliverGearCenterCommand(13, 83.8, 30, 2.15, 0.9, 1, 0.75)  //Tune me!
     )
   );
 
@@ -73,7 +88,7 @@ namespace team5499
     static bool previousAutoButton = false;
     if(!previousAutoButton && hardware::throttle.GetRawButton(1))
     {
-      if(++autoIndex == 3)
+      if(++autoIndex == 5)
         autoIndex = 0;
 
       switch(autoIndex)
@@ -86,6 +101,12 @@ namespace team5499
           break;
         case 2:
           std::cout << "Right" << std::endl;
+          break;
+        case 3:
+          std::cout << "Left Test" << std::endl;
+          break;
+        case 4:
+          std::cout << "Center Test" << std::endl;
           break;
       }
     }
@@ -106,6 +127,11 @@ namespace team5499
       case 2:
         rightAutoController.Reset();
         break;
+      case 3:
+        leftTestAuto.Reset();
+        break;
+      case 4:
+        centerTestAuto.Reset();
     }
   }
 
@@ -121,6 +147,12 @@ namespace team5499
         break;
       case 2:
         rightAutoController.Step();
+        break;
+      case 3:
+        leftTestAuto.Step();
+        break;
+      case 4:
+        centerTestAuto.Step();
         break;
     }
     subsystems::gearmech.handle();
