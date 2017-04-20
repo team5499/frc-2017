@@ -34,11 +34,18 @@ namespace team5499
   );
   auto leftTestAuto = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, 0.75),
+      IntakeSetpointCommand(0.1, 0.9),
       DriveDistanceCommand(4, 80),
-      TurnCommand(2, -65),
-      DriveDistanceCommand(4, 71),
-      DeliverGearCommand(8)
+      TurnCommand(2, 60),
+      DeliverGearCenterCommand(13, 71, 30, 2.15, .9, 1, .75) //Tune me!
+    )
+  );
+  auto rightTestAuto = make_auto_controller(
+    make_auto_routine(
+      IntakeSetpointCommand(0.1, 0.9),
+      DriveDistanceCommand(4, 80),
+      TurnCommand(2, -60),
+      DeliverGearCenterCommand(13, 71, 30, 2.15, .9, 1, .75) //Tune me!
     )
   );
   auto centerTestAuto = make_auto_controller(
@@ -106,6 +113,9 @@ namespace team5499
           std::cout << "Left Test" << std::endl;
           break;
         case 4:
+          std::cout << "Right Test" << std::endl;
+          break;
+        case 5:
           std::cout << "Center Test" << std::endl;
           break;
       }
@@ -131,6 +141,8 @@ namespace team5499
         leftTestAuto.Reset();
         break;
       case 4:
+        rightTestAuto.Reset();
+      case 5:
         centerTestAuto.Reset();
     }
   }
@@ -150,6 +162,9 @@ namespace team5499
         break;
       case 3:
         leftTestAuto.Step();
+        break;
+      case 4:
+        rightTestAuto.Step();
         break;
       case 4:
         centerTestAuto.Step();
