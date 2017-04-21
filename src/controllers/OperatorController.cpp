@@ -32,6 +32,10 @@ namespace team5499
     else
       subsystems::climber.climb(0);
 
+    bool climb_reverse = hardware::xbox.GetBButton();
+    if(climb_reverse)
+      subsystems::climber.climb(-1);
+
 
     //LEDS
     if(subsystems::gearmech.seeGear())
@@ -47,7 +51,7 @@ namespace team5499
 
     //Gearmech
     double intake = hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand);
-    subsystems::gearmech.SetArm(-intake * .25);
+    subsystems::gearmech.SetArm(-intake * .40);
 
     bool roller_intake = hardware::xbox.GetBumper(
       Joystick::JoystickHand::kRightHand);

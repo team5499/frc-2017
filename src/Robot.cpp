@@ -2,33 +2,36 @@
 
 namespace team5499
 {
+  const double ARM_UP_POSITION = 1.3;
+  const double ARM_DOWN_POSITION = 3.0;
+
   auto centerAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.5, 0.63),
-      DriveDistanceCommand(4, 6.5 * 12),
-      IntakeSetpointCommand(1, 2),
+      IntakeSetpointCommand(0.5, ARM_UP_POSITION),
+      DriveDistanceCommand(4, 78),
+      IntakeSetpointCommand(1, ARM_DOWN_POSITION),
       DriveDistanceCommand(3, -4 * 12)
     )
   );
 
   auto leftAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, 0.65),
-      DriveDistanceCommand(4, 92),
+      IntakeSetpointCommand(0.1, ARM_UP_POSITION),
+      DriveDistanceCommand(4, 116),
       TurnCommand(2, 60),
       DriveDistanceCommand(4, 87),
-      IntakeSetpointCommand(1, 2),
+      IntakeSetpointCommand(1, ARM_DOWN_POSITION),
       DriveDistanceCommand(3, -4 * 12)
     )
   );
 
   auto rightAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, 0.65),
-      DriveDistanceCommand(4, 92),
+      IntakeSetpointCommand(0.1, ARM_UP_POSITION),
+      DriveDistanceCommand(4, 116),
       TurnCommand(2, -60),
       DriveDistanceCommand(4, 87),
-      IntakeSetpointCommand(1, 2),
+      IntakeSetpointCommand(1, ARM_DOWN_POSITION),
       DriveDistanceCommand(3, -4 * 12)
     )
   );
@@ -55,6 +58,8 @@ namespace team5499
 
     hardware::drive_encoder.SetDistancePerPulse(0.0490625); // 4 * pi / 256
     hardware::mxp_gyro.BeginCalibration();
+
+    CameraServer::GetInstance()->StartAutomaticCapture();
   }
 
   void Robot::RobotPeriodic()
@@ -89,6 +94,7 @@ namespace team5499
           break;
       }
     }
+    //std::cout << hardware::intake_pot.GetVoltage() << std::endl;
     previousAutoButton = hardware::throttle.GetRawButton(1);
   }
 
