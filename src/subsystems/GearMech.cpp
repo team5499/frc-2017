@@ -18,7 +18,7 @@ namespace team5499
 
   void GearMech::handle()
   {
-    double sp = setpoint;
+    double sp = initial_pv + setpoint;
     double pv = hardware::intake_pot.GetVoltage();
 
     double error = (sp - pv);
@@ -26,7 +26,7 @@ namespace team5499
     static double previous_time = Timer::GetFPGATimestamp();
     double d_error = (error - previous_error) / (Timer::GetFPGATimestamp() - previous_time);
 
-    double output = error * 0.325;
+    double output = error * 0.5;
 
     previous_error = error;
     previous_time = Timer::GetFPGATimestamp();
@@ -36,5 +36,9 @@ namespace team5499
   bool GearMech::seeGear()
   {
     return hardware::intake_roller.GetOutputCurrent() > 30.0;
+  }
+  void GearMech::SetInitialPV(double pv)
+  {
+    initial_pv = pv;
   }
 }

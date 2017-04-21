@@ -2,8 +2,8 @@
 
 namespace team5499
 {
-  const double ARM_UP_POSITION = 1.3;
-  const double ARM_DOWN_POSITION = 3.0;
+  const double ARM_UP_POSITION = 0.8 ;
+  const double ARM_DOWN_POSITION = 2.78;
 
   auto centerAutoController = make_auto_controller(
     make_auto_routine(
@@ -94,12 +94,13 @@ namespace team5499
           break;
       }
     }
-    //std::cout << hardware::intake_pot.GetVoltage() << std::endl;
+//    std::cout << hardware::intake_pot.GetVoltage() << std::endl;
     previousAutoButton = hardware::throttle.GetRawButton(1);
   }
 
   void Robot::AutonomousInit()
   {
+    subsystems::gearmech.SetInitialPV(hardware::intake_pot.GetVoltage());
     hardware::mxp_gyro.FinalizeCalibration();
     switch(autoIndex)
     {

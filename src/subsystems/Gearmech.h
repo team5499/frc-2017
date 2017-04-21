@@ -8,8 +8,10 @@ namespace team5499
   {
   private:
     double setpoint = 0.91;
+    double initial_pv = 0;
 
   public:
+    void SetInitialPV(double pv);
     void SetSetpoint(double sp);
     void handle();
     void SetArm(double speed);
