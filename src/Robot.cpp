@@ -16,19 +16,22 @@ namespace team5499
 
   auto leftAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, ARM_UP_POSITION),
-      DriveDistanceCommand(4, 116),
+      DriveDistanceCommand(4, 78),
       TurnCommand(2, 60),
-      DriveDistanceCommand(4, 87),
-      IntakeSetpointCommand(1, ARM_DOWN_POSITION),
-      DriveDistanceCommand(3, -4 * 12)
+      DriveDistanceCommand(4, 78),
+      IntakeMoveCommand(1, 0.4),
+      DriveDistanceCommand(3, -4 * 12),
+      IntakeMoveCommand(1, -0.4),
+      IntakeMoveCommand(0.1, 0),
+      TurnCommand(2, -60),
+      DriveDistanceCommand(6, 120)
     )
   );
 
   auto rightAutoController = make_auto_controller(
     make_auto_routine(
       IntakeSetpointCommand(0.1, ARM_UP_POSITION),
-      DriveDistanceCommand(4, 116),
+      DriveDistanceCommand(4, 75),
       TurnCommand(2, -60),
       DriveDistanceCommand(4, 87),
       IntakeSetpointCommand(1, ARM_DOWN_POSITION),
@@ -59,7 +62,7 @@ namespace team5499
     hardware::drive_encoder.SetDistancePerPulse(0.0490625); // 4 * pi / 256
     hardware::mxp_gyro.BeginCalibration();
 
-    CameraServer::GetInstance()->StartAutomaticCapture();
+    //CameraServer::GetInstance()->StartAutomaticCapture();
   }
 
   void Robot::RobotPeriodic()

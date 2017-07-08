@@ -8,6 +8,7 @@
 #include "autocommands/IntakeSetpointCommand.h"
 #include "autocommands/TurnCommand.h"
 #include "autocommands/AutoRoutine.h"
+#include "autocommands/IntakeMoveCommand.h"
 
 namespace team5499
 {

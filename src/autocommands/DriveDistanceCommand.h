@@ -10,6 +10,7 @@ namespace team5499
   {
   private:
     double m_Distance;
+    double errorDis;
 
     double CalculateDriveOutput()
     {
@@ -17,14 +18,20 @@ namespace team5499
       double pv = hardware::drive_encoder.GetDistance();
 
       double error = (sp - pv);
+      errorDis = (sp - pv);
       static double previous_error = error;
       static double previous_time = Timer::GetFPGATimestamp();
       double d_error = (error - previous_error) / (Timer::GetFPGATimestamp() - previous_time);
 
       double output = error * 0.018 + d_error * 0.00003;
 
-      if(abs(output) > 0.2)
-        output = output > 0 ? 0.2 : -0.2;
+      if(output > 0.35 || output < -0.35)
+      {
+        std::cout << "clamping" << std::endl;
+        output = output > 0 ? 0.35 : -0.35;
+      }
+
+      std::cout << "out:" << output << std::endl;
 
       previous_error = error;
       previous_time = Timer::GetFPGATimestamp();
@@ -85,6 +92,7 @@ namespace team5499
       double output = CalculateDriveOutput();
       double offset = CalculateTurnOutput();
       subsystems::drivetrain.Drive(output - offset, output + offset);
+      std::cout << "Value,Output,Error:" << hardware::drive_encoder.GetDistance() << "," << output << "," << errorDis << std::endl;
     }
   };
 }

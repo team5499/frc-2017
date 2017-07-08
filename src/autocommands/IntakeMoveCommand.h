@@ -5,21 +5,21 @@
 
 namespace team5499
 {
-  class IntakeSetpointCommand : public GenericCommand
+  class IntakeMoveCommand : public GenericCommand
   {
   private:
-    double m_Setpoint;
+    double setPoint;
   public:
-    IntakeSetpointCommand(double timeout, double setpoint)
+    IntakeMoveCommand(double timeout, double set)
       :
       GenericCommand(timeout),
-      m_Setpoint(setpoint)
+      setPoint(set)
     {
     }
 
     void Step() override
     {
-      subsystems::gearmech.SetSetpoint(m_Setpoint);
+      subsystems::gearmech.SetArm(setPoint);
     }
   };
 }

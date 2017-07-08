@@ -1,0 +1,6 @@
+/Users/Andy/frc-2017-season/build/CMakeFiles/edit_cache.dir
+/Users/Andy/frc-2017-season/build/CMakeFiles/check.dir
+/Users/Andy/frc-2017-season/build/CMakeFiles/rebuild_cache.dir
+/Users/Andy/frc-2017-season/build/CMakeFiles/deploy.dir
+/Users/Andy/frc-2017-season/build/CMakeFiles/doxygen.dir
+/Users/Andy/frc-2017-season/build/CMakeFiles/steamworks.dir
