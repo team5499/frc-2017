@@ -21,7 +21,7 @@ namespace team5499
       static double previous_time = Timer::GetFPGATimestamp();
       double d_error = (error - previous_error) / (Timer::GetFPGATimestamp() - previous_time);
 
-      double output = error * 0.02 + d_error * 0.00003;
+      double output = error * 0.018 + d_error * 0.00003;
 
       if(abs(output) > 0.2)
         output = output > 0 ? 0.2 : -0.2;

@@ -2,12 +2,12 @@
 
 namespace team5499
 {
-  const double ARM_UP_POSITION = 0.8 ;
+  const double ARM_UP_POSITION = 0.915;
   const double ARM_DOWN_POSITION = 2.78;
 
   auto centerAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.5, ARM_UP_POSITION),
+      IntakeSetpointCommand(1.5, ARM_UP_POSITION),
       DriveDistanceCommand(4, 78),
       IntakeSetpointCommand(1, ARM_DOWN_POSITION),
       DriveDistanceCommand(3, -4 * 12)
