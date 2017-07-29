@@ -11,6 +11,7 @@ namespace team5499
       IntakeMoveCommand(1, 0.4),
       DriveDistanceCommand(3, -4 * 12),
       IntakeMoveCommand(1, -0.4),
+      IntakeMoveCommand(0.1, 0),
       TurnCommand(1, -90),
       DriveDistanceCommand(2, 65),
       TurnCommand(1, 90),
