@@ -7,18 +7,22 @@ namespace team5499
 
   auto centerAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(1.5, ARM_UP_POSITION),
-      DriveDistanceCommand(4, 78),
-      IntakeSetpointCommand(1, ARM_DOWN_POSITION),
-      DriveDistanceCommand(3, -4 * 12)
+      DriveDistanceCommand(4, 82),
+      IntakeMoveCommand(1, 0.4),
+      DriveDistanceCommand(3, -4 * 12),
+      IntakeMoveCommand(1, -0.4),
+      TurnCommand(1, -90),
+      DriveDistanceCommand(2, 65),
+      TurnCommand(1, 90),
+      DriveDistanceCommand(6, 200)
     )
   );
 
   auto leftAutoController = make_auto_controller(
     make_auto_routine(
-      DriveDistanceCommand(4, 78),
+      DriveDistanceCommand(4, 72),
       TurnCommand(2, 60),
-      DriveDistanceCommand(4, 78),
+      DriveDistanceCommand(4, 72),
       IntakeMoveCommand(1, 0.4),
       DriveDistanceCommand(3, -4 * 12),
       IntakeMoveCommand(1, -0.4),
@@ -30,12 +34,15 @@ namespace team5499
 
   auto rightAutoController = make_auto_controller(
     make_auto_routine(
-      IntakeSetpointCommand(0.1, ARM_UP_POSITION),
-      DriveDistanceCommand(4, 75),
+      DriveDistanceCommand(4, 72),
       TurnCommand(2, -60),
-      DriveDistanceCommand(4, 87),
-      IntakeSetpointCommand(1, ARM_DOWN_POSITION),
-      DriveDistanceCommand(3, -4 * 12)
+      DriveDistanceCommand(4, 72),
+      IntakeMoveCommand(1, 0.4),
+      DriveDistanceCommand(3, -4 * 12),
+      IntakeMoveCommand(1, -0.4),
+      IntakeMoveCommand(0.1, 0),
+      TurnCommand(2, 60),
+      DriveDistanceCommand(6, 120)
     )
   );
 
