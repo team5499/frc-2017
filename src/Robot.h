@@ -1,24 +1,14 @@
 #pragma once
-
 #include <WPILib.h>
-#include "Hardware.h"
-#include "controllers/AutoController.h"
-#include "controllers/OperatorController.h"
-#include "autocommands/DriveDistanceCommand.h"
-#include "autocommands/IntakeSetpointCommand.h"
-#include "autocommands/TurnCommand.h"
-#include "autocommands/AutoRoutine.h"
-#include "autocommands/IntakeMoveCommand.h"
+#include <iostream>
 
-namespace team5499
+#include "TeleopController.h"
+
+class Robot : public frc::IterativeRobot
 {
-  class Robot : public IterativeRobot
-  {
-  private:
-    int autoIndex = 0;
-  public:
-    team5499::OperatorController operatorController;
-
+private:
+    TeleopController teleop;
+public:
     Robot();
 
     void RobotInit() override;
@@ -32,5 +22,4 @@ namespace team5499
 
     void AutonomousInit() override;
     void AutonomousPeriodic() override;
-  };
-}
+};

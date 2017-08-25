@@ -1,21 +1,17 @@
 #pragma once
+#include <CANTalon.h>
+#include <iostream>
 
-#include "../Hardware.h"
+#include "Reference.h"
 
-namespace team5499
+class Gearmech
 {
-  class GearMech
-  {
-  private:
-    double setpoint = 0.91;
-    double initial_pv = 0;
+private:
+    CANTalon arm;
+    CANTalon roller;
+public:
+    Gearmech();
 
-  public:
-    void SetInitialPV(double pv);
-    void SetSetpoint(double sp);
-    void handle();
     void SetArm(double speed);
-    void SetRoller(double speed);
-    bool seeGear();
-  };
+    void SetRoller(double roller);
 }

@@ -1,12 +1,17 @@
 #pragma once
+#include <CANTalon.h>
+#include <iostream>
 
-#include "../Hardware.h"
+#include "Reference.h"
 
-namespace team5499
+class Drivetrain
 {
-  class Drivetrain
-  {
-  public:
-    void Drive(double left, double right);
-  };
-}
+private:
+    CANTalon drive_left1;
+    CANTalon drive_left2;
+    CANTalon drive_right1;
+    CANTalon drive_right2;
+public:
+    Drivetrain();
+    void driveLR(double left, double right);
+};

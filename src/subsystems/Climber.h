@@ -1,15 +1,15 @@
 #pragma once
+#include <CANTalon.h>
+#include <iostream>
 
-#include "../Hardware.h"
+#include "Reference.h"
 
-namespace team5499
+class Climber
 {
-  class Climber
-  {
-  public:
-    void climb(double speed)
-    {
-      hardware::climber.Set(speed);
-    }
-  };
+private:
+    CANTalon climber;
+public:
+    Climber();
+
+    void climb(double speed);
 }

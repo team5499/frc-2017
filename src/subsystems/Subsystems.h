@@ -1,18 +1,12 @@
 #pragma once
-
-#include "GearMech.h"
 #include "Drivetrain.h"
+#include "Gearmech.h"
 #include "Climber.h"
-#include "LED.h"
 
-namespace team5499
+class subsystems
 {
-  class subsystems
-  {
-  public:
-    static GearMech gearmech;
+public:
     static Drivetrain drivetrain;
+    static Gearmech gearmech;
     static Climber climber;
-    static LED leds;
-  };
 }

@@ -9,13 +9,12 @@ set(TEAM_NUMBER 5499)
 # find src -iname "*.cpp"
 # in project root
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-set(SOURCE_FILES src/main.cpp
-        src/Robot.cpp
-        src/Hardware.cpp
-        src/controllers/OperatorController.cpp
-        src/subsystems/Subsystems.cpp
-        src/subsystems/GearMech.cpp
-        src/subsystems/Drivetrain.cpp)
+set(SOURCE_FILES src/Robot.cpp
+        src/controllers/TeleopController.cpp
+        src/subsystems/subsystems.cpp
+        src/subsystems/Gearmech.cpp
+        src/subsystems/Drivetrain.cpp
+        src/subsystems/Climber.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 include_directories(thirdparty/team1538/include)

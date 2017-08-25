@@ -1,11 +1,8 @@
 #pragma once
 
-namespace team5499
+class GenericController
 {
-  class GenericController
-  {
-  public:
+public:
     virtual ~GenericController() {};
-    virtual void Step() = 0;
-  };
-}
+    virtual void Handle() = 0;
+};

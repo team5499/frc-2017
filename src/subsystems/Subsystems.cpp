@@ -1,9 +1,5 @@
-#include "Subsystems.h"
+#include "subsystems.h"
 
-namespace team5499
-{
-  GearMech subsystems::gearmech;
-  Drivetrain subsystems::drivetrain;
-  Climber subsystems::climber;
-  LED subsystems::leds;
-}
+Drivetrain subsystems::drivetrain;
+Gearmech subsystems::gearmech;
+Climber subsystems::climber;

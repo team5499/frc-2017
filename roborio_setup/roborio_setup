@@ -1,0 +1,34 @@
+#!/bin/sh
+
+export YEAR="$1"
+export HAL_VERSION="$2"
+export ATHENA_VERSION="$3"
+export CTRE_VERSION="$4"
+
+BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cd ~
+mkdir tmp
+cd tmp
+wget http://first.wpi.edu/FRC/roborio/maven/release/edu/wpi/first/wpilib/hal/$YEAR.$HAL_VERSION/hal-$YEAR.$HAL_VERSION.zip
+wget http://first.wpi.edu/FRC/roborio/maven/release/edu/wpi/first/wpilib/athena-runtime/$YEAR.$ATHENA_VERSION/athena-runtime-$YEAR.$ATHENA_VERSION.zip
+wget http://www.ctr-electronics.com//downloads/lib/CTRE_FRCLibs_NON-WINDOWS_v$CTRE_VERSION.zip
+
+ssh -o StrictHostKeyChecking=no -l "lvuser" roborio-5499-frc.local "rm -rf lib; mkdir lib"
+
+#set up HAL
+scp ~/tmp/hal-$YEAR.$HAL_VERSION.zip lvuser@roborio-5499-frc.local:./lib/hal-$YEAR.$HAL_VERSION.zip
+ssh -o StrictHostKeyChecking=no -l "lvuser" roborio-5499-frc.local "cd lib; unzip hal-$YEAR.$HAL_VERSION.zip; cd lib; mv * ..; cd ..; rm -rf lib; rm -rf include; rm -f hal-$YEAR.$HAL_VERSION.zip"
+
+#set up athena runtime
+scp ~/tmp/athena-runtime-$YEAR.$ATHENA_VERSION.zip lvuser@roborio-5499-frc.local:./lib/athena-runtime-$YEAR.$ATHENA_VERSION.zip
+ssh -o StrictHostKeyChecking=no -l "lvuser" roborio-5499-frc.local "cd lib; unzip athena-runtime-$YEAR.$ATHENA_VERSION.zip; cd lib; mv * ..; cd ..; rm -rf lib; rm -rf include; rm -f athena-runtime-$YEAR.$ATHENA_VERSION.zip"
+
+#set up CTRE(for talons)
+scp ~/tmp/CTRE_FRCLibs_NON-WINDOWS_v$CTRE_VERSION.zip lvuser@roborio-5499-frc.local:./lib/CTRE_FRCLibs_NON-WINDOWS_v$CTRE_VERSION.zip
+ssh -o StrictHostKeyChecking=no -l "lvuser" roborio-5499-frc.local "cd lib; unzip CTRE_FRCLibs_NON-WINDOWS_v$CTRE_VERSION.zip; cd cpp/lib; mv * ../..; cd ../..; rm -rf cpp; rm -rf java; rm -rf LabVIEW; rm -rf README.txt; rm -rf RELEASE_NOTES.txt; rm -rf Robotbuilder; rm -rf VERSION_NOTES; rm -f CTRE_FRCLibs_NON-WINDOWS_v$CTRE_VERSION.zip"
+
+#move netconsole-host into place
+scp $BASEDIR/netconsole-host admin@roborio-5499-frc.local:/usr/local/frc/bin/netconsole-host
+
+rm -rf ~/tmp

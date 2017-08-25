@@ -1,0 +1,10 @@
+#!/bin/sh
+
+export YEAR="$1"
+export HAL_VERSION="$2"
+export ATHENA_VERSION="$3"
+export CTRE_VERSION="$4"
+
+BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo $BASEDIR

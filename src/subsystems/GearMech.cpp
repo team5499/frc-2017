@@ -1,44 +1,17 @@
-#include "GearMech.h"
+#include "Gearmech.h"
 
-
-namespace team5499
+Gearmech::Gearmech()
+:
+arm(Reference::intake_arm_port),
+roller(Reference::intake_roller_port)
 {
-  void GearMech::SetRoller(double speed)
-  {
-    hardware::intake_roller.Set(speed);
-  }
-  void GearMech::SetArm(double speed)
-  {
-    hardware::intake_arm.Set(speed);
-  }
-  void GearMech::SetSetpoint(double sp)
-  {
-    setpoint = sp;
-  }
-
-  void GearMech::handle()
-  {
-    double sp = initial_pv + setpoint;
-    double pv = hardware::intake_pot.GetVoltage();
-
-    double error = (sp - pv);
-    static double previous_error = error;
-    static double previous_time = Timer::GetFPGATimestamp();
-    double d_error = (error - previous_error) / (Timer::GetFPGATimestamp() - previous_time);
-
-    double output = error * 0.15 + d_error * 0.04;
-
-    previous_error = error;
-    previous_time = Timer::GetFPGATimestamp();
-
-    //hardware::intake_arm.Set(output);
-  }
-  bool GearMech::seeGear()
-  {
-    return hardware::intake_roller.GetOutputCurrent() > 30.0;
-  }
-  void GearMech::SetInitialPV(double pv)
-  {
-    initial_pv = pv;
-  }
+    arm.SetInverted(false);
+}
+void Gearmech::SetArm(double speed)
+{
+    arm.Set(speed);
+}
+void Gearmech::SetRoller(double speed)
+{
+    roller.Set(speed);
 }
