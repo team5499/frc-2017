@@ -9,7 +9,7 @@ namespace team5499
     
     //Drivetrain
     double throttle = -hardware::driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand)+hardware::driver.GetTriggerAxis(Joystick::JoystickHand::kRightHand);
-    double wheel = (0.3*hardware::driver.GetX(Joystick::JoystickHand::kLeftHand)+hardware::driver.GetX(Joystick::JoystickHand::kRightHand))+0.9;
+    double wheel = (0.3*hardware::driver.GetX(Joystick::JoystickHand::kLeftHand)+hardware::driver.GetX(Joystick::JoystickHand::kRightHand))+0.09;
     std::cout << wheel << std::endl;
     if(wheel>-0.075&&wheel<0.075)
       wheel = 0;
