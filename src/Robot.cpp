@@ -87,7 +87,7 @@ namespace team5499
   void Robot::DisabledPeriodic()
   {
     static bool previousAutoButton = false;
-    if(!previousAutoButton && hardware::throttle.GetRawButton(1))
+    if(!previousAutoButton && hardware::driver.GetBumper(Joystick::JoystickHand::kLeftHand))
     {
       if(++autoIndex == 3)
         autoIndex = 0;
@@ -106,7 +106,7 @@ namespace team5499
       }
     }
 //    std::cout << hardware::intake_pot.GetVoltage() << std::endl;
-    previousAutoButton = hardware::throttle.GetRawButton(1);
+    previousAutoButton = hardware::driver.GetBumper(Joystick::JoystickHand::kLeftHand);
   }
 
   void Robot::AutonomousInit()

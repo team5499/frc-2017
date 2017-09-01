@@ -6,25 +6,20 @@ namespace team5499
 {
   void OperatorController::Step()
   {
+    
     //Drivetrain
-    double throttle = -hardware::throttle.GetRawAxis(1);
-    if(hardware::throttle.GetRawButton(1))
-    {
-      throttle *= 0.2;
-    }
-    double wheel = hardware::wheel.GetRawAxis(0);
-    if(!hardware::wheel.GetRawButton(8))
-    {
-      if(throttle > 0)
-        wheel *= 0.4;
-      else
-        wheel *= 0.25;
-    }
+    double throttle = -hardware::driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand)+hardware::driver.GetTriggerAxis(Joystick::JoystickHand::kRightHand);
+    double wheel = (0.3*hardware::driver.GetX(Joystick::JoystickHand::kLeftHand)+hardware::driver.GetX(Joystick::JoystickHand::kRightHand))+0.9;
+    std::cout << wheel << std::endl;
+    if(wheel>-0.075&&wheel<0.075)
+      wheel = 0;
+    //double right = -hardware::driver.GetY(Joystick::JoystickHand::kLeftHand);
+    //double left = -hardware::driver.GetY(Joystick::JoystickHand::kRightHand);
     subsystems::drivetrain.Drive(throttle - wheel, throttle + wheel);
 
     //Climber
-    bool climb = hardware::xbox.GetRawButton(3);
-    bool climb_slow = hardware::xbox.GetRawButton(4);
+    bool climb = hardware::codriver.GetRawButton(4);
+    bool climb_slow = hardware::codriver.GetRawButton(6);
     if(climb)
       subsystems::climber.climb(1);
     else if(climb_slow)
@@ -32,10 +27,9 @@ namespace team5499
     else
       subsystems::climber.climb(0);
 
-    bool climb_reverse = hardware::xbox.GetBButton();
+    bool climb_reverse = hardware::codriver.GetRawButton(5);
     if(climb_reverse)
       subsystems::climber.climb(-1);
-
 
     //LEDS
     if(subsystems::gearmech.seeGear())
@@ -50,15 +44,12 @@ namespace team5499
     }
 
     //Gearmech
-    double intake = hardware::xbox.GetY(Joystick::JoystickHand::kLeftHand);
-    subsystems::gearmech.SetArm(-intake * .40);
+    double intake = hardware::codriver.GetRawAxis(1);
+    subsystems::gearmech.SetArm(-intake * .70);
 
-    bool roller_intake = hardware::xbox.GetBumper(
-      Joystick::JoystickHand::kRightHand);
-    bool roller_intake_slow = hardware::xbox.GetTriggerAxis(
-      Joystick::JoystickHand::kRightHand);
-    bool roller_outtake = hardware::xbox.GetBumper(
-      Joystick::JoystickHand::kLeftHand);
+    bool roller_intake = hardware::codriver.GetRawButton(1);
+    bool roller_intake_slow = hardware::codriver.GetRawButton(2);
+    bool roller_outtake = hardware::codriver.GetRawButton(3);
 
     if(roller_intake)
       subsystems::gearmech.SetRoller(0.6);

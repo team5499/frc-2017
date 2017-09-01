@@ -47,9 +47,8 @@ namespace team5499
     static CANTalon intake_roller;
     static CANTalon climber;
     //Sticks
-    static Joystick wheel;
-    static Joystick throttle;
-    static XboxController xbox;
+    static XboxController driver;
+    static Joystick codriver;
     //Sensors
     static AnalogInput intake_pot;
     static Encoder drive_encoder;

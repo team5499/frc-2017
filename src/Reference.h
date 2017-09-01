@@ -18,9 +18,8 @@ namespace team5499
     const static int intake_roller_port = 7;
     const static int climber_port = 5;
     //Controllers
-    const static int wheel_port = 0;
-    const static int throttle_port = 1;
-    const static int xbox_port = 2;
+    const static int driver_port = 0;
+    const static int codriver_port = 1;
     //LEDs
     const static int red_port = 0;
     const static int green_port = 1;

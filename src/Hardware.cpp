@@ -14,9 +14,8 @@ namespace team5499
   CANTalon hardware::intake_roller(Reference::intake_roller_port);
   CANTalon hardware::climber(Reference::climber_port);
 
-  Joystick hardware::wheel(Reference::wheel_port);
-  Joystick hardware::throttle(Reference::throttle_port);
-  XboxController hardware::xbox(Reference::xbox_port);
+  XboxController hardware::driver(Reference::driver_port);
+  Joystick hardware::codriver(Reference::codriver_port);
 
   AnalogInput hardware::intake_sensor(1);
   AnalogInput hardware::intake_pot(0);
