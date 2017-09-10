@@ -14,12 +14,8 @@ set(SOURCE_FILES src/main.cpp
         src/Hardware.cpp
         src/controllers/OperatorController.cpp
         src/subsystems/Subsystems.cpp
-        src/subsystems/GearMech.cpp
         src/subsystems/Drivetrain.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
-
-include_directories(thirdparty/team1538/include)
-target_link_libraries(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/team1538/lib/libteam1538.a)
 
 # Example: adding CTRE library
 # Make sure this goes before WPILib
@@ -45,7 +41,7 @@ set_target_properties(check PROPERTIES EXCLUDE_FROM_ALL TRUE)
 find_file(ROBOTCOMMAND ant/robotCommand PATHS "${CMAKE_SYSROOT}/usr/share/wpilib"
         "${CMAKE_SYSROOT}/wpilib")
 add_custom_target(deploy
-        COMMAND sh -c "${CMAKE_CURRENT_SOURCE_DIR}/deploy ${TEAM_NUMBER} $<TARGET_FILE:${PROJECT_NAME}> ${ROBOTCOMMAND}"
+        COMMAND sh -c "${CMAKE_CURRENT_SOURCE_DIR}/newdeploy.sh ${TEAM_NUMBER} $<TARGET_FILE:${PROJECT_NAME}> ${ROBOTCOMMAND}"
         DEPENDS ${PROJECT_NAME})
 set_target_properties(deploy PROPERTIES EXCLUDE_FROM_ALL TRUE)
 

@@ -3,9 +3,6 @@
 #include <iostream>
 #include <WPILib.h>
 #include <CANTalon.h>
-#include <team1538/CowAlphaNum.h>
-#include <team1538/CowGyro.h>
-#include "subsystems/LED.h"
 #include "Reference.h"
 
 namespace team5499
@@ -43,18 +40,8 @@ namespace team5499
 
     //Talons
     static CANTalon drive_left1, drive_left2, drive_right1, drive_right2;
-    static CANTalon intake_arm;
-    static CANTalon intake_roller;
-    static CANTalon climber;
     //Sticks
     static XboxController driver;
-    static Joystick codriver;
-    //Sensors
-    static AnalogInput intake_pot;
-    static Encoder drive_encoder;
-    static AnalogInput intake_sensor;
-    static team1538::CowGyro mxp_gyro;
-    static team1538::CowAlphaNum mxp_display;
   };
 
   /**
