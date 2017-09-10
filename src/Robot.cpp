@@ -86,6 +86,7 @@ namespace team5499
 
   void Robot::DisabledPeriodic()
   {
+    //std::cout << "Hello world!!" << std::endl;
     static bool previousAutoButton = false;
     if(!previousAutoButton && hardware::driver.GetBumper(Joystick::JoystickHand::kLeftHand))
     {
