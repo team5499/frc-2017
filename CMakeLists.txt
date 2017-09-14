@@ -14,7 +14,9 @@ set(SOURCE_FILES src/main.cpp
         src/Hardware.cpp
         src/controllers/OperatorController.cpp
         src/subsystems/Subsystems.cpp
-        src/subsystems/Drivetrain.cpp)
+        src/subsystems/Drivetrain.cpp
+        src/subsystems/Gearmech.cpp
+        src/subsystems/Climber.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Example: adding CTRE library

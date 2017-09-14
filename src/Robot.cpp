@@ -11,11 +11,16 @@ namespace team5499
   {
     hardware::drive_right1.SetInverted(true);
     hardware::drive_right2.SetInverted(true);
+    hardware::roller.SetInverted(true);
+    hardware::arm.SetInverted(true);
+    hardware::climber_left.SetInverted(true);
+    hardware::climber_right.SetInverted(true);
 
     hardware::drive_left1.SetVoltageRampRate(30);
     hardware::drive_left2.SetVoltageRampRate(30);
     hardware::drive_right1.SetVoltageRampRate(30);
     hardware::drive_right2.SetVoltageRampRate(30);
+    hardware::arm.SetVoltageRampRate(10);
   }
 
   void Robot::RobotPeriodic()

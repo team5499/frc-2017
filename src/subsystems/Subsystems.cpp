@@ -3,4 +3,6 @@
 namespace team5499
 {
   Drivetrain subsystems::drivetrain;
+  Gearmech subsystems::gearmech;
+  Climber subsystems::climber;
 }

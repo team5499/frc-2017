@@ -40,6 +40,8 @@ namespace team5499
 
     //Talons
     static CANTalon drive_left1, drive_left2, drive_right1, drive_right2;
+    static CANTalon arm, roller;
+    static CANTalon climber_left, climber_right;
     //Sticks
     static XboxController driver;
   };
