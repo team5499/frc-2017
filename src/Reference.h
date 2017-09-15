@@ -17,6 +17,9 @@ namespace team5499
     const static int climber_left_port = 7;
     const static int climber_right_port = 8;
     //Controllers
-    const static int driver_port = 0;
+    const static int xbox_port = 0;
+    const static int driver_port = 1;
+    const static int throttle_port = 2;
+    const static int wheel_port = 3;
   };
 }

@@ -1,7 +1,9 @@
 #pragma once
 
 #include <WPILib.h>
-#include "Hardware.h"
+#include <iostream>
+#include <CANTalon.h>
+#include "Reference.h"
 #include "controllers/OperatorController.h"
 
 namespace team5499

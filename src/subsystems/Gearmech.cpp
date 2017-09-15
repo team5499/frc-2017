@@ -2,12 +2,22 @@
 
 namespace team5499
 {
+  Gearmech::Gearmech()
+  :
+  roller(Reference::roller_port),
+  arm(Reference::arm_port)
+  {
+    roller.SetInverted(true);
+    arm.SetInverted(true);
+    
+    arm.SetVoltageRampRate(10);
+  }
   void Gearmech::SetArm(double speed)
   {
-    hardware::arm.Set(speed);
+    arm.Set(speed);
   }
   void Gearmech::SetRoller(double speed)
   {
-    hardware::roller.Set(speed);
+    roller.Set(speed);
   }
 }

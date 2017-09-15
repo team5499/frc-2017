@@ -2,9 +2,17 @@
 
 namespace team5499
 {
+    Climber::Climber()
+    :
+    climber_left(Reference::climber_left_port),
+    climber_right(Reference::climber_right_port)
+    {
+        climber_left.SetInverted(true);
+        climber_right.SetInverted(true);
+    }
     void Climber::SetClimber(double speed)
     {
-        hardware::climber_left.Set(speed);
-        hardware::climber_right.Set(speed);
+        climber_left.Set(speed);
+        climber_right.Set(speed);
     }
 }
