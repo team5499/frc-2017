@@ -44,82 +44,38 @@ namespace team5499
         double value = 0;
         double th = 0;
         double wh = 0;
-        switch(config)
-        {
-            case 0:
-                th = -throttle.GetRawAxis(1);
-                if(throttle.GetRawButton(1))
-                {
-                    th *= 0.2;
-                }
-                wh = wheel.GetRawAxis(0);
-                if(!wheel.GetRawButton(8))
-                {
-                    if(th > 0)
-                        wh *= 0.4;
-                    else
-                        wh *= 0.25;
-                }
-                value = th - wh;
-                break;
-            case 1:
                 value = driver.GetY(Joystick::JoystickHand::kLeftHand);
-                break;
-            case 2:
-                th = driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) - driver.GetTriggerAxis(Joystick::JoystickHand::kRightHand);
-                wh = driver.GetX(Joystick::JoystickHand::kLeftHand);
-                value = th - wh;
-                break;
-        }
-        return 0;
+            if(driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) > 0.5)
+                value*=0.25;
+            else if(driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) > 0.5)
+                value*=0.6;
+        return value;
     }
     double Joysticks::getRightValue()
     {
         double value = 0;
         double th = 0;
         double wh = 0;
-        switch(config)
-        {
-            case 0:
-                th = -throttle.GetRawAxis(1);
-                if(throttle.GetRawButton(1))
-                {
-                    th *= 0.2;
-                }
-                wh = wheel.GetRawAxis(0);
-                if(!wheel.GetRawButton(8))
-                {
-                    if(th > 0)
-                        wh *= 0.4;
-                    else
-                        wh *= 0.25;
-                }
-                value = th + wh;
-                break;
-            case 1:
                 value = driver.GetY(Joystick::JoystickHand::kRightHand);
-                break;
-            case 2:
-                th = driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) - driver.GetTriggerAxis(Joystick::JoystickHand::kRightHand);
-                wh = driver.GetX(Joystick::JoystickHand::kLeftHand);
-                value = th + wh;
-                break;
-        }
-        return 0;
+                if(driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) > 0.5)
+                value*=0.25;
+            else if(driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) > 0.5)
+                value*=0.6;
+        return value;
     }
     double Joysticks::getClimberValue()
     {
-        return xbox.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) - xbox.GetTriggerAxis(Joystick::JoystickHand::kRightHand);
+        return xbox.GetAButton();
     }
     double Joysticks::getRollerValue()
     {
-        bool intake = xbox.GetBButton();
-        bool outtake = xbox.GetXButton();
-        bool intake_slow = xbox.GetYButton();
+        bool intake = xbox.GetBumper(Joystick::JoystickHand::kRightHand);
+        bool outtake = xbox.GetBumper(Joystick::JoystickHand::kLeftHand);
+        bool intake_slow = (xbox.GetTriggerAxis(Joystick::JoystickHand::kRightHand) > 0.5);
         if(intake)
             return 1;
         else if(outtake)
-            return -0.65;
+            return 1;
         else if(intake_slow)
             return 0.1;
         else
@@ -127,6 +83,6 @@ namespace team5499
     }
     double Joysticks::getArmValue()
     {
-        return xbox.GetY(Joystick::JoystickHand::kLeftHand);
+        return 0.5*xbox.GetY(Joystick::JoystickHand::kLeftHand);
     }
 }
