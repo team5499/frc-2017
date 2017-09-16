@@ -16,8 +16,13 @@ set(SOURCE_FILES src/main.cpp
         src/subsystems/Drivetrain.cpp
         src/subsystems/Gearmech.cpp
         src/subsystems/Climber.cpp
-        src/subsystems/Joysticks.cpp)
+        src/subsystems/Joysticks.cpp
+        src/subsystems/PIDHandle.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+
+# CowLib(cow board)
+include_directories(thirdparty/team1538/include)
+target_link_libraries(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/team1538/lib/libteam1538.a)
 
 # Example: adding CTRE library
 # Make sure this goes before WPILib

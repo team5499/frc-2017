@@ -21,5 +21,14 @@ namespace team5499
     const static int driver_port = 1;
     const static int throttle_port = 2;
     const static int wheel_port = 3;
+    //PID
+    constexpr static double kP = 0.0;
+    constexpr static double kI = 0.0;
+    constexpr static double kD = 0.0;
+
+    const static int left_encoder_port1 = 10;
+    const static int left_encoder_port2 = 11;
+    const static int right_encoder_port1 = 12;
+    const static int right_encoder_port2 = 13;
   };
 }
