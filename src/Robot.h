@@ -5,6 +5,7 @@
 #include <CANTalon.h>
 #include "Reference.h"
 #include "controllers/OperatorController.h"
+#include "controllers/AutoController.h"
 
 namespace team5499
 {
@@ -13,6 +14,7 @@ namespace team5499
   private:
   public:
     team5499::OperatorController operatorController;
+    team5499::AutoController autoController;
 
     Robot();
 

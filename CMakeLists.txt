@@ -12,6 +12,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 set(SOURCE_FILES src/main.cpp
         src/Robot.cpp
         src/controllers/OperatorController.cpp
+        src/controllers/AutoController.cpp
         src/subsystems/Subsystems.cpp
         src/subsystems/Drivetrain.cpp
         src/subsystems/Gearmech.cpp

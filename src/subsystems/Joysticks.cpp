@@ -14,41 +14,17 @@ namespace team5499
     }
     void Joysticks::handleConfig()
     {
-        if(xbox.GetBackButton()&&!prev)
-        {
-            prev = true;
-            config = (config + 1) % 3;
-            switch(config)
-            {
-                case 0:
-                    std::cout << "Wheel" << std::endl;
-                    break;
-                case 1:
-                    std::cout << "Tank" << std::endl;
-                    break;
-                case 2:
-                    std::cout << "GTA 5" << std::endl;
-                    break;
-            }
-        }
-        else if(!xbox.GetBackButton()&&prev)
-        {
-            prev = false;
-        }
-        else
-        {
-        }
     }
     double Joysticks::getLeftValue()
     {
         double value = 0;
         double th = 0;
         double wh = 0;
-                value = driver.GetY(Joystick::JoystickHand::kLeftHand);
-            if(driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) > 0.5)
-                value*=0.25;
-            else if(driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) > 0.5)
-                value*=0.6;
+        value = driver.GetY(Joystick::JoystickHand::kLeftHand);
+        if(driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) > 0.5)
+            value*=0.25;
+        else if(driver.GetTriggerAxis(Joystick::JoystickHand::kRightHand) > 0.5)
+            value*=0.6;
         return value;
     }
     double Joysticks::getRightValue()
@@ -56,11 +32,11 @@ namespace team5499
         double value = 0;
         double th = 0;
         double wh = 0;
-                value = driver.GetY(Joystick::JoystickHand::kRightHand);
-                if(driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) > 0.5)
-                value*=0.25;
-            else if(driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) > 0.5)
-                value*=0.6;
+        value = driver.GetY(Joystick::JoystickHand::kRightHand);
+        if(driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) > 0.5)
+            value*=0.25;
+        else if(driver.GetTriggerAxis(Joystick::JoystickHand::kRightHand) > 0.5)
+            value*=0.6;
         return value;
     }
     double Joysticks::getClimberValue()

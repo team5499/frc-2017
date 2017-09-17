@@ -4,14 +4,18 @@
 #include "Gearmech.h"
 #include "Climber.h"
 #include "Joysticks.h"
+#include "HandlePID.h"
 
 namespace team5499
 {
   class subsystems
   {
   public:
+    static bool is_initialized;
     subsystems()
     {
+      if(!subsystems::is_initialized)
+      {
       std::cout << "Initializing HAL... ";
       if(!HAL_Initialize(0))
       {
@@ -22,11 +26,14 @@ namespace team5499
                  HALUsageReporting::kLanguage_CPlusPlus);
 
       std::cout << "HAL initialized" << std::endl;
+      subsystems::is_initialized = true;
+      }
     }
     static Drivetrain drivetrain;
     static Gearmech gearmech;
     static Climber climber;
     static Joysticks joysticks;
+    static HandlePID pid;
   };
   static subsystems _init_subsystems;
 }

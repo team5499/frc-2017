@@ -11,11 +11,6 @@ namespace team5499
   {
     drive_right1.SetInverted(true);
     drive_right2.SetInverted(true);
-
-    drive_left1.SetVoltageRampRate(30);
-    drive_left2.SetVoltageRampRate(30);
-    drive_right1.SetVoltageRampRate(30);
-    drive_right2.SetVoltageRampRate(30);
   }
   void Drivetrain::Drive(double left, double right) {
     drive_left1.Set(left);
