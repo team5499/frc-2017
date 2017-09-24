@@ -1,7 +1,5 @@
 #pragma once
 
-#include <WPILib.h>
-
 namespace team5499
 {
   class Reference

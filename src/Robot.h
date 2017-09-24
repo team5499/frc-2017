@@ -3,7 +3,6 @@
 #include <WPILib.h>
 #include <iostream>
 #include <CANTalon.h>
-#include "Reference.h"
 #include "controllers/OperatorController.h"
 #include "controllers/AutoController.h"
 
@@ -12,10 +11,9 @@ namespace team5499
   class Robot : public IterativeRobot
   {
   private:
+    static OperatorController operatorController;
+    static AutoController autoController;
   public:
-    team5499::OperatorController operatorController;
-    team5499::AutoController autoController;
-
     Robot();
 
     void RobotInit() override;

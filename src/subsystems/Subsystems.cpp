@@ -6,7 +6,4 @@ namespace team5499
   Gearmech subsystems::gearmech;
   Climber subsystems::climber;
   Joysticks subsystems::joysticks;
-  HandlePID subsystems::pid;
-
-  bool subsystems::is_initialized = false;
 }
