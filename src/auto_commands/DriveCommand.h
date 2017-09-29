@@ -41,7 +41,7 @@ namespace team5499
         {
             GenericCommand::isFinished();
             std::cout << subsystems::leftpid.getRate() << ":" << subsystems::rightpid.getRate() << ":" << subsystems::anglepid.getRate() << std::endl;
-            if(subsystems::leftpid.getError() < 3 && subsystems::rightpid.getError() < 3 && subsystems::anglepid.getError() < 1 && subsystems::leftpid.getRate() < 3 && subsystems::rightpid.getRate() < 3 && subsystems::anglepid.getRate() < 0.1)
+            if(subsystems::leftpid.getError() < 3 && subsystems::rightpid.getError() < 3 && subsystems::anglepid.getError() < 1 && subsystems::leftpid.getRate() < 3 && subsystems::rightpid.getRate() < 3 && subsystems::anglepid.getRate() < 0.2)
                 return true;
             return false;
         }

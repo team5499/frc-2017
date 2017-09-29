@@ -37,5 +37,10 @@ namespace team5499
         subsystems::leftpid.reset();
         subsystems::rightpid.reset();
         subsystems::anglepid.reset();
+        for(int i = 0;i<commands.size();i++)
+        {
+            commands.at(i)->reset();
+        }
+        current_command = commands.at(0);
     }
 }
