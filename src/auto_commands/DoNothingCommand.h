@@ -24,5 +24,8 @@ namespace team5499
         {
             GenericCommand::isFinished();
         }
+        void reset() override
+        {
+        }
     };
 }

@@ -35,5 +35,6 @@ namespace team5499
             }
             return false;
         }
+        virtual void reset() = 0;
     };
 }

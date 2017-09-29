@@ -45,5 +45,8 @@ namespace team5499
                 return true;
             return false;
         }
+        void reset() override
+        {
+        }
     };
 }
