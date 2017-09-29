@@ -1,5 +1,11 @@
 #pragma once
 
+#include <iostream>
+#include <fstream>
+
+#include <json/json.h>
+#include <json/json-forwards.h>
+
 namespace team5499
 {
   class Reference
@@ -24,9 +30,38 @@ namespace team5499
     const static int right_encoder_port2 = 1;
     const static int left_encoder_port1 = 2;
     const static int left_encoder_port2 = 3;
+
+    constexpr static double distance_per_pulse = 0.04908738438;// (4*PI)/256
     //PID
-    constexpr static double kP = 0.1;
-    constexpr static double kI = 0.0;
-    constexpr static double kD = 0.0;
+    static double kP;
+    static double kI;
+    static double kD;
+    static double kAP;//angle
+    static double kAI;//angle
+    static double kAD;//angle
+    //Angle
+    constexpr static double center_wheel_dist_inches = 25.0;
+    constexpr static double pi = 3.14159265358979;
+
+    //JSON
+
+    static void updateVariables()
+    {
+      Json::Value root;
+      std::fstream json_file;
+      json_file.open("variables.json");
+
+      json_file >> root;
+
+      Reference::kP = root.get("kP", 0.0).asDouble();
+      Reference::kI = root.get("kI", 0.0).asDouble();
+      Reference::kD = root.get("kD", 0.0).asDouble();
+
+      Reference::kAP = root.get("kAP", 0.0).asDouble();
+      Reference::kAI = root.get("kAI", 0.0).asDouble();
+      Reference::kAD = root.get("kAD", 0.0).asDouble();
+
+      json_file.close();
+    }
   };
 }

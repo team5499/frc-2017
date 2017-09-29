@@ -5,6 +5,7 @@
 #include <CANTalon.h>
 #include "controllers/OperatorController.h"
 #include "controllers/AutoController.h"
+#include "subsystems/Subsystems.h"
 
 namespace team5499
 {

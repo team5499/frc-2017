@@ -6,6 +6,7 @@ namespace team5499
   {
   public:
     virtual ~GenericController() {};
+    virtual void Start() = 0;
     virtual void Handle() = 0;
   };
 }

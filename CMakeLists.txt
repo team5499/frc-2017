@@ -10,6 +10,8 @@ set(TEAM_NUMBER 5499)
 # in project root
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 set(SOURCE_FILES src/main.cpp
+        json_library/jsoncpp.cpp
+        src/Reference.cpp
         src/Robot.cpp
         src/controllers/OperatorController.cpp
         src/controllers/AutoController.cpp
@@ -17,7 +19,11 @@ set(SOURCE_FILES src/main.cpp
         src/subsystems/Drivetrain.cpp
         src/subsystems/Gearmech.cpp
         src/subsystems/Climber.cpp
-        src/subsystems/Joysticks.cpp)
+        src/subsystems/Joysticks.cpp
+        src/subsystems/Encoders.cpp
+        src/subsystems/PID.cpp
+        src/subsystems/Angle.cpp
+        src/auto_commands/Routine.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Example: adding CTRE library
@@ -26,9 +32,13 @@ find_package(CTRE)
 include_directories(${CTRE_INCLUDE_DIR})
 target_link_libraries(${PROJECT_NAME} ${CTRE_LIBRARIES})
 
+# Add WPILib library
 find_package(WPILib)
 include_directories(${WPILIB_INCLUDE_DIR})
 target_link_libraries(${PROJECT_NAME} ${WPILIB_LIBRARIES})
+
+# Add JSON library
+include_directories(json_library/)
 
 # Test target
 include(ExternalProject)

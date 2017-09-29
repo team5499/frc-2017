@@ -276,6 +276,7 @@ movelibs()
     scp tmp_roborio_setup.zip admin@roborio-${team_number}-frc.local:~/tmp_setup/tmp_roborio_setup.zip
     echo "WARNING:You will need to confirm the the next step(press enter)..."
     ssh admin@roborio-${team_number}-frc.local "cd tmp_setup; unzip tmp_roborio_setup.zip; mv -f -v lib/* /usr/lib/; mv -f -v local/netconsole-host /usr/local/frc/bin/; cd ~; rm -rf tmp_setup; sync"
+    scp src/variables.json lvuser@roborio-5499-frc.local:~/variables.json
 }
 # Cleanup(remove unneccessary files, rebuild code)
 cleanup()

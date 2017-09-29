@@ -7,10 +7,11 @@ namespace team5499
     class RobotInit
     {
     private:
-        static int init_counter;
+        static int init_counter; // to make sure the HAL only gets initialized once
     public:
         RobotInit()
         {
+          /* Initialize the HAL */
           if(init_counter++ == 0)
           {
           std::cout << "Initializing HAL... ";
@@ -26,5 +27,6 @@ namespace team5499
           }
         }
     };
+    // Force the HAL to initialize
     static RobotInit _init_robot;
 }
