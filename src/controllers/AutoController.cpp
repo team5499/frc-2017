@@ -4,9 +4,15 @@ namespace team5499
 {
     AutoController::AutoController()
     :
-    center()
+    left(),
+    center(),
+    right()
     {
-        center.addCommand(new DriveCommand(80, 80));
+        // left auto routine
+        // center auto routine
+        center.addCommand(new DriveCommand(80, 60));
+        center.addCommand(new GearmechCommand(1, GearmechCommand::Direction::DOWN));
+        // right auto routine
     }
     void AutoController::Start()
     {

@@ -16,5 +16,6 @@ namespace team5499
         Gearmech();
         void SetArm(double speed);
         void SetRoller(double speed);
+        bool GearDetected();
     };
 }

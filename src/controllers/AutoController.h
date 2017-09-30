@@ -10,13 +10,17 @@
 //Auto commands
 #include "../auto_commands/DoNothingCommand.h"
 #include "../auto_commands/DriveCommand.h"
+#include "../auto_commands/TurnCommand.h"
+#include "../auto_commands/GearmechCommand.h"
 
 namespace team5499
 {
     class AutoController : public GenericController
     {
     private:
+        Routine left;
         Routine center;
+        Routine right;
     public:
         AutoController();
         void Start() override;

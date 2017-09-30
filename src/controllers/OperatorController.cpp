@@ -13,6 +13,9 @@ namespace team5499
     //Gearmech
     subsystems::gearmech.SetRoller(subsystems::joysticks.getRollerValue());
     subsystems::gearmech.SetArm(subsystems::joysticks.getArmValue());
+
+    if(subsystems::gearmech.GearDetected())
+      subsystems::led.flash(100, 100, 100);
     //Climber
     subsystems::climber.SetClimber(subsystems::joysticks.getClimberValue());
 

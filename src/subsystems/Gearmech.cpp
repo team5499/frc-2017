@@ -20,4 +20,11 @@ namespace team5499
   {
     roller.Set(speed);
   }
+  bool Gearmech::GearDetected()
+  {
+    if(roller.Get() != 0)
+      return (roller.GetOutputCurrent() / roller.GetOutputVoltage() > 0.2);
+
+    return false;
+  }
 }

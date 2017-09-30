@@ -16,11 +16,13 @@ namespace team5499
   {
     Reference::updateVariables();
     subsystems::encoders.reset();
+    subsystems::led.setRGB(16, 80, 26);
   }
 
   void Robot::RobotPeriodic()
   {
     subsystems::angle.handle(subsystems::encoders.getLeftDistance(), subsystems::encoders.getRightDistance());
+    subsystems::led.handle();
   }
 
   void Robot::DisabledInit()

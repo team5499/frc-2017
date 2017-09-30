@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <streambuf>
 
 #include <json/json.h>
 #include <json/json-forwards.h>
@@ -47,10 +48,8 @@ namespace team5499
 
     static void updateVariables()
     {
+      std::ifstream json_file("/home/lvuser/variables.json");
       Json::Value root;
-      std::fstream json_file;
-      json_file.open("variables.json");
-
       json_file >> root;
 
       Reference::kP = root.get("kP", 0.0).asDouble();

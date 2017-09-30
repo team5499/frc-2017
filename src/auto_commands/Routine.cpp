@@ -15,6 +15,7 @@ namespace team5499
     {
         if(current_command->isFinished())
         {
+            subsystems::drivetrain.Drive(0, 0);
             if(!advanceRoutine())
                 return;
         }

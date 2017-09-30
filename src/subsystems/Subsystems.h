@@ -10,6 +10,7 @@
 #include "Encoders.h"
 #include "Angle.h"
 #include "PID.h"
+#include "LED.h"
 
 namespace team5499
 {
@@ -25,5 +26,6 @@ namespace team5499
     static PID leftpid;
     static PID rightpid;
     static PID anglepid;
+    static LED led;
   };
 }
