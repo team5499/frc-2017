@@ -16,12 +16,21 @@ namespace team5499
     start_time(0),
     flash_sequence(-1)
     {
+        std::cout << "led init" << std::endl;
+        red_controller.EnablePWM(0);
+        red_controller.SetPWMRate(100);
+
+        green_controller.EnablePWM(0);
+        green_controller.SetPWMRate(100);
+
+        blue_controller.EnablePWM(0);
+        blue_controller.SetPWMRate(100);
     }
     void LED::update_controller(double r, double g, double b)
     {
-        red_controller.SetRaw((int)round(r*20));
-        green_controller.SetRaw((int)round(g*20));
-        blue_controller.SetRaw((int)round(b*20));
+        red_controller.UpdateDutyCycle(r/100);
+        green_controller.UpdateDutyCycle(g/100);
+        blue_controller.UpdateDutyCycle(b/100);
     }
 
     void LED::setRGB(double r, double g, double b, bool setVal, bool setVar)

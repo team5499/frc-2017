@@ -1,6 +1,5 @@
 #pragma once
 
-#include <math.h>
 #include <WPILib.h>
 
 namespace team5499
@@ -11,9 +10,9 @@ namespace team5499
         double red_value;
         double green_value;
         double blue_value;
-        PWM red_controller;
-        PWM green_controller;
-        PWM blue_controller;
+        frc::DigitalOutput red_controller;
+        frc::DigitalOutput green_controller;
+        frc::DigitalOutput blue_controller;
 
         //flash
         double prev_red;
