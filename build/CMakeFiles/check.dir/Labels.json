@@ -1,0 +1,55 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Ben/frc-2017-season/build/CMakeFiles/check"
+		},
+		
+		{
+			"file" : "/Users/Ben/frc-2017-season/build/CMakeFiles/check.rule"
+		},
+		
+		{
+			"file" : "/Users/Ben/frc-2017-season/build/CMakeFiles/check-complete.rule"
+		},
+		
+		{
+			"file" : "/Users/Ben/frc-2017-season/build/test/src/check-stamp/check-install.rule"
+		},
+		
+		{
+			"file" : "/Users/Ben/frc-2017-season/build/test/src/check-stamp/check-mkdir.rule"
+		},
+		
+		{
+			"file" : "/Users/Ben/frc-2017-season/build/test/src/check-stamp/check-download.rule"
+		},
+		
+		{
+			"file" : "/Users/Ben/frc-2017-season/build/test/src/check-stamp/check-update.rule"
+		},
+		
+		{
+			"file" : "/Users/Ben/frc-2017-season/build/test/src/check-stamp/check-patch.rule"
+		},
+		
+		{
+			"file" : "/Users/Ben/frc-2017-season/build/test/src/check-stamp/check-configure.rule"
+		},
+		
+		{
+			"file" : "/Users/Ben/frc-2017-season/build/test/src/check-stamp/check-build.rule"
+		},
+		
+		{
+			"file" : "/Users/Ben/frc-2017-season/build/test/src/check-stamp/check-test.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "check" ],
+		"name" : "check"
+	}
+}
