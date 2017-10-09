@@ -11,10 +11,10 @@ namespace team5499
     class PID
     {
     private:
-        const double kP; // proportional constant
-        const double kI; // integral constant
-        const double kD; // derivative constant
-        const double ov_cap;
+        double kP; // proportional constant
+        double kI; // integral constant
+        double kD; // derivative constant
+        double ov_cap;
         double ov; // output value
         double pv; // process value
         double sp; // set point
@@ -33,6 +33,7 @@ namespace team5499
         double getOutput(); // get the output of the loop
         double getError();
         double getRate();
+        void setPID(double pVal, double iVal, double dVal);
         void reset();
     };
 }

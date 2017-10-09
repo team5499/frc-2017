@@ -62,6 +62,12 @@ namespace team5499
     {
         return (pv - prev_pv)/(Timer::GetFPGATimestamp() - last_input_time);
     }
+    void PID::setPID(double pVal, double iVal, double dVal)
+    {
+        kP = pVal;
+        kI = iVal;
+        kD = dVal;
+    }
     void PID::reset()
     {
         ov = 0;

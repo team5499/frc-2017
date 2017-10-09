@@ -1,11 +1,11 @@
 //File for quick reference variables
 {
     //Drive PID constants
-    "kP" : 0.05,
+    "kP" : 0.04,
     "kI" : 0.0,
     "kD" : 0.0,
     //Angle PID constants
-    "kAP" : 0.05,
+    "kAP" : 0.035,
     "kAI" : 0.0,
     "kAD" : 0.0
 }

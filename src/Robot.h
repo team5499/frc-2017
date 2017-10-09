@@ -13,8 +13,8 @@ namespace team5499
   class Robot : public IterativeRobot
   {
   private:
-    static OperatorController operatorController;
-    static AutoController autoController;
+    OperatorController operatorController;
+    AutoController autoController;
   public:
     Robot();
 

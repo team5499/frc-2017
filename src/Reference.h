@@ -4,6 +4,8 @@
 #include <fstream>
 #include <streambuf>
 
+#include <WPILib.h>
+
 #include <json/json.h>
 #include <json/json-forwards.h>
 
@@ -43,10 +45,8 @@ namespace team5499
     //Angle
     constexpr static double center_wheel_dist_inches = 25.0;
     constexpr static double pi = 3.14159265358979;
-
     //JSON
-
-    static void updateVariables()
+    static void initPIDVariables()
     {
       std::ifstream json_file("/home/lvuser/variables.json");
       Json::Value root;

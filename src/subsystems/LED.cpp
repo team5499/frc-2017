@@ -7,16 +7,15 @@ namespace team5499
     red_value(0),
     green_value(0),
     blue_value(0),
-    red_controller(0),
-    green_controller(1),
-    blue_controller(2),
+    red_controller(4),
+    green_controller(5),
+    blue_controller(6),
     prev_red(0),
     prev_green(0),
     prev_blue(0),
     start_time(0),
     flash_sequence(-1)
     {
-        std::cout << "led init" << std::endl;
         red_controller.EnablePWM(0);
         red_controller.SetPWMRate(100);
 
@@ -61,7 +60,7 @@ namespace team5499
     {
         if(flash_sequence != -1)
         {
-            if(Timer::GetFPGATimestamp() - start_time > 0.25)
+            if(Timer::GetFPGATimestamp() - start_time > 0.1)
             {
                 flash_sequence++;
                 start_time = Timer::GetFPGATimestamp();

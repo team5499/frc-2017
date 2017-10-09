@@ -1,22 +1,22 @@
 #include "RobotInit.h"
 #include "Robot.h"
 #include <unistd.h>
+#include <math.h>
 
 namespace team5499
 {
 
-  OperatorController Robot::operatorController;
-  AutoController Robot::autoController;
-
   Robot::Robot()
+  :
+  operatorController(),
+  autoController()
   {
   }
 
   void Robot::RobotInit()
   {
-    Reference::updateVariables();
     subsystems::encoders.reset();
-    subsystems::led.setRGB(16, 80, 26);
+    subsystems::led.setRGB(100, 100, 100);
   }
 
   void Robot::RobotPeriodic()
@@ -27,21 +27,29 @@ namespace team5499
 
   void Robot::DisabledInit()
   {
-    Reference::updateVariables();
+    Reference::initPIDVariables();
+    subsystems::leftpid.setPID(Reference::kP, Reference::kI, Reference::kD);
+    subsystems::rightpid.setPID(Reference::kP, Reference::kI, Reference::kD);
+    subsystems::anglepid.setPID(Reference::kAP, Reference::kAI, Reference::kAD);
     subsystems::encoders.reset();
     subsystems::angle.reset();
     autoController.reset();
+
   }
 
   void Robot::DisabledPeriodic()
   {
+    Reference::initPIDVariables();
+    subsystems::leftpid.setPID(Reference::kP, Reference::kI, Reference::kD);
+    subsystems::rightpid.setPID(Reference::kP, Reference::kI, Reference::kD);
+    subsystems::anglepid.setPID(Reference::kAP, Reference::kAI, Reference::kAD);
+    std::cout << Reference::kP << std::endl;
     subsystems::encoders.reset();
     subsystems::angle.reset();
   }
 
   void Robot::AutonomousInit()
   {
-    Reference::updateVariables();
     autoController.Start();
   }
 
@@ -52,8 +60,8 @@ namespace team5499
 
   void Robot::TeleopInit()
   {
-    Reference::updateVariables();
     operatorController.Start();
+    SmartDashboard::PutNumber("time_running", true);
   }
 
   void Robot::TeleopPeriodic()

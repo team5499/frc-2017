@@ -26,10 +26,10 @@ namespace team5499
             switch(m_direction)
             {
                 case UP:
-                    subsystems::gearmech.SetArm(-0.4);
+                    subsystems::gearmech.SetArm(0.5);
                     break;
                 case DOWN:
-                    subsystems::gearmech.SetArm(0.5);
+                    subsystems::gearmech.SetArm(-0.4);
                     break;
                 case NONE:
                     subsystems::gearmech.SetArm(0);

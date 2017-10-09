@@ -1,6 +1,6 @@
 #pragma once
 
-#pragma once
+#include <WPILib.h>
 
 #include "../subsystems/Subsystems.h"
 #include "GenericController.h"
@@ -21,6 +21,11 @@ namespace team5499
         Routine left;
         Routine center;
         Routine right;
+        Routine test;
+
+        Routine *currentRoutine;
+
+        int autoMode;
     public:
         AutoController();
         void Start() override;

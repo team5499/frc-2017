@@ -55,7 +55,7 @@ set_target_properties(check PROPERTIES EXCLUDE_FROM_ALL TRUE)
 find_file(ROBOTCOMMAND ant/robotCommand PATHS "${CMAKE_SYSROOT}/usr/share/wpilib"
         "${CMAKE_SYSROOT}/wpilib")
 add_custom_target(deploy
-        COMMAND sh -c "${CMAKE_CURRENT_SOURCE_DIR}/deploy.sh ${TEAM_NUMBER} $<TARGET_FILE:${PROJECT_NAME}> ${ROBOTCOMMAND}"
+        COMMAND sh -c "${CMAKE_CURRENT_SOURCE_DIR}/deploy.sh ${TEAM_NUMBER} $<TARGET_FILE:${PROJECT_NAME}> ${ROBOTCOMMAND} ${CMAKE_CURRENT_SOURCE_DIR}/src/variables.json"
         DEPENDS ${PROJECT_NAME})
 set_target_properties(deploy PROPERTIES EXCLUDE_FROM_ALL TRUE)
 

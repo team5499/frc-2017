@@ -20,6 +20,9 @@ namespace team5499
 
         last_left_distance = leftValue;
         last_right_distance = rightValue;
+
+        //smart dashboard
+        SmartDashboard::PutNumber("angle", angle);
     }
     double Angle::getAngle()
     {
