@@ -1,6 +1,9 @@
+#pragma once
+
 #include <iostream>
 #include "WPILib.h"
 #include "CANTalon.h"
+#include "../Reference.h"
 
 
 namespace team5499 {
@@ -9,6 +12,6 @@ namespace team5499 {
         CANTalon climber1, climber2;
     public:
         Climber();
-        void climb();
+        void climb(double);
     };
 }

@@ -13,12 +13,12 @@
 
 namespace team5499 {
 
-    class Subsystems {
+    class subsystems {
     public:
         static GearMech gearMech;
         static DriveTrain driveTrain;
         static Climber climber;
-        static JoySticks joySticks;
+        static JoySticks joysticks;
     };
 
 }

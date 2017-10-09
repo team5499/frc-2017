@@ -1,38 +1,41 @@
 #include "JoySticks.h"
 
 namespace team5499 {
-    JoySticks():
+   JoySticks::JoySticks()
     :
     driver(Reference::driver_port),
     coDriver(Reference::xbox_port)
+    {
 
-    float JoySticks::getRightStick() {
+    }
+
+    double JoySticks::getLeftStick() {
         float a = 0;
-        a = driver.GetX(Joysticks::JoystickHand::Left);
+        a = driver.GetY(Joystick::JoystickHand::kLeftHand);
         return a;
     }
 
-    float JoySticks::getLeftStick() {
+    double JoySticks::getRightStick() {
         float a = 0;
-        a = driver.GetY(Joysticks::JoystickHand::Right);
+        a = driver.GetY(Joystick::JoystickHand::kRightHand);
         return a;
     }
 
-    bool JoySticks::getClimber() {
+    bool JoySticks::getClimb() {
         return driver.GetAButton();
     }
 
-    float JoySticks::getArm() {
-        float a = coDriver.GetY(Joysticks::JoystickHand::Left);
+    double JoySticks::getArm() {
+        float a = coDriver.GetY(Joystick::JoystickHand::kLeftHand);
         return a;
     }
 
     int JoySticks::getIntake() {
         // 0 = in, 1 = out, -1 = error
-        if(coDriver.GetBumper(Joysticks::JoystickHand::Left)) {
+        if(coDriver.GetBumper(Joystick::JoystickHand::kLeftHand)) {
             return 0;
         }
-        else if(coDriver.getBumper(Joysticks::JoystickHand::Right)) {
+        else if(coDriver.GetBumper(Joystick::JoystickHand::kRightHand)) {
             return 1;
         }
         else {return -1;}

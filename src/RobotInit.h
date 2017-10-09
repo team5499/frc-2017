@@ -11,11 +11,11 @@ namespace team5499 {
         RobotInit() {
             if(init_counter == -1) {
                 std::cout<<"Initializing HAL...";
-                if(!Hal_Initialize(0)) {
+                if(!HAL_Initialize(0)) {
                     std::cerr<<"FATAL ERROR: HAL could not be initialized";
                     exit(-1);
                 }
-                HAL_Report(HALUsageReportings::kResourceType_Language, HALUsageReporting::kLanguage_CPlusPlus);
+                HAL_Report(HALUsageReporting::kResourceType_Language, HALUsageReporting::kLanguage_CPlusPlus);
                 std::cout << "HAL initialized" << std::endl;
             }
         }

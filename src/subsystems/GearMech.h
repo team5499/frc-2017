@@ -1,6 +1,7 @@
 #include <iostream>
 #include "WPILib.h"
 #include "CANTalon.h"
+#include "../Reference.h"
 
 namespace team5499 {
     class GearMech {
@@ -8,8 +9,7 @@ namespace team5499 {
         CANTalon roll, arm;
     public:
         GearMech();
-        void armUp(double);
-        void armDown(double);
+        void SetArm(double);
         void intake();
         void outtake();
     };

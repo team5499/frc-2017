@@ -3,22 +3,21 @@
 namespace team5499 {
     GearMech::GearMech()
     :
-    roll(Reference::roller_port);
-    arm(Reference::arm_port);
+    roll(Reference::roller_port),
+    arm(Reference::arm_port)
+    {
 
-    void armDown() {
-        arm.setPosition(0);
     }
 
-    void armUp() {
-        arm.setPosition(-Reference::PI / 4)
+    void GearMech::SetArm(double a) {
+        arm.Set(a);
     }
 
-    void intake() {
+    void GearMech::intake() {
         roll.Set(Reference::roller_speed);
     }
 
-    void outake() {
+    void GearMech::outtake() {
         roll.Set(-Reference::roller_speed);
     }
     

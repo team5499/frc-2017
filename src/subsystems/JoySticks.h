@@ -2,6 +2,7 @@
 
 #include "WPILib.h"
 #include <iostream>
+#include "Joystick.h"
 #include "XboxController.h"
 #include "../Reference.h"
 
@@ -9,13 +10,12 @@
 namespace team5499 {
     class JoySticks {
     private:
-        XboxController driver;
-        XboxController coDriver;
+        XboxController driver, coDriver;
     public:
         JoySticks();
         
-        float getLeftStick();
-        float getRightStick();
+        double getLeftStick();
+        double getRightStick();
         bool getClimb();
         int getIntake();
         double getArm();

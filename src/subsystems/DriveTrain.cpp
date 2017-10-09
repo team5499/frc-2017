@@ -3,14 +3,16 @@
 namespace team5499 {
     DriveTrain::DriveTrain()
     :
-    front_left(Reference::front_left_port);
-    back_left(Reference::back_left_port);
-    front_right(Reference::front_right_port);
-    back_right(Reference::back_right_port);
+    front_left(Reference::front_left_port),
+    back_left(Reference::back_left_port),
+    front_right(Reference::front_right_port),
+    back_right(Reference::back_right_port)
+    {
     front_right.SetInverted(true);
-    backRight.setInverted(true);
+    back_right.SetInverted(true);
+    }
 
-    void drive(double left, double right) {
+    void DriveTrain::drive(double left, double right) {
         front_left.Set(left);
         back_left.Set(left);
         front_right.Set(right);

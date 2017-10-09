@@ -1,11 +1,11 @@
-#include"Robot.h"
-#include"RobotInit.h"
+#include "Robot.h"
+#include "RobotInit.h"
 
 namespace team5499 {
-    OperatorController Robot::OperatorController;
-    AutoController Robot::AutoController;
+    OperatorController Robot::operatorController;
+    AutoController Robot::autoController;
 
-    Robot() {}
+    Robot::Robot() {};
 
     void Robot::RobotInit() {
         

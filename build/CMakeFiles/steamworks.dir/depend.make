@@ -206,9 +206,15 @@ CMakeFiles/steamworks.dir/src/Robot.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpil
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../json_library/json/json-forwards.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../json_library/json/json.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/Reference.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/RobotInit.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/controllers/AutoController.cpp
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/controllers/AutoController.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/controllers/GenericController.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/subsystems/Climber.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/subsystems/DriveTrain.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/subsystems/GearMech.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/subsystems/JoySticks.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/subsystems/Subsystems.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ADXL345_I2C.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ADXL345_SPI.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ADXL362.h
@@ -228,8 +234,11 @@ CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-f
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/Buttons/JoystickButton.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/Buttons/NetworkButton.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/Buttons/Trigger.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/CANSpeedController.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/CANTalon.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/CameraServer.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/CameraServer.inc
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/CanTalonSRX.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/CircularBuffer.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/CircularBuffer.inc
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/Commands/Command.h
@@ -259,9 +268,11 @@ CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-f
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/Encoder.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/Error.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ErrorBase.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/FRC_NetworkCommunication/CANSessionMux.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/FRC_NetworkCommunication/UsageReporting.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/Filters/Filter.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/Filters/LinearDigitalFilter.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/GadgeteerUartClient.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/GamepadBase.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/GearTooth.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/GenericHID.h
@@ -345,12 +356,17 @@ CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-f
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/VictorSP.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/WPIErrors.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/WPILib.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/WPIlib.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/XboxController.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/cscore.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/cscore_c.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/cscore_cpp.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/cscore_oo.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/cscore_oo.inl
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ctre/CtreCanNode.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ctre/ctre.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ctre/ctre_frames.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ctre/structs_mtrCntrl.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/interfaces/Accelerometer.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/interfaces/Gyro.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/interfaces/Potentiometer.h
@@ -765,6 +781,9 @@ CMakeFiles/steamworks.dir/src/main.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpili
 CMakeFiles/steamworks.dir/src/main.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/vision/VisionRunner.h
 CMakeFiles/steamworks.dir/src/main.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/vision/VisionRunner.inc
 
+CMakeFiles/steamworks.dir/src/subsystems/Climber.cpp.o: ../json_library/json/json-forwards.h
+CMakeFiles/steamworks.dir/src/subsystems/Climber.cpp.o: ../json_library/json/json.h
+CMakeFiles/steamworks.dir/src/subsystems/Climber.cpp.o: ../src/Reference.h
 CMakeFiles/steamworks.dir/src/subsystems/Climber.cpp.o: ../src/subsystems/Climber.cpp
 CMakeFiles/steamworks.dir/src/subsystems/Climber.cpp.o: ../src/subsystems/Climber.h
 CMakeFiles/steamworks.dir/src/subsystems/Climber.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ADXL345_I2C.h
@@ -1130,6 +1149,9 @@ CMakeFiles/steamworks.dir/src/subsystems/Drivetrain.cpp.o: /usr/local/arm-frc-li
 CMakeFiles/steamworks.dir/src/subsystems/Drivetrain.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/vision/VisionRunner.h
 CMakeFiles/steamworks.dir/src/subsystems/Drivetrain.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/vision/VisionRunner.inc
 
+CMakeFiles/steamworks.dir/src/subsystems/Gearmech.cpp.o: ../json_library/json/json-forwards.h
+CMakeFiles/steamworks.dir/src/subsystems/Gearmech.cpp.o: ../json_library/json/json.h
+CMakeFiles/steamworks.dir/src/subsystems/Gearmech.cpp.o: ../src/Reference.h
 CMakeFiles/steamworks.dir/src/subsystems/Gearmech.cpp.o: ../src/subsystems/GearMech.h
 CMakeFiles/steamworks.dir/src/subsystems/Gearmech.cpp.o: ../src/subsystems/Gearmech.cpp
 CMakeFiles/steamworks.dir/src/subsystems/Gearmech.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ADXL345_I2C.h
@@ -1495,7 +1517,7 @@ CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.o: ../src/subsystems/Dri
 CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.o: ../src/subsystems/GearMech.h
 CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.o: ../src/subsystems/JoySticks.h
 CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.o: ../src/subsystems/Subsystems.cpp
-CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.o: ../src/subsystems/Subsystems.h
+CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.o: ../src/subsystems/subsystems.h
 CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ADXL345_I2C.h
 CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ADXL345_SPI.h
 CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.o: /usr/local/arm-frc-linux-gnueabi/wpilib/include/ADXL362.h
