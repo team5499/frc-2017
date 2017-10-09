@@ -1,6 +1,6 @@
 #pragma once
 
-#include <WPILib.h>
+#include "WPILib.h"
 
 namespace team5499 {
 
@@ -19,7 +19,7 @@ namespace team5499 {
                 std::cout << "HAL initialized" << std::endl;
             }
         }
-    }
+    };
 
     static RobotInit _init_robot;
 }

@@ -162,6 +162,303 @@ steamworks/fast:
 	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/build
 .PHONY : steamworks/fast
 
+json_library/jsoncpp.o: json_library/jsoncpp.cpp.o
+
+.PHONY : json_library/jsoncpp.o
+
+# target to build an object file
+json_library/jsoncpp.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/json_library/jsoncpp.cpp.o
+.PHONY : json_library/jsoncpp.cpp.o
+
+json_library/jsoncpp.i: json_library/jsoncpp.cpp.i
+
+.PHONY : json_library/jsoncpp.i
+
+# target to preprocess a source file
+json_library/jsoncpp.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/json_library/jsoncpp.cpp.i
+.PHONY : json_library/jsoncpp.cpp.i
+
+json_library/jsoncpp.s: json_library/jsoncpp.cpp.s
+
+.PHONY : json_library/jsoncpp.s
+
+# target to generate assembly for a file
+json_library/jsoncpp.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/json_library/jsoncpp.cpp.s
+.PHONY : json_library/jsoncpp.cpp.s
+
+src/Reference.o: src/Reference.cpp.o
+
+.PHONY : src/Reference.o
+
+# target to build an object file
+src/Reference.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/Reference.cpp.o
+.PHONY : src/Reference.cpp.o
+
+src/Reference.i: src/Reference.cpp.i
+
+.PHONY : src/Reference.i
+
+# target to preprocess a source file
+src/Reference.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/Reference.cpp.i
+.PHONY : src/Reference.cpp.i
+
+src/Reference.s: src/Reference.cpp.s
+
+.PHONY : src/Reference.s
+
+# target to generate assembly for a file
+src/Reference.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/Reference.cpp.s
+.PHONY : src/Reference.cpp.s
+
+src/Robot.o: src/Robot.cpp.o
+
+.PHONY : src/Robot.o
+
+# target to build an object file
+src/Robot.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/Robot.cpp.o
+.PHONY : src/Robot.cpp.o
+
+src/Robot.i: src/Robot.cpp.i
+
+.PHONY : src/Robot.i
+
+# target to preprocess a source file
+src/Robot.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/Robot.cpp.i
+.PHONY : src/Robot.cpp.i
+
+src/Robot.s: src/Robot.cpp.s
+
+.PHONY : src/Robot.s
+
+# target to generate assembly for a file
+src/Robot.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/Robot.cpp.s
+.PHONY : src/Robot.cpp.s
+
+src/controllers/AutoController.o: src/controllers/AutoController.cpp.o
+
+.PHONY : src/controllers/AutoController.o
+
+# target to build an object file
+src/controllers/AutoController.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o
+.PHONY : src/controllers/AutoController.cpp.o
+
+src/controllers/AutoController.i: src/controllers/AutoController.cpp.i
+
+.PHONY : src/controllers/AutoController.i
+
+# target to preprocess a source file
+src/controllers/AutoController.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.i
+.PHONY : src/controllers/AutoController.cpp.i
+
+src/controllers/AutoController.s: src/controllers/AutoController.cpp.s
+
+.PHONY : src/controllers/AutoController.s
+
+# target to generate assembly for a file
+src/controllers/AutoController.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.s
+.PHONY : src/controllers/AutoController.cpp.s
+
+src/controllers/OperatorController.o: src/controllers/OperatorController.cpp.o
+
+.PHONY : src/controllers/OperatorController.o
+
+# target to build an object file
+src/controllers/OperatorController.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/controllers/OperatorController.cpp.o
+.PHONY : src/controllers/OperatorController.cpp.o
+
+src/controllers/OperatorController.i: src/controllers/OperatorController.cpp.i
+
+.PHONY : src/controllers/OperatorController.i
+
+# target to preprocess a source file
+src/controllers/OperatorController.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/controllers/OperatorController.cpp.i
+.PHONY : src/controllers/OperatorController.cpp.i
+
+src/controllers/OperatorController.s: src/controllers/OperatorController.cpp.s
+
+.PHONY : src/controllers/OperatorController.s
+
+# target to generate assembly for a file
+src/controllers/OperatorController.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/controllers/OperatorController.cpp.s
+.PHONY : src/controllers/OperatorController.cpp.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
+src/subsystems/Climber.o: src/subsystems/Climber.cpp.o
+
+.PHONY : src/subsystems/Climber.o
+
+# target to build an object file
+src/subsystems/Climber.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Climber.cpp.o
+.PHONY : src/subsystems/Climber.cpp.o
+
+src/subsystems/Climber.i: src/subsystems/Climber.cpp.i
+
+.PHONY : src/subsystems/Climber.i
+
+# target to preprocess a source file
+src/subsystems/Climber.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Climber.cpp.i
+.PHONY : src/subsystems/Climber.cpp.i
+
+src/subsystems/Climber.s: src/subsystems/Climber.cpp.s
+
+.PHONY : src/subsystems/Climber.s
+
+# target to generate assembly for a file
+src/subsystems/Climber.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Climber.cpp.s
+.PHONY : src/subsystems/Climber.cpp.s
+
+src/subsystems/Drivetrain.o: src/subsystems/Drivetrain.cpp.o
+
+.PHONY : src/subsystems/Drivetrain.o
+
+# target to build an object file
+src/subsystems/Drivetrain.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Drivetrain.cpp.o
+.PHONY : src/subsystems/Drivetrain.cpp.o
+
+src/subsystems/Drivetrain.i: src/subsystems/Drivetrain.cpp.i
+
+.PHONY : src/subsystems/Drivetrain.i
+
+# target to preprocess a source file
+src/subsystems/Drivetrain.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Drivetrain.cpp.i
+.PHONY : src/subsystems/Drivetrain.cpp.i
+
+src/subsystems/Drivetrain.s: src/subsystems/Drivetrain.cpp.s
+
+.PHONY : src/subsystems/Drivetrain.s
+
+# target to generate assembly for a file
+src/subsystems/Drivetrain.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Drivetrain.cpp.s
+.PHONY : src/subsystems/Drivetrain.cpp.s
+
+src/subsystems/Gearmech.o: src/subsystems/Gearmech.cpp.o
+
+.PHONY : src/subsystems/Gearmech.o
+
+# target to build an object file
+src/subsystems/Gearmech.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Gearmech.cpp.o
+.PHONY : src/subsystems/Gearmech.cpp.o
+
+src/subsystems/Gearmech.i: src/subsystems/Gearmech.cpp.i
+
+.PHONY : src/subsystems/Gearmech.i
+
+# target to preprocess a source file
+src/subsystems/Gearmech.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Gearmech.cpp.i
+.PHONY : src/subsystems/Gearmech.cpp.i
+
+src/subsystems/Gearmech.s: src/subsystems/Gearmech.cpp.s
+
+.PHONY : src/subsystems/Gearmech.s
+
+# target to generate assembly for a file
+src/subsystems/Gearmech.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Gearmech.cpp.s
+.PHONY : src/subsystems/Gearmech.cpp.s
+
+src/subsystems/Joysticks.o: src/subsystems/Joysticks.cpp.o
+
+.PHONY : src/subsystems/Joysticks.o
+
+# target to build an object file
+src/subsystems/Joysticks.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Joysticks.cpp.o
+.PHONY : src/subsystems/Joysticks.cpp.o
+
+src/subsystems/Joysticks.i: src/subsystems/Joysticks.cpp.i
+
+.PHONY : src/subsystems/Joysticks.i
+
+# target to preprocess a source file
+src/subsystems/Joysticks.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Joysticks.cpp.i
+.PHONY : src/subsystems/Joysticks.cpp.i
+
+src/subsystems/Joysticks.s: src/subsystems/Joysticks.cpp.s
+
+.PHONY : src/subsystems/Joysticks.s
+
+# target to generate assembly for a file
+src/subsystems/Joysticks.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Joysticks.cpp.s
+.PHONY : src/subsystems/Joysticks.cpp.s
+
+src/subsystems/Subsystems.o: src/subsystems/Subsystems.cpp.o
+
+.PHONY : src/subsystems/Subsystems.o
+
+# target to build an object file
+src/subsystems/Subsystems.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.o
+.PHONY : src/subsystems/Subsystems.cpp.o
+
+src/subsystems/Subsystems.i: src/subsystems/Subsystems.cpp.i
+
+.PHONY : src/subsystems/Subsystems.i
+
+# target to preprocess a source file
+src/subsystems/Subsystems.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.i
+.PHONY : src/subsystems/Subsystems.cpp.i
+
+src/subsystems/Subsystems.s: src/subsystems/Subsystems.cpp.s
+
+.PHONY : src/subsystems/Subsystems.s
+
+# target to generate assembly for a file
+src/subsystems/Subsystems.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Subsystems.cpp.s
+.PHONY : src/subsystems/Subsystems.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -174,6 +471,39 @@ help:
 	@echo "... deploy"
 	@echo "... doxygen"
 	@echo "... steamworks"
+	@echo "... json_library/jsoncpp.o"
+	@echo "... json_library/jsoncpp.i"
+	@echo "... json_library/jsoncpp.s"
+	@echo "... src/Reference.o"
+	@echo "... src/Reference.i"
+	@echo "... src/Reference.s"
+	@echo "... src/Robot.o"
+	@echo "... src/Robot.i"
+	@echo "... src/Robot.s"
+	@echo "... src/controllers/AutoController.o"
+	@echo "... src/controllers/AutoController.i"
+	@echo "... src/controllers/AutoController.s"
+	@echo "... src/controllers/OperatorController.o"
+	@echo "... src/controllers/OperatorController.i"
+	@echo "... src/controllers/OperatorController.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/subsystems/Climber.o"
+	@echo "... src/subsystems/Climber.i"
+	@echo "... src/subsystems/Climber.s"
+	@echo "... src/subsystems/Drivetrain.o"
+	@echo "... src/subsystems/Drivetrain.i"
+	@echo "... src/subsystems/Drivetrain.s"
+	@echo "... src/subsystems/Gearmech.o"
+	@echo "... src/subsystems/Gearmech.i"
+	@echo "... src/subsystems/Gearmech.s"
+	@echo "... src/subsystems/Joysticks.o"
+	@echo "... src/subsystems/Joysticks.i"
+	@echo "... src/subsystems/Joysticks.s"
+	@echo "... src/subsystems/Subsystems.o"
+	@echo "... src/subsystems/Subsystems.i"
+	@echo "... src/subsystems/Subsystems.s"
 .PHONY : help
 
 

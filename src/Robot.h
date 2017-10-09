@@ -1,14 +1,15 @@
 #pragma once
 
-#include <WPILib.h>
+#include "WPILib.h"
 #include <iostream>
-
-
+#include "CANTalon.h"
+#include "subsystems/Subsystems.h"
+#include "controllers/AutoController.h"
+#include "controllers/OperatorController.h"
 
 namespace team5499 {
     
-    class Robot() : public IternativeRobot
-    {
+    class Robot : public IterativeRobot {
     private:
         static OperatorController operatorController;
         static AutoController autoController;
@@ -26,6 +27,6 @@ namespace team5499 {
 
         void AutonomousInit() override;
         void AutonomousPeriodic() override;
-    }
+    };
 
 }

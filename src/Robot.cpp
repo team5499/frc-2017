@@ -2,13 +2,13 @@
 #include"RobotInit.h"
 
 namespace team5499 {
-    OperatorController Robot::operatorController;
+    OperatorController Robot::OperatorController;
     AutoController Robot::AutoController;
 
     Robot() {}
 
     void Robot::RobotInit() {
-
+        
     }
 
     void Robot::RobotPeriodic() {
@@ -24,11 +24,11 @@ namespace team5499 {
     }
 
     void Robot::TeleopInit() {
-
+        operatorController.Start();        
     }
 
     void Robot::TeleopPeriodic() {
-
+        operatorController.Handle();
     }
 
     void Robot::AutonomousInit() {
@@ -36,7 +36,6 @@ namespace team5499 {
     }
     
     void Robot::AutonomousPeriodic() {
-
     }
 
 }

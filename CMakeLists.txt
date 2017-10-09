@@ -20,11 +20,7 @@ set(SOURCE_FILES src/main.cpp
         src/subsystems/Gearmech.cpp
         src/subsystems/Climber.cpp
         src/subsystems/Joysticks.cpp
-        src/subsystems/Encoders.cpp
-        src/subsystems/PID.cpp
-        src/subsystems/Angle.cpp
-        src/subsystems/LED.cpp
-        src/auto_commands/Routine.cpp)
+        )
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Example: adding CTRE library
