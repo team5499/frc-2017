@@ -11,5 +11,6 @@ namespace team5499 {
     public:
         DriveTrain();
         void drive(double, double);
+        void stop();
     };
 }

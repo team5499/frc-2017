@@ -34,6 +34,7 @@ namespace team5499
 
     constexpr static double roller_speed = 0.5;
     constexpr static double PI = 3.1415926;
+    constexpr static double climb_speed = 0.75;
 
     constexpr static double distance_per_pulse = 0.04908738438;// (4*PI)/256
   };

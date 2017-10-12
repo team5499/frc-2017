@@ -3,6 +3,7 @@
 #include <iostream>
 #include "WPILib.h"
 #include "../subsystems/Subsystems.h" 
+#include "../Reference.h"
 
 namespace team5499 {
     class OperatorController : public GenericController {

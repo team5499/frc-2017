@@ -11,13 +11,13 @@ namespace team5499 {
 
     double JoySticks::getLeftStick() {
         float a = 0;
-        a = driver.GetY(Joystick::JoystickHand::kLeftHand);
+        a = driver.GetY(Joystick::JoystickHand::kLeftHand) * 0.6;
         return a;
     }
 
     double JoySticks::getRightStick() {
         float a = 0;
-        a = driver.GetY(Joystick::JoystickHand::kRightHand);
+        a = driver.GetX(Joystick::JoystickHand::kRightHand) * 0.5;
         return a;
     }
 
@@ -26,7 +26,7 @@ namespace team5499 {
     }
 
     double JoySticks::getArm() {
-        float a = coDriver.GetY(Joystick::JoystickHand::kLeftHand);
+        float a = coDriver.GetY(Joystick::JoystickHand::kRightHand) * 0.5;
         return a;
     }
 

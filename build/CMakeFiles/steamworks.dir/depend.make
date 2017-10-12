@@ -15,6 +15,9 @@ CMakeFiles/steamworks.dir/src/Robot.cpp.o: ../src/Reference.h
 CMakeFiles/steamworks.dir/src/Robot.cpp.o: ../src/Robot.cpp
 CMakeFiles/steamworks.dir/src/Robot.cpp.o: ../src/Robot.h
 CMakeFiles/steamworks.dir/src/Robot.cpp.o: ../src/RobotInit.h
+CMakeFiles/steamworks.dir/src/Robot.cpp.o: ../src/actions/DriveAction.h
+CMakeFiles/steamworks.dir/src/Robot.cpp.o: ../src/actions/GenericAction.h
+CMakeFiles/steamworks.dir/src/Robot.cpp.o: ../src/actions/Routine.h
 CMakeFiles/steamworks.dir/src/Robot.cpp.o: ../src/controllers/AutoController.h
 CMakeFiles/steamworks.dir/src/Robot.cpp.o: ../src/controllers/GenericController.h
 CMakeFiles/steamworks.dir/src/Robot.cpp.o: ../src/controllers/OperatorController.h
@@ -207,6 +210,9 @@ CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../json_library/
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../json_library/json/json.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/Reference.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/RobotInit.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/actions/DriveAction.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/actions/GenericAction.h
+CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/actions/Routine.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/controllers/AutoController.cpp
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/controllers/AutoController.h
 CMakeFiles/steamworks.dir/src/controllers/AutoController.cpp.o: ../src/controllers/GenericController.h
@@ -592,6 +598,9 @@ CMakeFiles/steamworks.dir/src/main.cpp.o: ../json_library/json/json.h
 CMakeFiles/steamworks.dir/src/main.cpp.o: ../src/Reference.h
 CMakeFiles/steamworks.dir/src/main.cpp.o: ../src/Robot.h
 CMakeFiles/steamworks.dir/src/main.cpp.o: ../src/RobotInit.h
+CMakeFiles/steamworks.dir/src/main.cpp.o: ../src/actions/DriveAction.h
+CMakeFiles/steamworks.dir/src/main.cpp.o: ../src/actions/GenericAction.h
+CMakeFiles/steamworks.dir/src/main.cpp.o: ../src/actions/Routine.h
 CMakeFiles/steamworks.dir/src/main.cpp.o: ../src/controllers/AutoController.h
 CMakeFiles/steamworks.dir/src/main.cpp.o: ../src/controllers/GenericController.h
 CMakeFiles/steamworks.dir/src/main.cpp.o: ../src/controllers/OperatorController.h

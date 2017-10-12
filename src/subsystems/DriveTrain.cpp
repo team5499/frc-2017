@@ -18,4 +18,8 @@ namespace team5499 {
         front_right.Set(right);
         back_right.Set(right);
     }
+
+    void DriveTrain::stop() {
+        drive(0,0);
+    }
 }

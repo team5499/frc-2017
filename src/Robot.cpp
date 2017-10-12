@@ -32,10 +32,11 @@ namespace team5499 {
     }
 
     void Robot::AutonomousInit() {
-
+        autoController.Start();
     }
     
     void Robot::AutonomousPeriodic() {
+        autoController.Handle();
     }
 
 }
