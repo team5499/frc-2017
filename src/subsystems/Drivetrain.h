@@ -3,7 +3,6 @@
 #include <iostream>
 #include <WPILib.h>
 #include <CANTalon.h>
-#include "../Reference.h"
 
 namespace team5499
 {

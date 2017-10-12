@@ -4,10 +4,10 @@ namespace team5499
 {
   Drivetrain::Drivetrain()
   :
-  drive_left1(Reference::drive_left1_port),
-  drive_left2(Reference::drive_left2_port),
-  drive_right1(Reference::drive_right1_port),
-  drive_right2(Reference::drive_right2_port)
+  drive_left1(0),
+  drive_left2(1),
+  drive_right1(2),
+  drive_right2(3)
   {
     drive_right1.SetInverted(true);
     drive_right2.SetInverted(true);

@@ -11,7 +11,4 @@ namespace team5499
     void AutoController::Handle()
     {
     }
-    void AutoController::reset()
-    {
-    }
 }
