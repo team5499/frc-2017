@@ -10,21 +10,11 @@ set(TEAM_NUMBER 5499)
 # in project root
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 set(SOURCE_FILES src/main.cpp
-        json_library/jsoncpp.cpp
-        src/Reference.cpp
         src/Robot.cpp
         src/controllers/OperatorController.cpp
         src/controllers/AutoController.cpp
         src/subsystems/Subsystems.cpp
-        src/subsystems/Drivetrain.cpp
-        src/subsystems/Gearmech.cpp
-        src/subsystems/Climber.cpp
-        src/subsystems/Joysticks.cpp
-        src/subsystems/Encoders.cpp
-        src/subsystems/PID.cpp
-        src/subsystems/Angle.cpp
-        src/subsystems/LED.cpp
-        src/auto_commands/Routine.cpp)
+        src/subsystems/Drivetrain.cpp)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Example: adding CTRE library

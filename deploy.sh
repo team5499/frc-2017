@@ -2,7 +2,6 @@
 team_number=$1
 program=$2
 robot_command=$3
-variables_json=$4
 
 ROBORIO_FOUND=1
 probe()
@@ -27,8 +26,6 @@ deploy()
     ssh lvuser@roborio-${team_number}-frc.local "killall -q netconsole-host || :"
     echo "copying over robotcommand..."
     scp ${robot_command} lvuser@roborio-${team_number}-frc.local:~/robotCommand
-    echo "copying over variables..."
-    scp ${variables_json} lvuser@roborio-${team_number}-frc.local:~/variables.json
     echo "cleaning up..."
     ssh lvuser@roborio-${team_number}-frc.local ". /etc/profile.d/natinst-path.sh; chmod a+x ~/FRCUserProgram; /usr/local/frc/bin/frcKillRobot.sh -t -r; sync"
 }
