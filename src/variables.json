@@ -5,7 +5,7 @@
     "kI" : 0.0,
     "kD" : 0.0,
     //Angle PID constants
-    "kAP" : 0.035,
-    "kAI" : 0.0,
+    "kAP" : 0.045,
+    "kAI" : 0.01,
     "kAD" : 0.0
 }

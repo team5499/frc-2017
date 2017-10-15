@@ -12,6 +12,9 @@ namespace team5499
     private:
         CANTalon roller;
         CANTalon arm;
+
+        Timer timer;
+        bool last;
     public:
         Gearmech();
         void SetArm(double speed);

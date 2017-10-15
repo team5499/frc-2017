@@ -27,9 +27,9 @@ namespace team5499
     }
     void LED::update_controller(double r, double g, double b)
     {
-        red_controller.UpdateDutyCycle(r/100);
-        green_controller.UpdateDutyCycle(g/100);
-        blue_controller.UpdateDutyCycle(b/100);
+        red_controller.UpdateDutyCycle(r/256);
+        green_controller.UpdateDutyCycle(g/256);
+        blue_controller.UpdateDutyCycle(b/256);
     }
 
     void LED::setRGB(double r, double g, double b, bool setVal, bool setVar)
@@ -60,7 +60,7 @@ namespace team5499
     {
         if(flash_sequence != -1)
         {
-            if(Timer::GetFPGATimestamp() - start_time > 0.1)
+            if(Timer::GetFPGATimestamp() - start_time > 0.3)
             {
                 flash_sequence++;
                 start_time = Timer::GetFPGATimestamp();
@@ -71,10 +71,10 @@ namespace team5499
             else
                 setRGB(0, 0, 0, true, false);
 
-            if(flash_sequence > 10)
+            if(flash_sequence > 4)
             {
                 flash_sequence = -1;
-                setRGB(prev_red, prev_green, prev_blue);
+                setRGB(0, 0, 0);
             }
         }
     }

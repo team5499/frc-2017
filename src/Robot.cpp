@@ -16,13 +16,15 @@ namespace team5499
   void Robot::RobotInit()
   {
     subsystems::encoders.reset();
-    subsystems::led.setRGB(100, 100, 100);
+    subsystems::led.setRGB(0, 0, 0);
   }
 
   void Robot::RobotPeriodic()
   {
     subsystems::angle.handle(subsystems::encoders.getLeftDistance(), subsystems::encoders.getRightDistance());
     subsystems::led.handle();
+
+    //std::cout << subsystems::encoders.getLeftDistance() << ":" << subsystems::encoders.getRightDistance() << std::endl;
   }
 
   void Robot::DisabledInit()
@@ -43,7 +45,6 @@ namespace team5499
     subsystems::leftpid.setPID(Reference::kP, Reference::kI, Reference::kD);
     subsystems::rightpid.setPID(Reference::kP, Reference::kI, Reference::kD);
     subsystems::anglepid.setPID(Reference::kAP, Reference::kAI, Reference::kAD);
-    std::cout << Reference::kP << std::endl;
     subsystems::encoders.reset();
     subsystems::angle.reset();
   }

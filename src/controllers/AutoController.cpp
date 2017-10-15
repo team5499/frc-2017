@@ -15,8 +15,8 @@ namespace team5499
         // center auto routine
         center.addCommand(new DriveCommand(4, 80));
         center.addCommand(new GearmechCommand(1, GearmechCommand::Direction::DOWN));
-        center.addCommand(new GearmechCommand(1, GearmechCommand::Direction::NONE));
         center.addCommand(new DriveCommand(2, -40));
+        center.addCommand(new GearmechCommand(1, GearmechCommand::Direction::NONE));
         // right auto routine
         right.addCommand(new DoNothingCommand(1));
         // test auto routine

@@ -27,10 +27,8 @@ namespace team5499
         }
         virtual bool isFinished()
         {
-            std::cout << Timer::GetFPGATimestamp() - m_start_time << std::endl;
             if(m_timeout < Timer::GetFPGATimestamp() - m_start_time)
             {
-                std::cout << "timeout stop" << std::endl;
                 return true;
             }
             return false;

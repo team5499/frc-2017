@@ -36,9 +36,24 @@ namespace team5499
             subsystems::rightpid.calculate();
             subsystems::anglepid.calculate();
 
+            double leftDrive = -subsystems::leftpid.getOutput();
+            double rightDrive = -subsystems::rightpid.getOutput();
+
+            if(leftDrive > 0.3)
+                leftDrive = 0.3;
+            if(leftDrive < -0.3)
+                leftDrive = -0.3;
+
+            if(rightDrive > 0.3)
+                rightDrive = 0.3;
+            if(rightDrive < -0.3)
+                rightDrive = -0.3;
+
+
+
             //std::cout << subsystems::leftpid.getOutput() << ":" << subsystems::rightpid.getOutput() << ":" << subsystems::rightpid.getSetpoint() << std::endl;
 
-            subsystems::drivetrain.Drive(-subsystems::leftpid.getOutput()-subsystems::anglepid.getOutput(), -subsystems::rightpid.getOutput()+subsystems::anglepid.getOutput());
+            subsystems::drivetrain.Drive(leftDrive-subsystems::anglepid.getOutput(), rightDrive+subsystems::anglepid.getOutput());
             updateSmartDashboard();
         }
         bool isFinished() override

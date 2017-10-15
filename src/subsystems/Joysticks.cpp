@@ -49,7 +49,7 @@ namespace team5499
         bool outtake = xbox.GetBumper(Joystick::JoystickHand::kLeftHand);
         bool intake_slow = (xbox.GetTriggerAxis(Joystick::JoystickHand::kRightHand) > 0.5);
         if(intake)
-            return 1;
+            return -1;
         else if(outtake)
             return 1;
         else if(intake_slow)

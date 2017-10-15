@@ -29,7 +29,7 @@ namespace team5499
                     subsystems::gearmech.SetArm(0.5);
                     break;
                 case DOWN:
-                    subsystems::gearmech.SetArm(-0.4);
+                    subsystems::gearmech.SetArm(-0.6);
                     break;
                 case NONE:
                     subsystems::gearmech.SetArm(0);
