@@ -14,4 +14,8 @@ namespace team5499 {
         climber1.Set(num);
         climber2.Set(num);
     }
+
+    void Climber::stop() {
+        climb(0);
+    }
 }

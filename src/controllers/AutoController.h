@@ -10,6 +10,7 @@
 
 #include "../actions/GenericAction.h"
 #include "../actions/DriveAction.h"
+#include "../actions/GearmechAction.h"
 
 namespace team5499 {
     class AutoController : public GenericController {

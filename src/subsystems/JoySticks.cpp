@@ -11,22 +11,26 @@ namespace team5499 {
 
     double JoySticks::getLeftStick() {
         float a = 0;
-        a = driver.GetY(Joystick::JoystickHand::kLeftHand) * 0.6;
+        a = driver.GetY(Joystick::JoystickHand::kLeftHand);
         return a;
     }
 
     double JoySticks::getRightStick() {
         float a = 0;
-        a = driver.GetX(Joystick::JoystickHand::kRightHand) * 0.5;
+        a = driver.GetX(Joystick::JoystickHand::kRightHand);
         return a;
     }
 
     bool JoySticks::getClimb() {
-        return driver.GetAButton();
+        return coDriver.GetAButton();
+    }
+
+    bool JoySticks::getReverseClimb() {
+        return coDriver.GetBButton();
     }
 
     double JoySticks::getArm() {
-        float a = coDriver.GetY(Joystick::JoystickHand::kRightHand) * 0.5;
+        float a = coDriver.GetY(Joystick::JoystickHand::kRightHand) * Reference::arm_mult;
         return a;
     }
 
@@ -39,10 +43,12 @@ namespace team5499 {
             return 1;
         }
         else {return -1;}
-        
     }
 
-
-
+    bool JoySticks::getSlow() {
+        if(driver.GetTriggerAxis(Joystick::JoystickHand::kRightHand) > 0.05|| driver.GetTriggerAxis(Joystick::JoystickHand::kLeftHand) > 0.05)
+            return true;
+        return false;
+    }
 
 }

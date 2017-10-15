@@ -17,8 +17,10 @@ namespace team5499 {
         double getLeftStick();
         double getRightStick();
         bool getClimb();
+        bool getReverseClimb();
         int getIntake();
         double getArm();
+        bool getSlow();
 
     };
 }

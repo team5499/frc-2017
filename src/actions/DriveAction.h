@@ -20,7 +20,7 @@ namespace team5499 {
             }
 
             void Handle() {
-                subsystems::driveTrain.drive(0.3, 0.3);
+                subsystems::driveTrain.drive(-0.3, -0.3);
             }
 
             bool isFinished() override {

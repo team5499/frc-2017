@@ -8,15 +8,19 @@ namespace team5499 {
     private:
         static int init_counter;
     public:
-        RobotInit() {
-            if(init_counter == -1) {
-                std::cout<<"Initializing HAL...";
+        RobotInit()
+        {
+            if(init_counter++ == 0) {
+                init_counter++;
+                std::cout<<"Initializing HAL..."<<std::endl;
                 if(!HAL_Initialize(0)) {
-                    std::cerr<<"FATAL ERROR: HAL could not be initialized";
+                    std::cerr<<"FATAL ERROR: HAL could not be initialized"<<std::endl;
                     exit(-1);
                 }
                 HAL_Report(HALUsageReporting::kResourceType_Language, HALUsageReporting::kLanguage_CPlusPlus);
                 std::cout << "HAL initialized" << std::endl;
+                init_counter++;
+                // std::cout<<init_counter<<std::endl;
             }
         }
     };

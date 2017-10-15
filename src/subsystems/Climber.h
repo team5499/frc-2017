@@ -13,5 +13,6 @@ namespace team5499 {
     public:
         Climber();
         void climb(double);
+        void stop();
     };
 }

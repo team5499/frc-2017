@@ -12,5 +12,6 @@ namespace team5499 {
         void SetArm(double);
         void intake();
         void outtake();
+        void stopRoll();
     };
 }

@@ -243,6 +243,33 @@ src/Robot.cpp.s:
 	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/Robot.cpp.s
 .PHONY : src/Robot.cpp.s
 
+src/actions/Routine.o: src/actions/Routine.cpp.o
+
+.PHONY : src/actions/Routine.o
+
+# target to build an object file
+src/actions/Routine.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/actions/Routine.cpp.o
+.PHONY : src/actions/Routine.cpp.o
+
+src/actions/Routine.i: src/actions/Routine.cpp.i
+
+.PHONY : src/actions/Routine.i
+
+# target to preprocess a source file
+src/actions/Routine.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/actions/Routine.cpp.i
+.PHONY : src/actions/Routine.cpp.i
+
+src/actions/Routine.s: src/actions/Routine.cpp.s
+
+.PHONY : src/actions/Routine.s
+
+# target to generate assembly for a file
+src/actions/Routine.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/actions/Routine.cpp.s
+.PHONY : src/actions/Routine.cpp.s
+
 src/controllers/AutoController.o: src/controllers/AutoController.cpp.o
 
 .PHONY : src/controllers/AutoController.o
@@ -432,6 +459,33 @@ src/subsystems/Joysticks.cpp.s:
 	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/Joysticks.cpp.s
 .PHONY : src/subsystems/Joysticks.cpp.s
 
+src/subsystems/LED.o: src/subsystems/LED.cpp.o
+
+.PHONY : src/subsystems/LED.o
+
+# target to build an object file
+src/subsystems/LED.cpp.o:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/LED.cpp.o
+.PHONY : src/subsystems/LED.cpp.o
+
+src/subsystems/LED.i: src/subsystems/LED.cpp.i
+
+.PHONY : src/subsystems/LED.i
+
+# target to preprocess a source file
+src/subsystems/LED.cpp.i:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/LED.cpp.i
+.PHONY : src/subsystems/LED.cpp.i
+
+src/subsystems/LED.s: src/subsystems/LED.cpp.s
+
+.PHONY : src/subsystems/LED.s
+
+# target to generate assembly for a file
+src/subsystems/LED.cpp.s:
+	$(MAKE) -f CMakeFiles/steamworks.dir/build.make CMakeFiles/steamworks.dir/src/subsystems/LED.cpp.s
+.PHONY : src/subsystems/LED.cpp.s
+
 src/subsystems/Subsystems.o: src/subsystems/Subsystems.cpp.o
 
 .PHONY : src/subsystems/Subsystems.o
@@ -480,6 +534,9 @@ help:
 	@echo "... src/Robot.o"
 	@echo "... src/Robot.i"
 	@echo "... src/Robot.s"
+	@echo "... src/actions/Routine.o"
+	@echo "... src/actions/Routine.i"
+	@echo "... src/actions/Routine.s"
 	@echo "... src/controllers/AutoController.o"
 	@echo "... src/controllers/AutoController.i"
 	@echo "... src/controllers/AutoController.s"
@@ -501,6 +558,9 @@ help:
 	@echo "... src/subsystems/Joysticks.o"
 	@echo "... src/subsystems/Joysticks.i"
 	@echo "... src/subsystems/Joysticks.s"
+	@echo "... src/subsystems/LED.o"
+	@echo "... src/subsystems/LED.i"
+	@echo "... src/subsystems/LED.s"
 	@echo "... src/subsystems/Subsystems.o"
 	@echo "... src/subsystems/Subsystems.i"
 	@echo "... src/subsystems/Subsystems.s"

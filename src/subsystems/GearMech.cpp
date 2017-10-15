@@ -20,5 +20,8 @@ namespace team5499 {
     void GearMech::outtake() {
         roll.Set(-Reference::roller_speed);
     }
-    
+
+    void GearMech::stopRoll() {
+        roll.Set(0);
+    }
 }

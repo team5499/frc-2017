@@ -8,7 +8,8 @@ namespace team5499 {
     right(),
     autoVerison(0)
     {
-        center.append(new DriveAction(1, 10));
+        center.append(new DriveAction(1, 60));
+        center.append(new GearmechAction(40, 80, false));
     }
 
 

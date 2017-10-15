@@ -5,4 +5,5 @@ namespace team5499 {
     Climber subsystems::climber;
     GearMech subsystems::gearMech;
     JoySticks subsystems::joysticks;
+    LED subsystems::led;
 }

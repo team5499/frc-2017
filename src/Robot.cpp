@@ -8,11 +8,11 @@ namespace team5499 {
     Robot::Robot() {};
 
     void Robot::RobotInit() {
-        
+        subsystems::led.setRGB(256, 256, 256);
     }
 
     void Robot::RobotPeriodic() {
-
+        
     }
 
     void Robot::DisabledInit() {

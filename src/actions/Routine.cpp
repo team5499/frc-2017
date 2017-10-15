@@ -14,7 +14,7 @@ namespace team5499 {
     void Routine::handle() {
         if (current_action->isFinished()) {
             subsystems::driveTrain.stop();
-            if(!advanceRoutine) return;
+            if(!advanceRoutine()) return;
         }
         else current_action -> Handle();
  

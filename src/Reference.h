@@ -32,9 +32,10 @@ namespace team5499
     const static int left_encoder_port1 = 2;
     const static int left_encoder_port2 = 3;
 
-    constexpr static double roller_speed = 0.5;
+    constexpr static double arm_mult = 0.45;
+    constexpr static double roller_speed = 1.0;
     constexpr static double PI = 3.1415926;
-    constexpr static double climb_speed = 0.75;
+    constexpr static double climb_speed = -1.0;
 
     constexpr static double distance_per_pulse = 0.04908738438;// (4*PI)/256
   };

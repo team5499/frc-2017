@@ -10,6 +10,7 @@
 #include "GearMech.h"
 #include "Climber.h"
 #include "JoySticks.h"
+#include "LED.h"
 
 namespace team5499 {
 
@@ -19,6 +20,7 @@ namespace team5499 {
         static DriveTrain driveTrain;
         static Climber climber;
         static JoySticks joysticks;
+        static LED led;
     };
 
 }

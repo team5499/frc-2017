@@ -10,6 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/steamworks.dir/src/subsystems/Gearmech.cpp.o"
   "CMakeFiles/steamworks.dir/src/subsystems/Climber.cpp.o"
   "CMakeFiles/steamworks.dir/src/subsystems/Joysticks.cpp.o"
+  "CMakeFiles/steamworks.dir/src/subsystems/LED.cpp.o"
+  "CMakeFiles/steamworks.dir/src/actions/Routine.cpp.o"
   "steamworks.pdb"
   "steamworks"
 )

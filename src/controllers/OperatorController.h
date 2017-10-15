@@ -7,6 +7,10 @@
 
 namespace team5499 {
     class OperatorController : public GenericController {
+    private:
+        Timer timer;
+        int millis;
+        bool random;
     public:
         void Start() override;
         void Handle() override;

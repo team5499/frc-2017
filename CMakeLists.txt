@@ -20,7 +20,9 @@ set(SOURCE_FILES src/main.cpp
         src/subsystems/Gearmech.cpp
         src/subsystems/Climber.cpp
         src/subsystems/Joysticks.cpp
+        src/subsystems/LED.cpp
         src/Reference.cpp
+        src/actions/Routine.cpp
         )
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
